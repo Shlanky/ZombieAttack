@@ -12,11 +12,6 @@ public class gameManager : MonoBehaviour
     public GameObject player;
     public _PlayerControl playerScript;
 
-    public GameObject heal;
-    public healPickUp healScript;
-
-    public GameObject ammo;
-    public ammoPickUp ammoScript;
 
 
 
@@ -43,6 +38,9 @@ public class gameManager : MonoBehaviour
     public GameObject ammoMAxed;
     public GameObject ammoPickU;
 
+    public GameObject notEnoughKeys;
+
+    public GameObject jobsNotDoneMsg;
 
     [HideInInspector] public bool paused = false;
     [HideInInspector] public bool gameOver;
@@ -67,12 +65,8 @@ public class gameManager : MonoBehaviour
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
-        heal = GameObject.FindGameObjectWithTag("Heal");
-        ammo = GameObject.FindGameObjectWithTag("Ammo");
 
         playerScript = player.GetComponent<_PlayerControl>();
-        ammoScript = ammo.GetComponent<ammoPickUp>();
-        healScript = heal.GetComponent<healPickUp>();
     }
 
     // Update is called once per frame
@@ -120,11 +114,20 @@ public class gameManager : MonoBehaviour
         if (enimiesKilled >= enemyKillGoal)
         {
             //show win screen
-            menuCurrentlyOpen = winGameMenu;
-            menuCurrentlyOpen.SetActive(true);
-            gameOver = true;
-            lockCursorPause();
+            //menuCurrentlyOpen = winGameMenu;
+            //menuCurrentlyOpen.SetActive(true);
+            //gameOver = true;
+            //lockCursorPause();
+            StartCoroutine(jobsNotDone());
+
         }
+    }
+
+    IEnumerator jobsNotDone()
+    {
+        jobsNotDoneMsg.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        jobsNotDoneMsg.SetActive(false);
     }
 
     public void restart()
@@ -220,6 +223,18 @@ public class gameManager : MonoBehaviour
     {
         keyPickedUp++;
         keyCount.text = keyPickedUp.ToString("F0");
+    }
+
+    public void checkKeysForWin(bool check)
+    {
+        if (check == true)
+        {
+            //show win screen
+            menuCurrentlyOpen = winGameMenu;
+            menuCurrentlyOpen.SetActive(true);
+            gameOver = true;
+            lockCursorPause();
+        }
     }
 
 }

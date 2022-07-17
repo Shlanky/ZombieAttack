@@ -47,6 +47,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     int OgRoundsInReserve;
     public int roundsShot;
 
+    public int keysNeeded = 3;
+
 
 
     private void Start()
@@ -287,6 +289,20 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         keysFound++;
         gameManager.instance.pickUpKey();
         //update the ui, make a update function for ui
+    }
+
+    public bool checkKey(bool key)
+    {
+        if (keysFound < keysNeeded)
+        {
+            key = false;
+        }
+        else if (keysFound == keysNeeded)
+        {
+            key = true;
+        }
+
+        return key;
     }
 
     public void giveAmmo(int amount)
