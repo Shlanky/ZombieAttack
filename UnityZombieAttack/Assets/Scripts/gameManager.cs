@@ -6,14 +6,10 @@ using TMPro;
 
 public class gameManager : MonoBehaviour
 {
-
     [Header("------UI-------")]
     public static gameManager instance;
     public GameObject player;
     public _PlayerControl playerScript;
-
-
-
 
     [Header("------UI-------")]
 
@@ -33,14 +29,15 @@ public class gameManager : MonoBehaviour
     public TMP_Text AmmoRes;
 
     public GameObject healMaxedMSG;
-    public GameObject healPickU;
 
     public GameObject ammoMAxed;
-    public GameObject ammoPickU;
 
-    public GameObject notEnoughKeys;
+    public GameObject noKeys;
+    public GameObject Key_1;
+    public GameObject Key_2;
 
     public GameObject jobsNotDoneMsg;
+
 
     [HideInInspector] public bool paused = false;
     [HideInInspector] public bool gameOver;
@@ -59,6 +56,10 @@ public class gameManager : MonoBehaviour
 
     //for key ui
     int keyPickedUp;
+
+    //true = kill enemys
+    //false = kill enemies and escape 
+    //bool game_mode = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -111,15 +112,22 @@ public class gameManager : MonoBehaviour
     {
         enimiesKilled++;
         enemyDead.text = enimiesKilled.ToString("F0");
+        //if (enimiesKilled >= enemyKillGoal && game_mode == true)
+        //{
+        //    menuCurrentlyOpen = winGameMenu;
+        //    menuCurrentlyOpen.SetActive(true);
+        //    gameOver = true;
+        //    lockCursorPause();
+
+        //}
+        //else
+        //{
+        //    StartCoroutine(jobsNotDone());
+        //}
+
         if (enimiesKilled >= enemyKillGoal)
         {
-            //show win screen
-            //menuCurrentlyOpen = winGameMenu;
-            //menuCurrentlyOpen.SetActive(true);
-            //gameOver = true;
-            //lockCursorPause();
             StartCoroutine(jobsNotDone());
-
         }
     }
 
@@ -128,6 +136,18 @@ public class gameManager : MonoBehaviour
         jobsNotDoneMsg.SetActive(true);
         yield return new WaitForSeconds(2f);
         jobsNotDoneMsg.SetActive(false);
+    }
+
+    public void checkKeysForWin(bool check)
+    {
+        if (check == true)
+        {
+            //show win screen
+            menuCurrentlyOpen = winGameMenu;
+            menuCurrentlyOpen.SetActive(true);
+            gameOver = true;
+            lockCursorPause();
+        }
     }
 
     public void restart()
@@ -163,7 +183,6 @@ public class gameManager : MonoBehaviour
     public void updateMagCount()
     {
         magAmmoLeft = 29;
-
         magAmmoLeft++;
         AmmoMag.text = magAmmoLeft.ToString("F0");
 
@@ -205,7 +224,6 @@ public class gameManager : MonoBehaviour
             resAmmoLeft -= tmp;
             AmmoRes.text = resAmmoLeft.ToString("F0");
         }
-        // resAmmoLeft -= tmp;
     }
 
 
@@ -223,18 +241,6 @@ public class gameManager : MonoBehaviour
     {
         keyPickedUp++;
         keyCount.text = keyPickedUp.ToString("F0");
-    }
-
-    public void checkKeysForWin(bool check)
-    {
-        if (check == true)
-        {
-            //show win screen
-            menuCurrentlyOpen = winGameMenu;
-            menuCurrentlyOpen.SetActive(true);
-            gameOver = true;
-            lockCursorPause();
-        }
     }
 
 }
