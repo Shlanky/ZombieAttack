@@ -34,6 +34,14 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     public Vector3 pushback = Vector3.zero;
     [SerializeField] int pushResolve;
 
+    [Header("--------Audio----------")]
+    public AudioSource aud;
+    [SerializeField] AudioClip[] gunshot;
+    [Range(0,1)] [SerializeField] float gunshotVol;
+    [SerializeField] AudioClip[] playerHurt;
+    [Range(0, 1)] [SerializeField] float playerHurtVol;
+    [SerializeField] AudioClip[] playerFootsteps;
+    [Range(0, 1)] [SerializeField] float playerFootstepsVol;
 
     bool isSprint = false;
     float playerSpeedOg;
@@ -49,7 +57,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     public int keysNeeded = 3;
 
-
+    bool footstepPlaying;
 
     private void Start()
     {
@@ -71,6 +79,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             MovePLayer();
             Sprint();
+            StartCoroutine(playFootsteps());
 
             if (Input.GetButtonDown("Reload") && roundsInReserve > 0)
             {
@@ -137,6 +146,22 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         }
     }
 
+    IEnumerator playFootsteps()
+    {
+        if (controller.isGrounded && move.normalized.magnitude > 0.4f && !footstepPlaying)
+        {
+            footstepPlaying = true;
+
+            aud.PlayOneShot(playerFootsteps[Random.Range(0, playerFootsteps.Length)], playerFootstepsVol);
+            if (isSprint)
+                yield return new WaitForSeconds(0.3f);
+            else
+                yield return new WaitForSeconds(0.4f);
+
+            footstepPlaying = false;
+        }
+    }
+
     IEnumerator shoot()
     {
         // Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 100, Color.red);
@@ -145,6 +170,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             canShoot = false;
 
+            aud.PlayOneShot(gunshot[Random.Range(0,gunshot.Length)], gunshotVol);
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit))
@@ -223,6 +249,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+
+        aud.PlayOneShot(playerHurt[Random.Range(0, playerHurt.Length)], playerHurtVol);
+
         updatePlayerHP();
 
         StartCoroutine(damageFlash());
