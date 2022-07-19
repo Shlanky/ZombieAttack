@@ -166,7 +166,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 }
             }
 
-            muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+          //  muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             muzzleFlash.SetActive(true);
             yield return new WaitForSeconds(.05f);
             muzzleFlash.SetActive(false);
