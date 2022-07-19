@@ -22,6 +22,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(1, 10)] [SerializeField] int weaponDamage;
     [Range(5, 30)] [SerializeField] public int roundsInMag;
     [Range(0, 180)] [SerializeField] public int roundsInReserve;
+    public int roundsShot;
     [SerializeField] public int keysFound;
 
     [Header("Effects")]
@@ -36,12 +37,27 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     [Header("--------Audio----------")]
     public AudioSource aud;
+
+    //gun shot
     [SerializeField] AudioClip[] gunshot;
-    [Range(0,1)] [SerializeField] float gunshotVol;
+    [Range(0, 1)] [SerializeField] float gunshotVol;
+
+    //player damaged
     [SerializeField] AudioClip[] playerHurt;
     [Range(0, 1)] [SerializeField] float playerHurtVol;
+
+    //footsteps sound
     [SerializeField] AudioClip[] playerFootsteps;
     [Range(0, 1)] [SerializeField] float playerFootstepsVol;
+
+    //reload sound
+    [SerializeField] AudioClip[] reloadSound;
+    [Range(0, 1)] [SerializeField] float ReloadSoundVol;
+
+    //no ammo sound
+    [SerializeField] AudioClip[] noAmmo;
+    [Range(0, 1)] [SerializeField] float noAmmoVol;
+
 
     bool isSprint = false;
     float playerSpeedOg;
@@ -53,9 +69,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     Vector3 playerSpawnPos;
     int ogRoundsinMag;
     int OgRoundsInReserve;
-    public int roundsShot;
 
-    public int keysNeeded = 3;
+
+    int keysNeeded = 3;
 
     bool footstepPlaying;
 
@@ -68,7 +84,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         OgRoundsInReserve = roundsInReserve;
         gameManager.instance.updateMagCount();
         gameManager.instance.updateReserveCount();
-       
+
     }
 
     void Update()
@@ -81,6 +97,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             Sprint();
             StartCoroutine(playFootsteps());
 
+            //for cheking ammo status
             if (Input.GetButtonDown("Reload") && roundsInReserve > 0)
             {
                 Reload();
@@ -93,6 +110,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             {
                 gameManager.instance.noAmmo.SetActive(true);
                 canShoot = false;
+            }
+            else if (Input.GetButtonDown("Shoot") && canShoot == false)
+            {
+                aud.PlayOneShot(noAmmo[Random.Range(0, noAmmo.Length)], noAmmoVol);
             }
 
         }
@@ -170,7 +191,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             canShoot = false;
 
-            aud.PlayOneShot(gunshot[Random.Range(0,gunshot.Length)], gunshotVol);
+            aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit))
@@ -192,7 +213,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 }
             }
 
-          //  muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            //muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             muzzleFlash.SetActive(true);
             yield return new WaitForSeconds(.05f);
             muzzleFlash.SetActive(false);
@@ -206,25 +227,13 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     }
 
-    public void AmmoRemain()
-    {
 
-        if (roundsInMag == 0 && roundsInReserve > 0)
-        {
-            canShoot = false;
-            gameManager.instance.reload_txt.SetActive(true);
-        }
-
-        else
-        {
-            canShoot = true;
-        }
-    }
 
     public void Reload()
     {
         if (Input.GetButtonDown("Reload") && ogRoundsinMag > roundsInMag)
         {
+            aud.PlayOneShot(reloadSound[Random.Range(0, reloadSound.Length)], ReloadSoundVol);
             gameManager.instance.reload_txt.SetActive(false);
             gameManager.instance.reload();
             if (roundsInReserve < 30)
@@ -270,6 +279,68 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     }
 
+    public void updatePlayerHP()
+    {
+        gameManager.instance.HPBar.fillAmount = (float)HP / (float)hpOriginal;
+    }
+
+    public void respawn()
+    {
+
+        HP = hpOriginal;
+        updatePlayerHP();
+        controller.enabled = false;
+        transform.position = playerSpawnPos;
+        controller.enabled = true;
+        pushback = Vector3.zero;
+    }
+
+    //ammo
+    public void giveAmmo(int amount)
+    {
+        if (roundsInReserve < OgRoundsInReserve)
+        {
+            roundsInReserve += amount;
+            if (roundsInReserve > OgRoundsInReserve)
+            {
+                roundsInReserve = OgRoundsInReserve;
+            }
+        }
+    }
+
+    public bool checkAmmo(bool check)
+    {
+        if (roundsInReserve == OgRoundsInReserve)
+        {
+            check = false;
+        }
+        else
+        {
+            check = true;
+        }
+
+
+        return check;
+    }
+
+    public void AmmoRemain()
+    {
+
+        if (roundsInMag == 0 && roundsInReserve > 0)
+        {
+            canShoot = false;
+            gameManager.instance.reload_txt.SetActive(true);
+        }
+
+        else
+        {
+            canShoot = true;
+        }
+    }
+
+
+
+    //heals
     public void giveHP(int amount)
     {
         if (HP < hpOriginal)
@@ -298,21 +369,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         return check;
     }
 
-    public bool checkAmmo(bool check)
-    {
-        if (roundsInReserve == OgRoundsInReserve)
-        {
-            check = false;
-        }
-        else
-        {
-            check = true;
-        }
 
 
-        return check;
-    }
-
+    //keys
     public void giveKey(int amount)
     {
         keysFound++;
@@ -334,33 +393,5 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         return key;
     }
 
-    public void giveAmmo(int amount)
-    {
-        if (roundsInReserve < OgRoundsInReserve)
-        {
-            roundsInReserve += amount;
-            if (roundsInReserve > OgRoundsInReserve)
-            {
-                roundsInReserve = OgRoundsInReserve;
-            }
-        }
-    }
-
-
-    public void updatePlayerHP()
-    {
-        gameManager.instance.HPBar.fillAmount = (float)HP / (float)hpOriginal;
-    }
-
-    public void respawn()
-    {
-
-        HP = hpOriginal;
-        updatePlayerHP();
-        controller.enabled = false;
-        transform.position = playerSpawnPos;
-        controller.enabled = true;
-        pushback = Vector3.zero;
-    }
 
 }

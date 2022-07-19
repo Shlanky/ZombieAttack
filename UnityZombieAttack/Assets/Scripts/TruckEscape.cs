@@ -48,8 +48,5 @@ public class TruckEscape : MonoBehaviour
             yield return new WaitForSeconds(2);
             gameManager.instance.Key_2.SetActive(false);
         }
-        //gameManager.instance.notEnoughKeys.SetActive(true);
-        //yield return new WaitForSeconds(2);
-        //gameManager.instance.notEnoughKeys.SetActive(false);
     }
 }

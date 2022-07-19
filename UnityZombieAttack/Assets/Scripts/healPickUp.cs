@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class healPickUp : MonoBehaviour
 {
-    //add condition incase they are already full health and do the same if they have max ammo
-    //for key add condition if they make it to a door without the right amount of keys then they win otherwise a message pops up 
-
     bool hpCheck = false;
 
     public void OnTriggerEnter(Collider other)

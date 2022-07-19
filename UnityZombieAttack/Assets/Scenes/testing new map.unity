@@ -7551,7 +7551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6618231687778538457, guid: 205ce04fe31fd2543bf91fdaece20cf3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 1.772
       objectReference: {fileID: 0}
     - target: {fileID: 6618231687778538457, guid: 205ce04fe31fd2543bf91fdaece20cf3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9902,8 +9902,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2774583907478160880}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: noAmmoVol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: gunshotVol
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: roundsInMag
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: weaponDamage
@@ -9914,6 +9922,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: ReloadSoundVol
+      value: 0.496
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: noAmmo.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: gunshot.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -9922,12 +9938,20 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: noAmmo.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b95cd70637cd354892d38a67f096f14, type: 3}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: gunshot.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: d15ad2addd1de664b92e021735289276, type: 3}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: playerHurt.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: reloadSound.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: playerHurt.Array.data[0]
@@ -9957,6 +9981,10 @@ PrefabInstance:
       propertyPath: playerHurt.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: 77c7933d36f52244a89ada524c4d2147, type: 3}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: reloadSound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5221906988e3ad649a7377e97d262f07, type: 3}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: playerFootsteps.Array.size
       value: 9

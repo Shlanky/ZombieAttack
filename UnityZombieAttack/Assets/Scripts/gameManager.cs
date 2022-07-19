@@ -138,17 +138,7 @@ public class gameManager : MonoBehaviour
         jobsNotDoneMsg.SetActive(false);
     }
 
-    public void checkKeysForWin(bool check)
-    {
-        if (check == true)
-        {
-            //show win screen
-            menuCurrentlyOpen = winGameMenu;
-            menuCurrentlyOpen.SetActive(true);
-            gameOver = true;
-            lockCursorPause();
-        }
-    }
+
 
     public void restart()
     {
@@ -179,7 +169,39 @@ public class gameManager : MonoBehaviour
         enemyTotal.text = enemyKillGoal.ToString("F0");
     }
 
-    //for ammo ui
+
+    //ammo 
+    //needs a little work but otherwise works
+    public void reload()
+    {
+
+        //try to use the gamemanager.instance.playscript.(the og number here maybe)
+        //then set the resammo left to the gamemanager thing 
+        int tmp = gameManager.instance.playerScript.roundsShot;
+
+
+        if (resAmmoLeft < 30)
+        {
+            resAmmoLeft -= tmp;
+            AmmoRes.text = resAmmoLeft.ToString("F0");
+        }
+        else
+        {
+            resAmmoLeft -= tmp;
+            AmmoRes.text = resAmmoLeft.ToString("F0");
+        }
+    }
+
+
+    public void pickUpAmmo()
+    {
+        if (resAmmoLeft < 180)
+        {
+            resAmmoLeft += 30;
+            AmmoRes.text = resAmmoLeft.ToString("F0");
+        }
+    }
+
     public void updateMagCount()
     {
         magAmmoLeft = 29;
@@ -208,39 +230,25 @@ public class gameManager : MonoBehaviour
         AmmoRes.text = resAmmoLeft.ToString("F0");
     }
 
-    //needs a little work but otherwise works
-    public void reload()
-    {
-        int tmp = gameManager.instance.playerScript.roundsShot;
-
-
-        if (resAmmoLeft < 30)
-        {
-            resAmmoLeft -= tmp;
-            AmmoRes.text = resAmmoLeft.ToString("F0");
-        }
-        else
-        {
-            resAmmoLeft -= tmp;
-            AmmoRes.text = resAmmoLeft.ToString("F0");
-        }
-    }
-
-
-    public void pickUpAmmo()
-    {
-        if (resAmmoLeft < 180)
-        {
-            resAmmoLeft += 30;
-            AmmoRes.text = resAmmoLeft.ToString("F0");
-        }
-    }
-
-    //add one for key in morning
+    //key
     public void pickUpKey()
     {
         keyPickedUp++;
         keyCount.text = keyPickedUp.ToString("F0");
     }
+
+
+    public void checkKeysForWin(bool check)
+    {
+        if (check == true)
+        {
+            //show win screen
+            menuCurrentlyOpen = winGameMenu;
+            menuCurrentlyOpen.SetActive(true);
+            gameOver = true;
+            lockCursorPause();
+        }
+    }
+    //heal
 
 }
