@@ -9897,6 +9897,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: weaponDamage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -9915,7 +9919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.5988123
+      value: -0.7141219
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9923,7 +9927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8008894
+      value: -0.70002145
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_LocalRotation.z
@@ -9935,7 +9939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 253.57
+      value: 448.857
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831159, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
