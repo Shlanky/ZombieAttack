@@ -58,6 +58,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [SerializeField] AudioClip[] noAmmo;
     [Range(0, 1)] [SerializeField] float noAmmoVol;
 
+    [SerializeField] AudioClip[] pickUpKey;
+    [Range(0, 1)] [SerializeField] float pickUpKeyVol;
+
 
     bool isSprint = false;
     float playerSpeedOg;
@@ -376,6 +379,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     {
         keysFound++;
         gameManager.instance.pickUpKey();
+        aud.PlayOneShot(pickUpKey[Random.Range(0, pickUpKey.Length)], pickUpKeyVol);
         //update the ui, make a update function for ui
     }
 

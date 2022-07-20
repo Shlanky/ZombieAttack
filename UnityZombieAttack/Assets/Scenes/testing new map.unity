@@ -9914,6 +9914,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: pickUpKeyVol
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: weaponDamage
       value: 2
       objectReference: {fileID: 0}
@@ -9942,6 +9946,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 4b95cd70637cd354892d38a67f096f14, type: 3}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: pickUpKey.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: gunshot.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: d15ad2addd1de664b92e021735289276, type: 3}
@@ -9953,6 +9961,10 @@ PrefabInstance:
       propertyPath: reloadSound.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
+      propertyPath: pickUpKey.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0841eebed9944dd3b27de3ee7e6eb88, type: 3}
     - target: {fileID: 2178351950318831152, guid: 4725f9d66f978bd4daeadbbd3d74ba38, type: 3}
       propertyPath: playerHurt.Array.data[0]
       value: 
