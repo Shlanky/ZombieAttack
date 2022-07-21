@@ -1162,7 +1162,7 @@ MonoBehaviour:
   HP: 6
   viewAngle: 25
   playerFaceSpeed: 2
-  roamRadius: 1
+  roamRadius: 7
   shootRate: 1
   bullet: {fileID: 526090043557786640, guid: 803ef7eb28d56c248b2477d27bab707b, type: 3}
   shootPos: {fileID: 3071174955866453891}
@@ -1177,7 +1177,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.35
-  m_Speed: 1.4
+  m_Speed: 1
   m_Acceleration: 25
   avoidancePriority: 50
   m_AngularSpeed: 600
