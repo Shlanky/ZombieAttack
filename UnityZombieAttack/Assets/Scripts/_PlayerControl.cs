@@ -301,6 +301,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     //ammo
     public void giveAmmo(int amount)
     {
+        aud.PlayOneShot(pickUpKey[Random.Range(0, pickUpKey.Length)], pickUpKeyVol);
         if (roundsInReserve < OgRoundsInReserve)
         {
             roundsInReserve += amount;

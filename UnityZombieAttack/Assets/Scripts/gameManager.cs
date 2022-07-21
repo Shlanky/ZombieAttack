@@ -195,9 +195,14 @@ public class gameManager : MonoBehaviour
 
     public void pickUpAmmo()
     {
-        if (resAmmoLeft < 180)
+        if (resAmmoLeft <= 150)
         {
             resAmmoLeft += 30;
+            AmmoRes.text = resAmmoLeft.ToString("F0");
+        }
+        else if (resAmmoLeft > 150)
+        {
+            resAmmoLeft += 180 - resAmmoLeft;
             AmmoRes.text = resAmmoLeft.ToString("F0");
         }
     }

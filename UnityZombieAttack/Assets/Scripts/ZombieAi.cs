@@ -24,6 +24,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shootPos;
 
+
     bool canShoot;
     [SerializeField] bool playerInRange;
     Vector3 playerDir;
@@ -86,6 +87,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
         float angle = Vector3.Angle(playerDir, transform.forward);
         Debug.Log(angle);
         RaycastHit hit;
+
+        
 
         if (Physics.Raycast(transform.position, playerDir, out hit))
         {
