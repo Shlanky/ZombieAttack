@@ -7,6 +7,9 @@ TagManager:
   - Key
   - Ammo
   - Heal
+  - TANK
+  - JUMP PERK
+  - DAMAGE PERK
   layers:
   - Default
   - TransparentFX

@@ -35,6 +35,9 @@ public class enemyAI : MonoBehaviour, iDamageable
     Vector3 startingPos;
     float StoppingDisOrig;
 
+    int bodyShot;
+    int killShot;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +51,9 @@ public class enemyAI : MonoBehaviour, iDamageable
     // Update is called once per frame
     void Update()
     {
+
+        bodyShot = gameManager.instance.playerScript.shotPoint;
+        killShot = gameManager.instance.playerScript.killPoint;
 
         anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime* 5));
 

@@ -31,17 +31,24 @@ public class ZombieAi : MonoBehaviour, iDamageable
     Vector3 startingPos;
     float StoppingDistOrig;
 
+    int shotPoints;
+    int killPoints;
+
     // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
         StoppingDistOrig = agent.stoppingDistance;
+
+       
         gameManager.instance.updateEnemyNumber();
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
+        shotPoints = gameManager.instance.playerScript.shotPoint;
+        killPoints = gameManager.instance.playerScript.killPoint;
         if (agent.isActiveAndEnabled)
         {
 
@@ -124,9 +131,11 @@ public class ZombieAi : MonoBehaviour, iDamageable
         HP -= dmg;
         playerInRange = true;
         StartCoroutine(flashColor());
+        gameManager.instance.playerScript.earnPoints(shotPoints);
         if (HP <= 0)
         {
             gameManager.instance.checkEnemyKills();
+            gameManager.instance.playerScript.earnPoints(killPoints);
             agent.enabled = false;
             anim.SetBool("Dead", true);
 

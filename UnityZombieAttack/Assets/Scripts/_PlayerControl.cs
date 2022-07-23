@@ -9,17 +9,19 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     [Header("Player Atrobutes")]
     [Header("----------------------------------------------")]
-    [Range(5, 20)] [SerializeField] int HP;
+    [Range(5, 40)] [SerializeField] public int HP;
     [Range(3, 6)] [SerializeField] float playerSpeed;
     [Range(1.5f, 4.5f)] [SerializeField] float sprintMult;
     [Range(6, 10)] [SerializeField] float jumpHeight;
     [Range(15, 30)] [SerializeField] float gravityValue;
     [Range(1, 4)] [SerializeField] int jumps;
+    public int points = 0;
+
 
     [Header("Player Weapon Stats")]
     [Header("----------------------------------------------")]
     [Range(0.1f, 3)] [SerializeField] float shootRate;
-    [Range(1, 10)] [SerializeField] int weaponDamage;
+    [Range(1, 10)] [SerializeField] public int weaponDamage;
     [Range(5, 30)] [SerializeField] public int roundsInMag;
     [Range(0, 180)] [SerializeField] public int roundsInReserve;
     public int roundsShot;
@@ -29,6 +31,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Header("----------------------------------------------")]
     [SerializeField] GameObject hitEffectSpark;
     [SerializeField] GameObject muzzleFlash;
+
+    [SerializeField] GameObject gunModel;
+    public List<gunStats> gunStats = new List<gunStats>();
 
     [Header("--------Physics----------")]
 
@@ -68,16 +73,21 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     Vector3 playerVelocity;
     Vector3 move;
     bool canShoot = true;
-    int hpOriginal;
+   public int hpOriginal;
     Vector3 playerSpawnPos;
-    int ogRoundsinMag;
-    int OgRoundsInReserve;
+   public int ogRoundsinMag;
+  public  int OgRoundsInReserve;
 
+    public int shotPoint = 25;
+    public int killPoint = 100;
+
+    bool doublePointActive = true;
 
     int keysNeeded = 3;
 
     bool footstepPlaying;
 
+  //  bool ammoWasPickedUp = false;
     private void Start()
     {
         playerSpeedOg = playerSpeed;
@@ -92,6 +102,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     void Update()
     {
+
         if (!gameManager.instance.paused)
         {
             pushback = Vector3.Lerp(pushback, Vector3.zero, Time.deltaTime * pushResolve);
@@ -100,7 +111,15 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             Sprint();
             StartCoroutine(playFootsteps());
 
+            gameManager.instance.updatePoints();
+
+            if (HP < hpOriginal)
+            {
+                StartCoroutine(healOverTime());
+            }
+
             //for cheking ammo status
+            //add one fpr ammo pickup rhat returns a bool and 
             if (Input.GetButtonDown("Reload") && roundsInReserve > 0)
             {
                 Reload();
@@ -111,8 +130,17 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             }
             else if (roundsInMag == 0 && roundsInReserve == 0)
             {
-                gameManager.instance.noAmmo.SetActive(true);
-                canShoot = false;
+                //if (ammoWasPickedUp)
+                //{
+                //    gameManager.instance.noAmmo.SetActive(false);
+                //    canShoot = true;
+                //}
+                //else
+                //{
+                    gameManager.instance.noAmmo.SetActive(true);
+                    canShoot = false;
+                //}
+
             }
             else if (Input.GetButtonDown("Shoot") && canShoot == false)
             {
@@ -123,6 +151,11 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     }
 
+    //public bool ammoPickedUp(bool tmp)
+    //{
+    //    ammoWasPickedUp = tmp;
+    //    return ammoWasPickedUp;
+    //}
 
     private void MovePLayer()
     {
@@ -186,6 +219,11 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         }
     }
 
+    public void earnPoints(int val)
+    {
+        points += val;
+    }
+
     IEnumerator shoot()
     {
         // Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 100, Color.red);
@@ -229,7 +267,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         }
 
     }
-
 
 
     public void Reload()
@@ -279,7 +316,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         gameManager.instance.playerDamageFlash.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         gameManager.instance.playerDamageFlash.SetActive(false);
-
     }
 
     public void updatePlayerHP()
@@ -397,6 +433,55 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
         return key;
     }
+    public void gunPickUp(float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
+    {
+        //this is what we would need for the ammo stuff then check the gm for the mag reload
+        shootRate = firerate;
+        weaponDamage = damage;
+        roundsInMag = magSize;
+        muzzleFlash = muzzle_Flash;
+        roundsInReserve = resSize;
+        //that ends here
+        gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
+        gunStats.Add(stats);
+    }
 
+    public bool checkBalance(bool enough, int price)
+    {
+        if (points < price)
+        {
+            enough = false;
+        }
+        else if (points >= price)
+        {
+            enough = true;
+        }
+        return enough;
+    }
+
+    public int CheckOut(int price)
+    {
+        points -= price;
+        return points;
+    }
+
+    public void Perks(int price, int tank, int Damage, int Jump)
+    {
+        points -= price;
+        HP += tank;
+        weaponDamage += Damage;
+        jumps += Jump;
+        if (tank > 0)
+        {
+            hpOriginal = HP;
+        }
+    }
+
+    IEnumerator healOverTime()
+    {
+        yield return new WaitForSeconds(5);
+        giveHP(5);
+    }
 
 }

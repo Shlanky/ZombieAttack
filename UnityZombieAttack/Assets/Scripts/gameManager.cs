@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour
     public GameObject playerDamageFlash;
     public GameObject reload_txt;
     public GameObject noAmmo;
+    public GameObject WallBuyTxt;
     public Image HPBar;
     public TMP_Text enemyDead;
     public TMP_Text enemyTotal;
@@ -35,6 +36,19 @@ public class gameManager : MonoBehaviour
     public GameObject noKeys;
     public GameObject Key_1;
     public GameObject Key_2;
+
+    public TMP_Text Points;
+
+    //perks
+    public GameObject TankTxt;
+    public GameObject JumpTxt;
+    public GameObject DamageTxt;
+
+    //power up text test
+    public GameObject RocketPowertst;
+    public GameObject Healertxt;
+    public GameObject FoBTxt;
+    public GameObject MoneyRushtxt;
 
     public GameObject jobsNotDoneMsg;
 
@@ -54,8 +68,15 @@ public class gameManager : MonoBehaviour
     int magAmmoLeft;
     int resAmmoLeft;
 
+    //for ammo og 
+    int ogMagCount;
+    int ogResCount;
+
     //for key ui
     int keyPickedUp;
+
+    //for points
+    int points;
 
     //true = kill enemys
     //false = kill enemies and escape 
@@ -68,11 +89,20 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         playerScript = player.GetComponent<_PlayerControl>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        //get the amount of ammo so its the same in the ui
+        //ogMagCount = gameManager.instance.playerScript.roundsInMag;
+        //ogResCount = gameManager.instance.playerScript.roundsInReserve;
+
+        magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
+        resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
+
 
         if (Input.GetButtonDown("Cancel") && !gameOver)
         {
@@ -169,6 +199,14 @@ public class gameManager : MonoBehaviour
         enemyTotal.text = enemyKillGoal.ToString("F0");
     }
 
+    //this works a lil better for the updating the ui
+    //point ui update
+    public void updatePoints()
+    {
+        points = gameManager.instance.playerScript.points;
+        Points.text = points.ToString("F0");
+    }
+
 
     //ammo 
     //needs a little work but otherwise works
@@ -209,10 +247,8 @@ public class gameManager : MonoBehaviour
 
     public void updateMagCount()
     {
-        magAmmoLeft = 29;
-        magAmmoLeft++;
+        //  magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
         AmmoMag.text = magAmmoLeft.ToString("F0");
-
     }
 
     public void shot()
