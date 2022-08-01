@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class doublePoints : MonoBehaviour
 {
+    [SerializeField] float rotationSpeed;
     // Update is called once per frame
     void Update()
     {
         //need to slow this down but it works
-       //gameObject.transform.localRotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
         StartCoroutine(lifeTimer());
     }
 
