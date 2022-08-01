@@ -1166,6 +1166,10 @@ MonoBehaviour:
   shootRate: 1
   bullet: {fileID: 526090043557786640, guid: 803ef7eb28d56c248b2477d27bab707b, type: 3}
   shootPos: {fileID: 3071174955866453891}
+  damageDrop: {fileID: 6921880995004264670, guid: 180d50bf451cab34e8891952f9300bf2, type: 3}
+  MoneyRush: {fileID: 7334344707935480498, guid: c504de9842a944c46a7fab7f40bac410, type: 3}
+  heal: {fileID: 7735802241023344765, guid: 2c744f13100cbd040a772399d60a1e90, type: 3}
+  ammo: {fileID: 370696276321610507, guid: 143273f01d66fe14d81990ced91092f5, type: 3}
   playerInRange: 0
 --- !u!195 &3071174955166548475
 NavMeshAgent:

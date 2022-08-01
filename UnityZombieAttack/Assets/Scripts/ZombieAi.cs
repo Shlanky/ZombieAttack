@@ -26,10 +26,10 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
     [Header("----------------------------------")]
     [Header("Power Ups")]
-    //[SerializeField] OneShotOneKIll damageDrop;
-    //[SerializeField] doublePoints MoneyRush;
-    //[SerializeField] Healer heal;
-    //[SerializeField] FullOfBullets ammo;
+    [SerializeField] OneShotOneKIll damageDrop;
+    [SerializeField] doublePoints MoneyRush;
+    [SerializeField] Healer heal;
+    [SerializeField] FullOfBullets ammo;
 
     bool canShoot;
     [SerializeField] bool playerInRange;
@@ -149,16 +149,9 @@ public class ZombieAi : MonoBehaviour, iDamageable
             gameManager.instance.playerScript.earnPoints(killPoints);
             agent.enabled = false;
             anim.SetBool("Dead", true);
-
-            //for the drops in survival
-            //if (GameMode == 3)
-            //{
-            //    powerUpDrop();
-            //}
-
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
-
+            powerUpDrop();
         }
 
     }
@@ -168,6 +161,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
         yield return new WaitForSeconds(0.1f);
         rend.material.color = Color.white;
     }
+
     IEnumerator shoot()
     {
         canShoot = false;
@@ -184,23 +178,26 @@ public class ZombieAi : MonoBehaviour, iDamageable
     public void powerUpDrop()
     {
         //make a random number
-        int maybePowerUp = 0;
+        int maybePowerUp = Random.Range(0, 25);
         if (maybePowerUp == 4)
         {
             //make a heal power up on the body
-           // Instantiate(heal);
+           Instantiate(heal, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0,0,0));
         }
         if (maybePowerUp == 8)
         {
             //make a damage power drop on body
+            Instantiate(damageDrop, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
-        if (maybePowerUp == 12)
+        if (maybePowerUp == 15)
         {
             //make a ammo drop on body
+            Instantiate(ammo, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
-        if (maybePowerUp == 16)
+        if (maybePowerUp == 21)
         {
             //make a double points drop on body
+            Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
 
     }
