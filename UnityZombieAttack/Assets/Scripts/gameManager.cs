@@ -78,9 +78,11 @@ public class gameManager : MonoBehaviour
     //for points
     int points;
 
-    //true = kill enemys
-    //false = kill enemies and escape 
-    //bool game_mode = true;
+    //buttonFunction GameModeNum;
+    //int tmpGMholder;
+
+    //for rounds/survival
+    int rounds = 0;
 
     // Start is called before the first frame update
     void Awake()
@@ -89,8 +91,6 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         playerScript = player.GetComponent<_PlayerControl>();
-
-
     }
 
     // Update is called once per frame
@@ -99,6 +99,8 @@ public class gameManager : MonoBehaviour
         //get the amount of ammo so its the same in the ui
         //ogMagCount = gameManager.instance.playerScript.roundsInMag;
         //ogResCount = gameManager.instance.playerScript.roundsInReserve;
+
+      //  tmpGMholder = GameModeNum.gameMode;
 
         magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
         resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
@@ -155,10 +157,14 @@ public class gameManager : MonoBehaviour
         //    StartCoroutine(jobsNotDone());
         //}
 
+        //uncomment this when im done with writing the scripts for gamemode
         if (enimiesKilled >= enemyKillGoal)
         {
             StartCoroutine(jobsNotDone());
         }
+
+
+
     }
 
     IEnumerator jobsNotDone()
@@ -281,6 +287,7 @@ public class gameManager : MonoBehaviour
 
     public void checkKeysForWin(bool check)
     {
+        //add gamemode here to chack if this is eligible
         if (check == true)
         {
             //show win screen
@@ -291,5 +298,16 @@ public class gameManager : MonoBehaviour
         }
     }
     //heal
+
+    //public void survived()
+    //{
+    //    if (tmpGMholder == 3 && rounds == 100)
+    //    {
+    //        menuCurrentlyOpen = winGameMenu;
+    //        menuCurrentlyOpen.SetActive(true);
+    //        gameOver = true;
+    //        lockCursorPause();
+    //    }
+    //}
 
 }

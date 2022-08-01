@@ -81,11 +81,11 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     public int shotPoint = 25;
     public int killPoint = 100;
 
-    bool doublePointActive = true;
-
     int keysNeeded = 3;
 
     bool footstepPlaying;
+
+    buttonFunction gameMode;
 
   //  bool ammoWasPickedUp = false;
     private void Start()
@@ -433,6 +433,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
         return key;
     }
+
+    //needs some fine tooning for it to work
     public void gunPickUp(float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
     {
         //this is what we would need for the ammo stuff then check the gm for the mag reload

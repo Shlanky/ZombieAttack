@@ -24,6 +24,12 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shootPos;
 
+    [Header("----------------------------------")]
+    [Header("Power Ups")]
+    //[SerializeField] OneShotOneKIll damageDrop;
+    //[SerializeField] doublePoints MoneyRush;
+    //[SerializeField] Healer heal;
+    //[SerializeField] FullOfBullets ammo;
 
     bool canShoot;
     [SerializeField] bool playerInRange;
@@ -34,19 +40,24 @@ public class ZombieAi : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
+    buttonFunction GameModeNum;
+    int GameMode;
+
     // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
         StoppingDistOrig = agent.stoppingDistance;
 
-       
+
         gameManager.instance.updateEnemyNumber();
+      //  GameMode = GameModeNum.gameMode;
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+
         shotPoints = gameManager.instance.playerScript.shotPoint;
         killPoints = gameManager.instance.playerScript.killPoint;
         if (agent.isActiveAndEnabled)
@@ -95,7 +106,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
         Debug.Log(angle);
         RaycastHit hit;
 
-        
+
 
         if (Physics.Raycast(transform.position, playerDir, out hit))
         {
@@ -139,7 +150,13 @@ public class ZombieAi : MonoBehaviour, iDamageable
             agent.enabled = false;
             anim.SetBool("Dead", true);
 
-            foreach(Collider col in GetComponents<Collider>())
+            //for the drops in survival
+            //if (GameMode == 3)
+            //{
+            //    powerUpDrop();
+            //}
+
+            foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
 
         }
@@ -164,6 +181,29 @@ public class ZombieAi : MonoBehaviour, iDamageable
         canShoot = true;
     }
 
+    public void powerUpDrop()
+    {
+        //make a random number
+        int maybePowerUp = 0;
+        if (maybePowerUp == 4)
+        {
+            //make a heal power up on the body
+           // Instantiate(heal);
+        }
+        if (maybePowerUp == 8)
+        {
+            //make a damage power drop on body
+        }
+        if (maybePowerUp == 12)
+        {
+            //make a ammo drop on body
+        }
+        if (maybePowerUp == 16)
+        {
+            //make a double points drop on body
+        }
+
+    }
 
 
 }
