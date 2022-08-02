@@ -249,6 +249,9 @@ MonoBehaviour:
   pickUpKey:
   - {fileID: 8300000, guid: d0841eebed9944dd3b27de3ee7e6eb88, type: 3}
   pickUpKeyVol: 0.5
+  hpOriginal: 0
+  ogRoundsinMag: 0
+  OgRoundsInReserve: 0
   shotPoint: 25
   killPoint: 100
 --- !u!143 &2178351950318831153

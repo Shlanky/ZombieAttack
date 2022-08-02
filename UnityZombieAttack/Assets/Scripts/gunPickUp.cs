@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class gunPickUp : MonoBehaviour
 {
+    //use this for the weapon wall buy
     [SerializeField] gunStats gunStats;
 
     private void OnTriggerEnter(Collider other)

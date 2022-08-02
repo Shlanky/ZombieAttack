@@ -25,7 +25,6 @@ public class ammoPickUp : MonoBehaviour
             else
             {
                 StartCoroutine(AmmoMessage());
-                //gameManager.instance.playerScript.ammoPickedUp(ammoCheck);
             }
         }
 
