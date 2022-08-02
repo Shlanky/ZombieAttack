@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b5f928fe97ab141aabb927877c6b9c, type: 3}
   m_Name: FaMas
   m_EditorClassIdentifier: 
+  priceOfGun: 0
   fireRate: 0.08
   damage: 6
-  magSize: 30
+  magSize: 32
   resSize: 180
   muzzleFlash: {fileID: 3718419600782208380, guid: 540788c9688b27045a39782325228ee4, type: 3}
   gunModel: {fileID: 3727808547860735014, guid: 951fe93bacce37449ad8ef56de7c41c5, type: 3}

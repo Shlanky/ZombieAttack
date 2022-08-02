@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class gunStats : ScriptableObject
 {
 
+    public int priceOfGun;
     public float fireRate;
     public int damage;
     public int magSize;
@@ -17,9 +18,6 @@ public class gunStats : ScriptableObject
     public GameObject muzzleFlash;
     public GameObject gunModel;
 
-    public void giveAmmo(int ammo)
-    {
-        resSize += ammo;
-    }
+    //add muzzle flash pos here so it goes in the right spot
 
 }

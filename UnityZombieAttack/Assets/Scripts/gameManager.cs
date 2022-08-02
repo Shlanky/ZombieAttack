@@ -144,26 +144,12 @@ public class gameManager : MonoBehaviour
     {
         enimiesKilled++;
         enemyDead.text = enimiesKilled.ToString("F0");
-        //if (enimiesKilled >= enemyKillGoal && game_mode == true)
-        //{
-        //    menuCurrentlyOpen = winGameMenu;
-        //    menuCurrentlyOpen.SetActive(true);
-        //    gameOver = true;
-        //    lockCursorPause();
-
-        //}
-        //else
-        //{
-        //    StartCoroutine(jobsNotDone());
-        //}
 
         //uncomment this when im done with writing the scripts for gamemode
         if (enimiesKilled >= enemyKillGoal)
         {
             StartCoroutine(jobsNotDone());
         }
-
-
 
     }
 

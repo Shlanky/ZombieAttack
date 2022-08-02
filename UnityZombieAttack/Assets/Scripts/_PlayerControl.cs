@@ -73,10 +73,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     Vector3 playerVelocity;
     Vector3 move;
     bool canShoot = true;
-   public int hpOriginal;
+    public int hpOriginal;
     Vector3 playerSpawnPos;
-   public int ogRoundsinMag;
-  public  int OgRoundsInReserve;
+    public int ogRoundsinMag;
+    public int OgRoundsInReserve;
 
     public int shotPoint = 25;
     public int killPoint = 100;
@@ -87,7 +87,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     buttonFunction gameMode;
 
-  //  bool ammoWasPickedUp = false;
     private void Start()
     {
         playerSpeedOg = playerSpeed;
@@ -118,8 +117,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 StartCoroutine(healOverTime());
             }
 
-            //for cheking ammo status
-            //add one fpr ammo pickup rhat returns a bool and 
             if (Input.GetButtonDown("Reload") && roundsInReserve > 0)
             {
                 Reload();
@@ -130,17 +127,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             }
             else if (roundsInMag == 0 && roundsInReserve == 0)
             {
-                //if (ammoWasPickedUp)
-                //{
-                //    gameManager.instance.noAmmo.SetActive(false);
-                //    canShoot = true;
-                //}
-                //else
-                //{
-                    gameManager.instance.noAmmo.SetActive(true);
-                    canShoot = false;
-                //}
-
+                gameManager.instance.noAmmo.SetActive(true);
+                canShoot = false;
             }
             else if (Input.GetButtonDown("Shoot") && canShoot == false)
             {
@@ -150,12 +138,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         }
 
     }
-
-    //public bool ammoPickedUp(bool tmp)
-    //{
-    //    ammoWasPickedUp = tmp;
-    //    return ammoWasPickedUp;
-    //}
 
     private void MovePLayer()
     {
@@ -346,6 +328,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 roundsInReserve = OgRoundsInReserve;
             }
         }
+        gameManager.instance.noAmmo.SetActive(false);
+        canShoot = true;
     }
 
     public bool checkAmmo(bool check)
@@ -358,8 +342,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         {
             check = true;
         }
-
-
         return check;
     }
 
@@ -435,18 +417,26 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     }
 
     //needs some fine tooning for it to work
-    public void gunPickUp(float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
+    public void gunPickUp(int price, float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
     {
-        //this is what we would need for the ammo stuff then check the gm for the mag reload
-        shootRate = firerate;
-        weaponDamage = damage;
-        roundsInMag = magSize;
-        muzzleFlash = muzzle_Flash;
-        roundsInReserve = resSize;
-        //that ends here
-        gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
-        gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
-        gunStats.Add(stats);
+        if (points >= price)
+        {
+            CheckOut(price);
+            shootRate = firerate;
+            weaponDamage = damage;
+            roundsInMag = magSize;
+            muzzleFlash = muzzle_Flash;
+            roundsInReserve = resSize;
+            //that ends here
+            gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
+            gunStats.Add(stats);
+        }
+        else
+        {
+            //do nothing or print message for the player to get more money or audio que
+        }
+
     }
 
     public bool checkBalance(bool enough, int price)
