@@ -91,6 +91,13 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     bool canSwitch = true;
 
+    //might need this later to fix the gun problem
+    //int gun1Mag;
+    //int gun1Res;
+
+    //int gun2Mag;
+    //int gun2Res;
+
     private void Start()
     {
         currentGun = gunList[0];
@@ -477,9 +484,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         {
             key = false;
         }
-        else if (keysFound == keysNeeded)
+        else if (keysFound >= keysNeeded)
         {
             key = true;
+            keysFound = 0;
         }
 
         return key;

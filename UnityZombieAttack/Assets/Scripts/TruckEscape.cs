@@ -5,6 +5,7 @@ using UnityEngine;
 public class TruckEscape : MonoBehaviour
 {
     bool key_check = false;
+    int mazeNumComp;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,8 @@ public class TruckEscape : MonoBehaviour
 
             if (key_check == true)
             {
-                gameManager.instance.checkKeysForWin(key_check);
+                mazeNumComp++;
+                gameManager.instance.checkKeysForWin(mazeNumComp);
             }
             else
             {

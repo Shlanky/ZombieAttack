@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -88,6 +89,9 @@ public class gameManager : MonoBehaviour
     //for points
     int points;
 
+    //for the maze counter to make sure its going to the right maze
+    int mazesCompleted;
+
     //buttonFunction GameModeNum;
     //int tmpGMholder;
 
@@ -110,7 +114,7 @@ public class gameManager : MonoBehaviour
         //ogMagCount = gameManager.instance.playerScript.roundsInMag;
         //ogResCount = gameManager.instance.playerScript.roundsInReserve;
 
-      //  tmpGMholder = GameModeNum.gameMode;
+        //  tmpGMholder = GameModeNum.gameMode;
 
         magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
         resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
@@ -229,7 +233,7 @@ public class gameManager : MonoBehaviour
             resAmmoLeft -= tmp;
             AmmoRes.text = resAmmoLeft.ToString("F0");
         }
-      //  updateReserveCount();
+        //  updateReserveCount();
     }
 
 
@@ -280,30 +284,63 @@ public class gameManager : MonoBehaviour
         keyCount.text = keyPickedUp.ToString("F0");
     }
 
-
-    public void checkKeysForWin(bool check)
+    //this will move to the differant scenes
+    public void checkKeysForWin(int num)
     {
-        //add gamemode here to chack if this is eligible
-        if (check == true)
+
+        if (num == 1)
         {
-            //show win screen
+            SceneManager.LoadScene("Maze 2");
+        }
+
+       else if (num == 2)
+        {
+            SceneManager.LoadScene("Maze 3");
+        }
+
+       else if (num == 3)
+        {
+            SceneManager.LoadScene("Maze 4");
+        }
+
+       else if (num == 4)
+        {
             menuCurrentlyOpen = winGameMenu;
             menuCurrentlyOpen.SetActive(true);
             gameOver = true;
             lockCursorPause();
         }
-    }
-    //heal
+        ////add gamemode here to chack if this is eligible
+        //if (check == true)
+        //{
+        //    mazesCompleted = mazesCompleted + 1;
 
-    //public void survived()
-    //{
-    //    if (tmpGMholder == 3 && rounds == 100)
-    //    {
-    //        menuCurrentlyOpen = winGameMenu;
-    //        menuCurrentlyOpen.SetActive(true);
-    //        gameOver = true;
-    //        lockCursorPause();
-    //    }
-    //}
+        //    if (mazesCompleted == 1)
+        //    {
+        //        SceneManager.LoadScene("Maze 2");
+        //        //might need to rest the key count here to 0
+        //    }
+
+        //    if (mazesCompleted == 2)
+        //    {
+        //        SceneManager.LoadScene("Maze 3");
+        //    }
+
+        //    if (mazesCompleted == 3)
+        //    {
+        //        SceneManager.LoadScene("Maze 4");
+        //    }
+
+        //    if (mazesCompleted == 4)
+        //    {
+        //        //show win screen
+        //        menuCurrentlyOpen = winGameMenu;
+        //        menuCurrentlyOpen.SetActive(true);
+        //        gameOver = true;
+        //        lockCursorPause();
+        //    }
+
+        //}
+    }
 
 }
