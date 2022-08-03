@@ -50,6 +50,16 @@ public class gameManager : MonoBehaviour
     public GameObject FoBTxt;
     public GameObject MoneyRushtxt;
 
+    //weapon info
+    public GameObject AK47_msg;
+    public GameObject FaMas_msg;
+    public GameObject Ghost_msg;
+    public GameObject M16_msg;
+    public GameObject M1911_msg;
+    public GameObject MP5_msg;
+    public GameObject Revolver_msg;
+    public GameObject Uzi_msg;
+
     public GameObject jobsNotDoneMsg;
 
 
@@ -104,7 +114,6 @@ public class gameManager : MonoBehaviour
 
         magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
         resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
-
 
         if (Input.GetButtonDown("Cancel") && !gameOver)
         {
@@ -239,7 +248,7 @@ public class gameManager : MonoBehaviour
 
     public void updateMagCount()
     {
-        //  magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
+        magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
         AmmoMag.text = magAmmoLeft.ToString("F0");
     }
 

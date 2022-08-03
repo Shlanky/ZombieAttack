@@ -26,6 +26,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(0, 180)] [SerializeField] public int roundsInReserve;
     public int roundsShot;
     [SerializeField] public int keysFound;
+    [SerializeField] gunStats currentGun;
 
     [Header("Effects")]
     [Header("----------------------------------------------")]
@@ -33,7 +34,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [SerializeField] GameObject muzzleFlash;
 
     [SerializeField] GameObject gunModel;
-    public List<gunStats> gunStats = new List<gunStats>();
+    public List<gunStats> gunList = new List<gunStats>();
+    public gunStats[] guns = new gunStats[2];
 
     [Header("--------Physics----------")]
 
@@ -87,8 +89,17 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     buttonFunction gameMode;
 
+    bool canSwitch = true;
+
     private void Start()
     {
+        currentGun = gunList[0];
+        shootRate = gunList[0].fireRate;
+        weaponDamage = gunList[0].damage;
+        roundsInMag = gunList[0].magSize;
+        roundsInReserve = gunList[0].resSize;
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[0].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[0].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
         playerSpeedOg = playerSpeed;
         hpOriginal = HP;
         playerSpawnPos = transform.position;
@@ -96,7 +107,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         OgRoundsInReserve = roundsInReserve;
         gameManager.instance.updateMagCount();
         gameManager.instance.updateReserveCount();
-
     }
 
     void Update()
@@ -108,9 +118,17 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             MovePLayer();
             Sprint();
+
             StartCoroutine(playFootsteps());
 
             gameManager.instance.updatePoints();
+
+            if (canSwitch)
+            {
+                switch_guns();
+                ogRoundsinMag = currentGun.magSize;
+                OgRoundsInReserve = currentGun.resSize;
+            }
 
             if (HP < hpOriginal)
             {
@@ -130,13 +148,62 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 gameManager.instance.noAmmo.SetActive(true);
                 canShoot = false;
             }
-            else if (Input.GetButtonDown("Shoot") && canShoot == false)
+            else if (Input.GetButtonDown("Shoot") && roundsInMag == 0 && canShoot == false)
             {
                 aud.PlayOneShot(noAmmo[Random.Range(0, noAmmo.Length)], noAmmoVol);
             }
 
         }
 
+    }
+
+    public void switch_guns()
+    {
+        if (Input.GetButtonDown("Primary"))
+        {
+            currentGun = gunList[0];
+            shootRate = gunList[0].fireRate;
+            weaponDamage = gunList[0].damage;
+            roundsInMag = gunList[0].magSize;
+            roundsInReserve = gunList[0].resSize;
+            roundsShot = 0;
+            gameManager.instance.updateMagCount();
+            //will need to update the ui for the ammo stuff later
+
+            gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[0].gunModel.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[0].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+            StartCoroutine(switchTimer());
+
+        }
+        if (Input.GetButtonDown("Secondary"))
+        {
+            currentGun = gunList[1];
+            shootRate = gunList[1].fireRate;
+            weaponDamage = gunList[1].damage;
+            roundsInMag = gunList[1].magSize;
+            roundsInReserve = gunList[1].resSize;
+            roundsShot = 0;
+            gameManager.instance.updateMagCount();
+            gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[1].gunModel.GetComponent<MeshFilter>().sharedMesh;
+            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[1].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+            StartCoroutine(switchTimer());
+        }
+
+    }
+
+    IEnumerator switchTimer()
+    {
+        canSwitch = false;
+        yield return new WaitForSeconds(2);
+        canSwitch = true;
+    }
+
+    //use this somewher so they can j reload constantly while shooting
+    IEnumerator readyToShoot()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(2);
+        canShoot = true;
     }
 
     private void MovePLayer()
@@ -250,7 +317,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     }
 
-
+    //need to play around with 
     public void Reload()
     {
         if (Input.GetButtonDown("Reload") && ogRoundsinMag > roundsInMag)
@@ -273,7 +340,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 canShoot = true;
                 roundsShot = 0;
             }
-            gameManager.instance.resetAmmoMagCount();
+            //gameManager.instance.resetAmmoMagCount();
+            gameManager.instance.updateMagCount();
         }
     }
 
@@ -419,8 +487,19 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     //needs some fine tooning for it to work
     public void gunPickUp(int price, float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
     {
+        int tmp = 0;
+        for (var i = 0; i < gunList.Count; i++)
+        {
+            if (gunList[i].gunModel == currentGun.gunModel)
+            {
+                tmp = i;
+                break;
+            }
+        }
         if (points >= price)
         {
+          
+            gunList.Remove(currentGun);
             CheckOut(price);
             shootRate = firerate;
             weaponDamage = damage;
@@ -430,7 +509,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             //that ends here
             gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
-            gunStats.Add(stats);
+           // gunList.Add(stats);
+            gunList.Insert(tmp, stats);
+            gameManager.instance.updateMagCount();
         }
         else
         {

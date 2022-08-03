@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b5f928fe97ab141aabb927877c6b9c, type: 3}
   m_Name: m1911
   m_EditorClassIdentifier: 
+  priceOfGun: 150
   fireRate: 0.5
   damage: 5
   magSize: 10
   resSize: 180
   muzzleFlash: {fileID: 3718419600782208380, guid: 540788c9688b27045a39782325228ee4, type: 3}
-  gunModel: {fileID: 7071837850993479790, guid: eb70c06c8578cab4d9f8e4cb55f43b95, type: 3}
+  gunModel: {fileID: 4775020171495310359, guid: 069d3677987f8cd49be241d7ae88050d, type: 3}
