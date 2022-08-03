@@ -90,13 +90,13 @@ public class gameManager : MonoBehaviour
     int points;
 
     //for the maze counter to make sure its going to the right maze
-    int mazesCompleted;
+    static int mazesCompleted;
 
     //buttonFunction GameModeNum;
     //int tmpGMholder;
 
     //for rounds/survival
-    int rounds = 0;
+    int rounds;
 
     // Start is called before the first frame update
     void Awake()
@@ -285,31 +285,43 @@ public class gameManager : MonoBehaviour
     }
 
     //this will move to the differant scenes
-    public void checkKeysForWin(int num)
+    public void checkKeysForWin(bool check)
     {
-
-        if (num == 1)
+        if (check == true && mazesCompleted == 4)
         {
-            SceneManager.LoadScene("Maze 2");
-        }
-
-       else if (num == 2)
-        {
-            SceneManager.LoadScene("Maze 3");
-        }
-
-       else if (num == 3)
-        {
-            SceneManager.LoadScene("Maze 4");
-        }
-
-       else if (num == 4)
-        {
+            // show win screen
             menuCurrentlyOpen = winGameMenu;
             menuCurrentlyOpen.SetActive(true);
             gameOver = true;
             lockCursorPause();
         }
+
+        else if (mazesCompleted < 4)
+        {
+            moveUpLevel();
+        }
+        // if (num == 1)
+        // {
+        //     SceneManager.LoadScene("Maze 2");
+        // }
+
+        //else if (num == 2)
+        // {
+        //     SceneManager.LoadScene("Maze 3");
+        // }
+
+        //else if (num == 3)
+        // {
+        //     SceneManager.LoadScene("Maze 4");
+        // }
+
+        //else if (num == 4)
+        // {
+        //     menuCurrentlyOpen = winGameMenu;
+        //     menuCurrentlyOpen.SetActive(true);
+        //     gameOver = true;
+        //     lockCursorPause();
+        // }
         ////add gamemode here to chack if this is eligible
         //if (check == true)
         //{
@@ -341,6 +353,32 @@ public class gameManager : MonoBehaviour
         //    }
 
         //}
+    }
+
+    public int moveUpLevel()
+    {
+        if (mazesCompleted == 0)
+        {
+            SceneManager.LoadScene("Maze 2");
+            mazesCompleted++;
+            return mazesCompleted;
+        }
+
+        if (mazesCompleted == 1)
+        {
+            SceneManager.LoadScene("Maze 3");
+            mazesCompleted++;
+            return mazesCompleted;
+        }
+
+        if (mazesCompleted == 2)
+        {
+            SceneManager.LoadScene("Maze 4");
+            mazesCompleted++;
+            return mazesCompleted;
+        }
+
+        return 0;
     }
 
 }
