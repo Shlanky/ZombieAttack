@@ -643,6 +643,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 594017583, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260309354, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911665034839209938, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950471387459306609, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1950471389164179281, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
       propertyPath: m_Name
       value: UI (Updated _ Fixed)

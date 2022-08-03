@@ -175,6 +175,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             StartCoroutine(switchTimer());
 
         }
+
         if (Input.GetButtonDown("Secondary"))
         {
             currentGun = gunList[1];
@@ -496,6 +497,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 break;
             }
         }
+
         if (points >= price)
         {
           
@@ -513,6 +515,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             gunList.Insert(tmp, stats);
             gameManager.instance.updateMagCount();
         }
+
         else
         {
             //do nothing or print message for the player to get more money or audio que

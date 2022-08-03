@@ -35,21 +35,28 @@ public class buttonFunction : MonoBehaviour
         gameManager.instance.restart();
     }
 
-    public void kill()
-    {
-        gameMode = 1;
-        //get the kill scene here
-    }
 
+    //for the main screan buttons
     public void escape()
     {
-        gameMode = 2;
-        //get the escape scene here
-        }
+        gameMode = 1;
+        SceneManager.LoadScene("Maze sample");
+    }
 
     public void Survival()
     {
-        gameMode = 3;
-        //get the surviuaval sceene here
+        gameMode = 2;
+        SceneManager.LoadScene("Old map_playground");
+    }
+
+    public void homeScreen()
+    {
+        gameMode = 0;
+        SceneManager.LoadScene("Starting Screen");
+    }
+  
+    public void setting()
+    {
+      //  SceneManager.LoadScene();
     }
 }

@@ -218,7 +218,7 @@ public class gameManager : MonoBehaviour
         //then set the resammo left to the gamemanager thing 
         int tmp = gameManager.instance.playerScript.roundsShot;
 
-
+        //think the negative bug is in not sure tho
         if (resAmmoLeft < 30)
         {
             resAmmoLeft -= tmp;
@@ -229,6 +229,7 @@ public class gameManager : MonoBehaviour
             resAmmoLeft -= tmp;
             AmmoRes.text = resAmmoLeft.ToString("F0");
         }
+      //  updateReserveCount();
     }
 
 
@@ -264,11 +265,11 @@ public class gameManager : MonoBehaviour
         AmmoMag.text = magAmmoLeft.ToString("F0");
     }
 
-
+    //still goes into the negatives need to find where thats happening
     //for ui of reserve
     public void updateReserveCount()
     {
-        resAmmoLeft = 180;
+        resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
         AmmoRes.text = resAmmoLeft.ToString("F0");
     }
 
