@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class buttonFunction : MonoBehaviour
 {
-
-    public int gameMode = 0;
+    public static int gameModeNum;
 
     public void resume()
     {
@@ -39,24 +38,39 @@ public class buttonFunction : MonoBehaviour
     //for the main screan buttons
     public void escape()
     {
-        gameMode = 1;
+        gameModeNum = 1;
+        
         SceneManager.LoadScene("Maze sample");
     }
 
     public void Survival()
     {
-        gameMode = 2;
+        gameModeNum = 2;
         SceneManager.LoadScene("Old map_playground");
     }
 
     public void homeScreen()
     {
-        gameMode = 0;
+        gameModeNum = 0;
         SceneManager.LoadScene("Starting Screen");
     }
   
+    public void playGround()
+    {
+        gameModeNum = 3;
+        SceneManager.LoadScene("ShowCase");
+    }
+
+    public void credits()
+    {
+        //might need to make a camera script so that it can move down like in a movie
+        gameModeNum = 4;
+        SceneManager.LoadScene("Credits");
+    }
+
     public void setting()
     {
-      //  SceneManager.LoadScene();
+        gameModeNum = 5;
+        SceneManager.LoadScene("Settings");
     }
 }

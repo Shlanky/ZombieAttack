@@ -40,8 +40,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
-    buttonFunction GameModeNum;
-    int GameMode;
+    //static buttonFunction GameModeNum;
+    public static int GameModeHolder;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +51,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
 
         gameManager.instance.updateEnemyNumber();
-      //  GameMode = GameModeNum.gameMode;
+
+        GameModeHolder = buttonFunction.gameModeNum;
     }
 
     // Update is called once per frame
@@ -182,23 +183,38 @@ public class ZombieAi : MonoBehaviour, iDamageable
         if (maybePowerUp == 4)
         {
             //make a heal power up on the body
-           Instantiate(heal, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0,0,0));
+            Instantiate(heal, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
-        if (maybePowerUp == 8)
+        if (maybePowerUp == 8 && GameModeHolder == 2 )
         {
             //make a damage power drop on body
             Instantiate(damageDrop, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
+
+        if (maybePowerUp == 8 && GameModeHolder == 3)
+        {
+            //make a damage power drop on body
+            Instantiate(damageDrop, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
         if (maybePowerUp == 15)
         {
             //make a ammo drop on body
             Instantiate(ammo, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
-        if (maybePowerUp == 21)
+
+        if (maybePowerUp == 21 && GameModeHolder == 2 )
         {
             //make a double points drop on body
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
+
+        if (maybePowerUp == 8 && GameModeHolder == 3)
+        {
+            //make a damage power drop on body
+            Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
 
     }
 

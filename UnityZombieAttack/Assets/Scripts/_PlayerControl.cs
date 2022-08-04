@@ -87,7 +87,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     bool footstepPlaying;
 
-    buttonFunction gameMode;
+   // buttonFunction gameMode;
+   static int GameModeHolder;
 
     bool canSwitch = true;
 
@@ -100,6 +101,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     private void Start()
     {
+
         currentGun = gunList[0];
         shootRate = gunList[0].fireRate;
         weaponDamage = gunList[0].damage;
@@ -114,6 +116,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         OgRoundsInReserve = roundsInReserve;
         gameManager.instance.updateMagCount();
         gameManager.instance.updateReserveCount();
+
+        GameModeHolder = buttonFunction.gameModeNum;
     }
 
     void Update()
@@ -496,21 +500,19 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     //needs some fine tooning for it to work
     public void gunPickUp(int price, float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
     {
-        int tmp = 0;
-        for (var i = 0; i < gunList.Count; i++)
+        if (GameModeHolder == 1)
         {
-            if (gunList[i].gunModel == currentGun.gunModel)
+            int tmp = 0;
+            for (var i = 0; i < gunList.Count; i++)
             {
-                tmp = i;
-                break;
+                if (gunList[i].gunModel == currentGun.gunModel)
+                {
+                    tmp = i;
+                    break;
+                }
             }
-        }
 
-        if (points >= price)
-        {
-          
             gunList.Remove(currentGun);
-            CheckOut(price);
             shootRate = firerate;
             weaponDamage = damage;
             roundsInMag = magSize;
@@ -519,15 +521,49 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             //that ends here
             gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
-           // gunList.Add(stats);
+            // gunList.Add(stats);
             gunList.Insert(tmp, stats);
             gameManager.instance.updateMagCount();
+
         }
 
-        else
+
+        if (GameModeHolder == 2 || GameModeHolder == 3)
         {
-            //do nothing or print message for the player to get more money or audio que
+            int tmp = 0;
+            for (var i = 0; i < gunList.Count; i++)
+            {
+                if (gunList[i].gunModel == currentGun.gunModel)
+                {
+                    tmp = i;
+                    break;
+                }
+            }
+
+            if (points >= price)
+            {
+                gunList.Remove(currentGun);
+                CheckOut(price);
+                shootRate = firerate;
+                weaponDamage = damage;
+                roundsInMag = magSize;
+                muzzleFlash = muzzle_Flash;
+                roundsInReserve = resSize;
+                //that ends here
+                gunModel.GetComponent<MeshFilter>().sharedMesh = model.GetComponent<MeshFilter>().sharedMesh;
+                gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
+                // gunList.Add(stats);
+                gunList.Insert(tmp, stats);
+                gameManager.instance.updateMagCount();
+            }
+
+            else
+            {
+                //do nothing or print message for the player to get more money or audio que
+            }
         }
+
+
 
     }
 

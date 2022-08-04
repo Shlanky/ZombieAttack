@@ -287,7 +287,7 @@ public class gameManager : MonoBehaviour
     //this will move to the differant scenes
     public void checkKeysForWin(bool check)
     {
-        if (check == true && mazesCompleted == 4)
+        if (check == true && mazesCompleted == 3)
         {
             // show win screen
             menuCurrentlyOpen = winGameMenu;
@@ -300,59 +300,6 @@ public class gameManager : MonoBehaviour
         {
             moveUpLevel();
         }
-        // if (num == 1)
-        // {
-        //     SceneManager.LoadScene("Maze 2");
-        // }
-
-        //else if (num == 2)
-        // {
-        //     SceneManager.LoadScene("Maze 3");
-        // }
-
-        //else if (num == 3)
-        // {
-        //     SceneManager.LoadScene("Maze 4");
-        // }
-
-        //else if (num == 4)
-        // {
-        //     menuCurrentlyOpen = winGameMenu;
-        //     menuCurrentlyOpen.SetActive(true);
-        //     gameOver = true;
-        //     lockCursorPause();
-        // }
-        ////add gamemode here to chack if this is eligible
-        //if (check == true)
-        //{
-        //    mazesCompleted = mazesCompleted + 1;
-
-        //    if (mazesCompleted == 1)
-        //    {
-        //        SceneManager.LoadScene("Maze 2");
-        //        //might need to rest the key count here to 0
-        //    }
-
-        //    if (mazesCompleted == 2)
-        //    {
-        //        SceneManager.LoadScene("Maze 3");
-        //    }
-
-        //    if (mazesCompleted == 3)
-        //    {
-        //        SceneManager.LoadScene("Maze 4");
-        //    }
-
-        //    if (mazesCompleted == 4)
-        //    {
-        //        //show win screen
-        //        menuCurrentlyOpen = winGameMenu;
-        //        menuCurrentlyOpen.SetActive(true);
-        //        gameOver = true;
-        //        lockCursorPause();
-        //    }
-
-        //}
     }
 
     public int moveUpLevel()
