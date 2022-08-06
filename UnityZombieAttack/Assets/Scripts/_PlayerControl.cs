@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class _PlayerControl : MonoBehaviour, iDamageable
 {
@@ -26,7 +27,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(0, 180)] [SerializeField] public int roundsInReserve;
     public int roundsShot;
     [SerializeField] public int keysFound;
-    [SerializeField] gunStats currentGun;
+    [SerializeField]  gunStats currentGun;
+    static gunStats Primary;
+    static gunStats Secondary;
 
     [Header("Effects")]
     [Header("----------------------------------------------")]
@@ -35,7 +38,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     [SerializeField] GameObject gunModel;
     public List<gunStats> gunList = new List<gunStats>();
-    public gunStats[] guns = new gunStats[2];
 
     [Header("--------Physics----------")]
 
@@ -67,6 +69,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     [SerializeField] AudioClip[] pickUpKey;
     [Range(0, 1)] [SerializeField] float pickUpKeyVol;
+
+    //gun pick up sounds
+    [SerializeField] AudioClip[] gunWasPickedUp;
+    [Range(0, 1)] [SerializeField] float GWPU_Volumue;
 
 
     bool isSprint = false;
@@ -133,6 +139,14 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             StartCoroutine(playFootsteps());
 
             gameManager.instance.updatePoints();
+
+            //if (gunList[0] != null)
+            //{
+            //    Primary.damage = gunList[0].damage;
+            //    Primary.fireRate = gunList[0].fireRate;
+            //    Primary.magSize = gunList[0].magSize;
+            //    Primary.resSize = gunList[0].resSize;
+            //}
 
             if (canSwitch)
             {
@@ -500,6 +514,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     //needs some fine tooning for it to work
     public void gunPickUp(int price, float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
     {
+
         if (GameModeHolder == 1)
         {
             int tmp = 0;
@@ -523,6 +538,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
             // gunList.Add(stats);
             gunList.Insert(tmp, stats);
+            currentGun = gunList[tmp];
             gameManager.instance.updateMagCount();
 
         }
@@ -554,6 +570,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = model.GetComponent<MeshRenderer>().sharedMaterial;
                 // gunList.Add(stats);
                 gunList.Insert(tmp, stats);
+                currentGun = gunList[tmp];
                 gameManager.instance.updateMagCount();
             }
 
@@ -563,6 +580,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             }
         }
 
+      aud.PlayOneShot(gunWasPickedUp[0], GWPU_Volumue);
 
 
     }

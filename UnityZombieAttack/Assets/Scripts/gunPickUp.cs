@@ -9,6 +9,8 @@ public class gunPickUp : MonoBehaviour
     bool in_Range = false;
     public int gunNum;
 
+  
+
     public void Update()
     {
         if (in_Range)

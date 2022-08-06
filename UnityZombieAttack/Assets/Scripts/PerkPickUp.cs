@@ -53,17 +53,20 @@ public class PerkPickUp : MonoBehaviour
             {
                 gameManager.instance.TankTxt.SetActive(false);
                 gameManager.instance.playerScript.Perks(perk.Price, perk.Tank, perk.damage, perk.jumps);
+                gameManager.instance.Tank_Icon.SetActive(true);
 
             }
             else if (gameObject.CompareTag("JUMP PERK"))
             {
                 gameManager.instance.JumpTxt.SetActive(false);
                 gameManager.instance.playerScript.Perks(perk.Price, perk.Tank, perk.damage, perk.jumps);
+                gameManager.instance.Jump_Icon.SetActive(true);
             }
             else if (gameObject.CompareTag("DAMAGE PERK"))
             {
                 gameManager.instance.DamageTxt.SetActive(false);
                 gameManager.instance.playerScript.Perks(perk.Price, perk.Tank, perk.damage, perk.jumps);
+                gameManager.instance.Damage_Icon.SetActive(true);
             }
         }
     }

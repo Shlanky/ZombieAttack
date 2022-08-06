@@ -51,6 +51,10 @@ public class gameManager : MonoBehaviour
     public GameObject FoBTxt;
     public GameObject MoneyRushtxt;
 
+    public GameObject Tank_Icon;
+    public GameObject Jump_Icon;
+    public GameObject Damage_Icon;
+
     //weapon info
     public GameObject AK47_msg;
     public GameObject FaMas_msg;
@@ -98,13 +102,17 @@ public class gameManager : MonoBehaviour
     //for rounds/survival
     int rounds;
 
+    int gameModeHolder;
     // Start is called before the first frame update
     void Awake()
-    {
-        instance = this;
-        player = GameObject.FindGameObjectWithTag("Player");
+    { 
+      
+            instance = this;
+            player = GameObject.FindGameObjectWithTag("Player");
 
-        playerScript = player.GetComponent<_PlayerControl>();
+            playerScript = player.GetComponent<_PlayerControl>();
+
+
     }
 
     // Update is called once per frame
@@ -116,6 +124,7 @@ public class gameManager : MonoBehaviour
 
         //  tmpGMholder = GameModeNum.gameMode;
 
+      
         magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
         resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
 

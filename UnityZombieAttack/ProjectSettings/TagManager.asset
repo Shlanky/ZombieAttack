@@ -10,6 +10,7 @@ TagManager:
   - TANK
   - JUMP PERK
   - DAMAGE PERK
+  - Music
   layers:
   - Default
   - TransparentFX
