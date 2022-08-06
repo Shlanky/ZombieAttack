@@ -58,7 +58,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
     // Update is called once per frame
     void Update()
     {
-
+        //if getting an erro her go into gameManger and comment the awake causet the game mode will be 0
+        //the gameMode has to be higher the n zer if u want to test something or u can go through the main menu
         shotPoints = gameManager.instance.playerScript.shotPoint;
         killPoints = gameManager.instance.playerScript.killPoint;
         if (agent.isActiveAndEnabled)

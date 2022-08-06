@@ -11,6 +11,7 @@ TagManager:
   - JUMP PERK
   - DAMAGE PERK
   - Music
+  - HidingEnd
   layers:
   - Default
   - TransparentFX

@@ -27,7 +27,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(0, 180)] [SerializeField] public int roundsInReserve;
     public int roundsShot;
     [SerializeField] public int keysFound;
-    [SerializeField]  gunStats currentGun;
+    [SerializeField] gunStats currentGun;
     static gunStats Primary;
     static gunStats Secondary;
 
@@ -93,8 +93,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     bool footstepPlaying;
 
-   // buttonFunction gameMode;
-   static int GameModeHolder;
+    // buttonFunction gameMode;
+    static int GameModeHolder;
 
     bool canSwitch = true;
 
@@ -105,8 +105,13 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     //int gun2Mag;
     //int gun2Res;
 
+    public GameObject bloclking_wall;
+    bool cantEscape = true;
+
     private void Start()
     {
+
+
 
         currentGun = gunList[0];
         shootRate = gunList[0].fireRate;
@@ -124,6 +129,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         gameManager.instance.updateReserveCount();
 
         GameModeHolder = buttonFunction.gameModeNum;
+
+        if (GameModeHolder == 1)
+        {
+            bloclking_wall = GameObject.FindGameObjectWithTag("HidingEnd");
+        }
+
     }
 
     void Update()
@@ -139,6 +150,9 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             StartCoroutine(playFootsteps());
 
             gameManager.instance.updatePoints();
+
+           
+
 
             //if (gunList[0] != null)
             //{
@@ -180,6 +194,15 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
         }
 
+    }
+
+    IEnumerator txtTimer()
+    {
+        gameManager.instance.EscapeNow.SetActive(true);
+        cantEscape = false;
+        yield return new WaitForSeconds(3);
+        gameManager.instance.EscapeNow.SetActive(false);
+        cantEscape = true;
     }
 
     public void switch_guns()
@@ -494,6 +517,14 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         gameManager.instance.pickUpKey();
         aud.PlayOneShot(pickUpKey[Random.Range(0, pickUpKey.Length)], pickUpKeyVol);
         //update the ui, make a update function for ui
+       
+            if (GameModeHolder == 1 && keysFound == 3)
+            {
+                Destroy(bloclking_wall);
+                //add message for the player to let them know that found all the keys
+                StartCoroutine(txtTimer());
+            }
+        
     }
 
     public bool checkKey(bool key)
@@ -580,7 +611,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             }
         }
 
-      aud.PlayOneShot(gunWasPickedUp[0], GWPU_Volumue);
+        aud.PlayOneShot(gunWasPickedUp[0], GWPU_Volumue);
 
 
     }

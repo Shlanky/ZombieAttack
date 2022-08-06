@@ -67,6 +67,8 @@ public class gameManager : MonoBehaviour
 
     public GameObject jobsNotDoneMsg;
 
+    //maze text
+    public GameObject EscapeNow;
 
     [HideInInspector] public bool paused = false;
     [HideInInspector] public bool gameOver;
@@ -105,12 +107,22 @@ public class gameManager : MonoBehaviour
     int gameModeHolder;
     // Start is called before the first frame update
     void Awake()
-    { 
-      
+    {
+
+        //this fixed the pause bug
+        gameModeHolder = buttonFunction.gameModeNum;
+
+       
+        if (gameModeHolder > 0)
+        {
+            unlockCursorUnpause();
             instance = this;
             player = GameObject.FindGameObjectWithTag("Player");
 
             playerScript = player.GetComponent<_PlayerControl>();
+        }
+
+
 
 
     }
@@ -118,15 +130,14 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //get the amount of ammo so its the same in the ui
-        //ogMagCount = gameManager.instance.playerScript.roundsInMag;
-        //ogResCount = gameManager.instance.playerScript.roundsInReserve;
+       
+        if (gameModeHolder > 0)
+        {
+            magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
+            resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
+        }
 
-        //  tmpGMholder = GameModeNum.gameMode;
 
-      
-        magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
-        resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
 
         if (Input.GetButtonDown("Cancel") && !gameOver)
         {
@@ -296,7 +307,7 @@ public class gameManager : MonoBehaviour
     //this will move to the differant scenes
     public void checkKeysForWin(bool check)
     {
-        if (check == true && mazesCompleted == 3)
+        if (check == true && mazesCompleted == 5)
         {
             // show win screen
             menuCurrentlyOpen = winGameMenu;
@@ -305,7 +316,7 @@ public class gameManager : MonoBehaviour
             lockCursorPause();
         }
 
-        else if (mazesCompleted < 4)
+        else if (mazesCompleted < 5)
         {
             moveUpLevel();
         }
@@ -330,6 +341,20 @@ public class gameManager : MonoBehaviour
         if (mazesCompleted == 2)
         {
             SceneManager.LoadScene("Maze 4");
+            mazesCompleted++;
+            return mazesCompleted;
+        }
+
+        if (mazesCompleted == 3)
+        {
+            SceneManager.LoadScene("Maze 5");
+            mazesCompleted++;
+            return mazesCompleted;
+        }
+
+        if (mazesCompleted == 4)
+        {
+            SceneManager.LoadScene("Maze 6");
             mazesCompleted++;
             return mazesCompleted;
         }

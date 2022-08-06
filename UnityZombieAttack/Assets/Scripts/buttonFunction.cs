@@ -45,9 +45,20 @@ public class buttonFunction : MonoBehaviour
 
     public void restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
-        gameManager.instance.restart();
+
+        if (gameModeNum == 1)
+        {
+            SceneManager.LoadScene("Maze Sample");
+            aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
+            gameManager.instance.restart();
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
+            gameManager.instance.restart();
+        }
+
     }
 
 
@@ -71,7 +82,6 @@ public class buttonFunction : MonoBehaviour
     {
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
         gameModeNum = 0;
-        // StartCoroutine(waitTimerForStartingScreen());
         SceneManager.LoadScene("Starting Screen");
 
     }
@@ -96,6 +106,11 @@ public class buttonFunction : MonoBehaviour
         gameModeNum = 0;
         SceneManager.LoadScene("Settings");
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
+    }
+
+    public void settingInGame()
+    {
+
     }
 
     IEnumerator waitTimerForStartingScreen()
