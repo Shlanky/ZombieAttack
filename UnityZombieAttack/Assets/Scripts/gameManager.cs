@@ -112,7 +112,7 @@ public class gameManager : MonoBehaviour
         //this fixed the pause bug
         gameModeHolder = buttonFunction.gameModeNum;
 
-       
+
         if (gameModeHolder > 0)
         {
             unlockCursorUnpause();
@@ -130,29 +130,33 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         if (gameModeHolder > 0)
         {
             magAmmoLeft = gameManager.instance.playerScript.roundsInMag;
             resAmmoLeft = gameManager.instance.playerScript.roundsInReserve;
+
+
+            //may need to put this outside the if statemtn if theres an issue w the main menu
+            if (Input.GetButtonDown("Cancel") && !gameOver)
+            {
+                if (!paused && !menuCurrentlyOpen)
+                {
+                    paused = true;
+                    menuCurrentlyOpen = pauseMenu;
+                    menuCurrentlyOpen.SetActive(true);
+                    lockCursorPause();
+                }
+                else
+                {
+                    resume();
+                }
+            }
+
         }
 
 
 
-        if (Input.GetButtonDown("Cancel") && !gameOver)
-        {
-            if (!paused && !menuCurrentlyOpen)
-            {
-                paused = true;
-                menuCurrentlyOpen = pauseMenu;
-                menuCurrentlyOpen.SetActive(true);
-                lockCursorPause();
-            }
-            else
-            {
-                resume();
-            }
-        }
 
     }
 
