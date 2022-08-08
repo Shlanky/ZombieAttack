@@ -114,9 +114,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     private void Start()
     {
-
-
-
         currentGun = gunList[0];
         shootRate = gunList[0].fireRate;
         weaponDamage = gunList[0].damage;
@@ -155,23 +152,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             gameManager.instance.updatePoints();
 
-           
-
-
-            //if (gunList[0] != null)
+            //if (canSwitch)
             //{
-            //    Primary.damage = gunList[0].damage;
-            //    Primary.fireRate = gunList[0].fireRate;
-            //    Primary.magSize = gunList[0].magSize;
-            //    Primary.resSize = gunList[0].resSize;
+            //    switch_guns();
+            //    ogRoundsinMag = currentGun.magSize;
+            //    OgRoundsInReserve = currentGun.resSize;
             //}
-
-            if (canSwitch)
-            {
-                switch_guns();
-                ogRoundsinMag = currentGun.magSize;
-                OgRoundsInReserve = currentGun.resSize;
-            }
 
             if (HP < hpOriginal)
             {
@@ -209,6 +195,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         cantEscape = true;
     }
 
+    //dont need this anymore
     public void switch_guns()
     {
         if (Input.GetButtonDown("Primary"))
@@ -542,14 +529,14 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         gameManager.instance.pickUpKey();
         aud.PlayOneShot(pickUpKey[Random.Range(0, pickUpKey.Length)], pickUpKeyVol);
         //update the ui, make a update function for ui
-       
-            if (GameModeHolder == 1 && keysFound == 3)
-            {
-                Destroy(bloclking_wall);
-                //add message for the player to let them know that found all the keys
-                StartCoroutine(txtTimer());
-            }
-        
+
+        if (GameModeHolder == 1 && keysFound == 3)
+        {
+            Destroy(bloclking_wall);
+            //add message for the player to let them know that found all the keys
+            StartCoroutine(txtTimer());
+        }
+
     }
 
     public bool checkKey(bool key)
@@ -596,6 +583,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             gunList.Insert(tmp, stats);
             currentGun = gunList[tmp];
             gameManager.instance.updateMagCount();
+            gameManager.instance.updateReserveCount();
 
         }
 
@@ -628,6 +616,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 gunList.Insert(tmp, stats);
                 currentGun = gunList[tmp];
                 gameManager.instance.updateMagCount();
+                gameManager.instance.updateReserveCount();
             }
 
             else

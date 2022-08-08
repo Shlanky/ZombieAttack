@@ -2745,6 +2745,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626069462, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1911665035118581822, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
       propertyPath: Jump_Icon
       value: 
@@ -2757,6 +2761,10 @@ PrefabInstance:
       propertyPath: Damage_Icon
       value: 
       objectReference: {fileID: 456938017}
+    - target: {fileID: 1911665035807433711, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1950471389164179281, guid: 8a9e836c60bf60647aff8f94e49526c3, type: 3}
       propertyPath: m_Name
       value: UI

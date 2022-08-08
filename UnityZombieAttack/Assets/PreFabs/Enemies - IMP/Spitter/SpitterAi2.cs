@@ -27,17 +27,29 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shootPos;
 
+
+    [Header("----------------------------------")]
+    [Header("Power Ups")]
+    [SerializeField] OneShotOneKIll damageDrop;
+    [SerializeField] doublePoints MoneyRush;
+    [SerializeField] Healer heal;
+    [SerializeField] FullOfBullets ammo;
+
     bool canShoot=true;
     [SerializeField] bool playerInRange;
     Vector3 playerDir;
     Vector3 startingPos;
     float StoppingDistOrig;
+
+    public static int GameModeHolder;
     // Start is called before the first frame update
     void Start()
     {
         startingPos = transform.position;
         StoppingDistOrig = agent.stoppingDistance;
         gameManager.instance.updateEnemyNumber();
+
+        GameModeHolder = buttonFunction.gameModeNum;
     }
 
     // Update is called once per frame
@@ -129,8 +141,12 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
             agent.enabled = false;
             anim.SetBool("Dead", true);
 
+        
+
             foreach (Collider col in GetComponents<Collider>())
-                col.enabled = false;
+                col.enabled = false;   
+            
+            powerUpDrop();
 
         }
 
@@ -163,6 +179,48 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         }
     }
 
+
+    public void powerUpDrop()
+    {
+        //make a random number
+        int maybePowerUp = Random.Range(0, 25);
+        if (maybePowerUp == 4)
+        {
+            //make a heal power up on the body
+            Instantiate(heal, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+        if (maybePowerUp == 8 && GameModeHolder == 2)
+        {
+            //make a damage power drop on body
+            Instantiate(damageDrop, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
+        if (maybePowerUp == 8 && GameModeHolder == 3)
+        {
+            //make a damage power drop on body
+            Instantiate(damageDrop, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
+        if (maybePowerUp == 15)
+        {
+            //make a ammo drop on body
+            Instantiate(ammo, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
+        if (maybePowerUp == 21 && GameModeHolder == 2)
+        {
+            //make a double points drop on body
+            Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
+        if (maybePowerUp == 8 && GameModeHolder == 3)
+        {
+            //make a damage power drop on body
+            Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
+        }
+
+
+    }
 
 
 }
