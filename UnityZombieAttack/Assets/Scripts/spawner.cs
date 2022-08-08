@@ -55,13 +55,16 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        killed = gameManager.instance.enimiesKilled;
         if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
         {
             StartCoroutine(spawnEnemy());
         }
-
+        if (killed == numEnemiesToSpawn)
+        {
+            spawnedEnemyNum = 0;
+        }
     }
+
+
 }
-
-
-
