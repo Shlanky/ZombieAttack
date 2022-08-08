@@ -77,9 +77,10 @@ public class gameManager : MonoBehaviour
     public GameObject menuCurrentlyOpen;
     [Header("------Game Goals-------")]
 
+
     //for enemy ui
     public int enemyKillGoal;
-    int enimiesKilled;
+   public int enimiesKilled = 0;
 
     //for ammo ui
     int magAmmoLeft;
@@ -104,7 +105,14 @@ public class gameManager : MonoBehaviour
     //for rounds/survival
     int rounds;
 
+
     int gameModeHolder;
+
+
+    //testing stuff with the spawner
+    spawner test;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -121,9 +129,6 @@ public class gameManager : MonoBehaviour
 
             playerScript = player.GetComponent<_PlayerControl>();
         }
-
-
-
 
     }
 
@@ -185,7 +190,10 @@ public class gameManager : MonoBehaviour
         //uncomment this when im done with writing the scripts for gamemode
         if (enimiesKilled >= enemyKillGoal)
         {
-            StartCoroutine(jobsNotDone());
+            //StartCoroutine(jobsNotDone());
+
+            //restart the spawners
+            //restart the spawners
         }
 
     }

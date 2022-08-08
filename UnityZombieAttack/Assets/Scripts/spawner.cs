@@ -10,14 +10,13 @@ public class spawner : MonoBehaviour
     [SerializeField] GameObject Spitter;
     [SerializeField] GameObject Sprinter;
 
-    int spawnedEnemyNum;
-    int allEnemysrDead;
+   public int spawnedEnemyNum;
+    int killed;
     bool canSpawn = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     IEnumerator spawnEnemy()
@@ -63,3 +62,6 @@ public class spawner : MonoBehaviour
 
     }
 }
+
+
+

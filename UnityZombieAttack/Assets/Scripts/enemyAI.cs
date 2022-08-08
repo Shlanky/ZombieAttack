@@ -28,6 +28,8 @@ public class enemyAI : MonoBehaviour, iDamageable
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject shootPos;
 
+    spawner killcount;
+
 
     bool canShoot;
     bool playerInRange;
@@ -163,6 +165,7 @@ public class enemyAI : MonoBehaviour, iDamageable
             {
                 item.enabled = false;
             }
+
         }
     }
 

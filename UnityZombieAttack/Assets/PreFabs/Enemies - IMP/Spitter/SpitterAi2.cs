@@ -42,6 +42,11 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     float StoppingDistOrig;
 
     public static int GameModeHolder;
+
+    int shotPoints;
+    int killPoints;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +60,9 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     // Update is called once per frame
     void Update()
     {
+
+        shotPoints = gameManager.instance.playerScript.shotPoint;
+        killPoints = gameManager.instance.playerScript.killPoint;
         if (agent.isActiveAndEnabled)
         {
 
@@ -134,19 +142,22 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     {
         HP -= dmg;
         playerInRange = true;
+        gameManager.instance.playerScript.earnPoints(shotPoints);
         StartCoroutine(flashColor());
         if (HP <= 0)
         {
             gameManager.instance.checkEnemyKills();
             agent.enabled = false;
             anim.SetBool("Dead", true);
+            gameManager.instance.playerScript.earnPoints(killPoints);
 
-        
+
 
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;   
             
             powerUpDrop();
+
 
         }
 

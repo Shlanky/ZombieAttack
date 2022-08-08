@@ -41,6 +41,9 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     [SerializeField] int timer;
     [SerializeField] GameObject SprinterExplosion;
 
+    int shotPoints;
+    int killPoints;
+
     public static int GameModeHolder;
     // Start is called before the first frame update
     void Start()
@@ -55,6 +58,9 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     // Update is called once per frame
     void Update()
     {
+
+        shotPoints = gameManager.instance.playerScript.shotPoint;
+        killPoints = gameManager.instance.playerScript.killPoint;
         if (agent.isActiveAndEnabled)
         {
 
@@ -122,12 +128,15 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     {
         HP -= dmg;
         playerInRange = true;
+        gameManager.instance.playerScript.earnPoints(shotPoints);
+
         StartCoroutine(flashColor());
         if (HP <= 0)
         {
             gameManager.instance.checkEnemyKills();
             agent.enabled = false;
             anim.SetBool("Dead", true);
+            gameManager.instance.playerScript.earnPoints(killPoints);
 
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
