@@ -371,12 +371,32 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 498747395, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391109178, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.4743681
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391109178, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.4743681
+      objectReference: {fileID: 0}
+    - target: {fileID: 1391109178, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
     - target: {fileID: 1446154558, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1446154558, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463204921, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2075320746, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
@@ -491,5 +511,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI (Settings)
       objectReference: {fileID: 0}
+    - target: {fileID: 7731005835817118844, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 8096200803106411062}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+--- !u!1 &8096200803106411062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1391109174, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+  m_PrefabInstance: {fileID: 8096200803106411061}
+  m_PrefabAsset: {fileID: 0}
