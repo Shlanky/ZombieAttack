@@ -18,6 +18,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(1, 4)] [SerializeField] int jumps;
     public int points = 0;
 
+    [Header("Player Slowing")]
+    [Header("----------------------------------------------")]
+    [SerializeField] float SlowSpeed;
+    bool isSlowed = false;
 
     [Header("Player Weapon Stats")]
     [Header("----------------------------------------------")]
@@ -271,7 +275,18 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         }
 
         move = (transform.right * Input.GetAxis("Horizontal")) + (transform.forward * Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
+
+        // Decide what movement speed to use if player is currently slowed.
+        if (isSlowed == true)
+        {
+            // add our vector to the character controller move
+            controller.Move(move * Time.deltaTime * SlowSpeed);
+        }
+        else
+        {
+            // add our vector to the character controller move
+            controller.Move(move * Time.deltaTime * playerSpeed);
+        }
 
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && Times_jump < jumps)
@@ -288,13 +303,23 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     void Sprint()
     {
-        if (Input.GetButtonDown("Sprint"))
+        if (Input.GetButtonDown("Sprint") && isSlowed == false)
         {
             isSprint = true;
             playerSpeed = playerSpeed * sprintMult;
-        }
 
-        else if (Input.GetButtonUp("Sprint"))
+        }
+        else if (Input.GetButtonDown("Sprint") && isSlowed == true)
+        {
+            isSprint = true;
+            playerSpeed = SlowSpeed * sprintMult;
+        }
+        else if (Input.GetButtonUp("Sprint") && isSlowed == true)
+        {
+            isSprint = false;
+            playerSpeed = SlowSpeed;
+        }
+        else if (Input.GetButtonUp("Sprint") && isSlowed == false)
         {
             isSprint = false;
             playerSpeed = playerSpeedOg;
@@ -653,4 +678,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         giveHP(5);
     }
 
+    public void ToggleSlowOn()
+    {
+        isSlowed = true;
+    }
+    public void ToggleSlowOff()
+    {
+        isSlowed = false;
+    }
 }

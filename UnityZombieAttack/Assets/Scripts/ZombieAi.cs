@@ -17,6 +17,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [SerializeField] int viewAngle;
     [SerializeField] int playerFaceSpeed;
     [SerializeField] int roamRadius;
+    [SerializeField] float AttackAnimBuffer;
 
     [Header("----------------------------------")]
     [Header("Weapon Stats")]
@@ -31,7 +32,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [SerializeField] Healer heal;
     [SerializeField] FullOfBullets ammo;
 
-    bool canShoot;
+    bool canShoot = true;
     [SerializeField] bool playerInRange;
     Vector3 playerDir;
     Vector3 startingPos;
@@ -68,17 +69,17 @@ public class ZombieAi : MonoBehaviour, iDamageable
             anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 5));
 
             playerDir = gameManager.instance.player.transform.position - transform.position;
+            agent.SetDestination(gameManager.instance.player.transform.position);
+            facePlayer();
             if (playerInRange)
             {
-                agent.SetDestination(gameManager.instance.player.transform.position);
                 canSeePlayer();
-                facePlayer();
             }
-            else if (agent.remainingDistance < 0.1f)
-                StartCoroutine(roam());
+            /*else if (agent.remainingDistance < 0.1f)
+                StartCoroutine(roam());*/
         }
     }
-    IEnumerator roam()
+   /* IEnumerator roam()
     {
         agent.stoppingDistance = 0;
         Vector3 randomDir = Random.insideUnitSphere * roamRadius;
@@ -91,7 +92,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
         agent.CalculatePath(hit.position, path);
         agent.SetPath(path);
         yield return new WaitForSeconds(3);
-    }
+    }*/
     void facePlayer()
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -105,7 +106,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     void canSeePlayer()
     {
         float angle = Vector3.Angle(playerDir, transform.forward);
-        Debug.Log(angle);
+        //Debug.Log(angle);
         RaycastHit hit;
 
 
@@ -126,7 +127,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
         {
 
             playerInRange = true;
-            canShoot = true;
+          //canShoot = true;
             agent.stoppingDistance = StoppingDistOrig;
         }
     }
@@ -166,15 +167,22 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
     IEnumerator shoot()
     {
-        canShoot = false;
+        if (canShoot == true)
+        {
+            canShoot = false;
 
-        anim.SetTrigger("Shoot");// Lets us use shoot animation
+            anim.SetTrigger("Shoot");// Lets us use shoot animation
+            yield return new WaitForSeconds(AttackAnimBuffer);
+            //-------------
 
-        Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
+            Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
 
-        yield return new WaitForSeconds(shootRate);
+            // 
 
-        canShoot = true;
+            yield return new WaitForSeconds(shootRate);
+
+            canShoot = true;
+        }
     }
 
     public void powerUpDrop()
