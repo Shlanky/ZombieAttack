@@ -25,7 +25,7 @@ public class gameManager : MonoBehaviour
     public TMP_Text enemyDead;
     public TMP_Text enemyTotal;
     public TMP_Text keyCount;
-
+    public TMP_Text Round_Num;
 
     public TMP_Text AmmoMag;
     public TMP_Text AmmoRes;
@@ -100,7 +100,7 @@ public class gameManager : MonoBehaviour
     static int mazesCompleted;
 
     //for rounds/survival
-    int rounds;
+    int rounds = 1;
 
 
     int gameModeHolder;
@@ -211,6 +211,13 @@ public class gameManager : MonoBehaviour
         {
             //StartCoroutine(jobsNotDone());
         }
+    }
+
+    public void RoundCounter()
+    {
+        rounds++;
+        Round_Num.text = rounds.ToString("F0");
+
     }
 
     IEnumerator jobsNotDone()

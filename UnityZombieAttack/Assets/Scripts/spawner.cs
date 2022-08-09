@@ -66,7 +66,7 @@ public class spawner : MonoBehaviour
             spawnedEnemyNum = 0;
             numEnemiesToSpawn += 2;
             gameManager.instance.enimiesKilled = 0;
-
+            gameManager.instance.RoundCounter();
         }
     }
 }

@@ -185,7 +185,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
 
-        if (maybePowerUp == 8 && GameModeHolder == 3)
+        if (maybePowerUp == 21 && GameModeHolder == 3)
         {
             //make a damage power drop on body
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
