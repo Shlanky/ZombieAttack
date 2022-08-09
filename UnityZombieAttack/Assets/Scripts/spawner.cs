@@ -11,7 +11,7 @@ public class spawner : MonoBehaviour
     [SerializeField] GameObject Sprinter;
 
     public int spawnedEnemyNum;
-    int killed = 0;
+    public int killed = 0;
     bool canSpawn = true;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class spawner : MonoBehaviour
 
     }
 
-   public IEnumerator spawnEnemy()
+    public IEnumerator spawnEnemy()
     {
         int enemyNum = Random.Range(1, 4);
 
@@ -60,6 +60,13 @@ public class spawner : MonoBehaviour
         if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
         {
             StartCoroutine(spawnEnemy());
+        }
+        if (canSpawn && killed == numEnemiesToSpawn)
+        {
+            spawnedEnemyNum = 0;
+            numEnemiesToSpawn += 2;
+            gameManager.instance.enimiesKilled = 0;
+
         }
     }
 }

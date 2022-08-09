@@ -207,10 +207,9 @@ public class gameManager : MonoBehaviour
         enemyDead.text = enimiesKilled.ToString("F0");
 
         //uncomment this when im done with writing the scripts for gamemode
-        if (enimiesKilled == enemyKillGoal)
+        if (enimiesKilled >= enemyKillGoal)
         {
-            enemyKillGoal++;
-            enimiesKilled = 0;
+            //StartCoroutine(jobsNotDone());
         }
     }
 
