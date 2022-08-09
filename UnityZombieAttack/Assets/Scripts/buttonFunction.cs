@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class buttonFunction : MonoBehaviour
 {
     public static int gameModeNum;
-
     public AudioSource aud;
 
     //gun shot
@@ -48,6 +47,7 @@ public class buttonFunction : MonoBehaviour
 
         if (gameModeNum == 1)
         {
+
             SceneManager.LoadScene("Maze Sample");
             aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
             gameManager.instance.restart();
@@ -65,8 +65,8 @@ public class buttonFunction : MonoBehaviour
     //for the main screan buttons
     public void escape()
     {
+        
         gameModeNum = 1;
-
         SceneManager.LoadScene("Maze sample");
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
     }

@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    [SerializeField] int numEnemiesToSpawn;
+    [SerializeField] public int numEnemiesToSpawn;
     [SerializeField] int timer;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject Spitter;
     [SerializeField] GameObject Sprinter;
 
-   public int spawnedEnemyNum;
-    int killed;
+    public int spawnedEnemyNum;
+    int killed = 0;
     bool canSpawn = true;
 
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
-    IEnumerator spawnEnemy()
+   public IEnumerator spawnEnemy()
     {
         int enemyNum = Random.Range(1, 4);
 
@@ -60,11 +61,5 @@ public class spawner : MonoBehaviour
         {
             StartCoroutine(spawnEnemy());
         }
-        if (killed == numEnemiesToSpawn)
-        {
-            spawnedEnemyNum = 0;
-        }
     }
-
-
 }

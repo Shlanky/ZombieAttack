@@ -80,7 +80,7 @@ public class gameManager : MonoBehaviour
 
     //for enemy ui
     public int enemyKillGoal;
-   public int enimiesKilled = 0;
+    public int enimiesKilled = 0;
 
     //for ammo ui
     int magAmmoLeft;
@@ -99,9 +99,6 @@ public class gameManager : MonoBehaviour
     //for the maze counter to make sure its going to the right maze
     static int mazesCompleted;
 
-    //buttonFunction GameModeNum;
-    //int tmpGMholder;
-
     //for rounds/survival
     int rounds;
 
@@ -112,14 +109,37 @@ public class gameManager : MonoBehaviour
     //testing stuff with the spawner
     spawner test;
 
+    [Header("------Transitions-------")]
+    public GameObject startTransition;
+    public GameObject Maze_enter;
+    public GameObject Maze_finish;
+    public GameObject Survival_Start;
+    public GameObject PlayGround;
+
 
     // Start is called before the first frame update
     void Awake()
     {
 
+
         //this fixed the pause bug
         gameModeHolder = buttonFunction.gameModeNum;
-
+        if (gameModeHolder == 0)
+        {
+           // startTransition.SetActive(true);
+        }
+        if (gameModeHolder == 1)
+        {
+            Maze_enter.SetActive(true);
+        }
+        if (gameModeHolder == 2)
+        {
+            Survival_Start.SetActive(true);
+        }
+        if (gameModeHolder == 3)
+        {
+            PlayGround.SetActive(true);
+        }
 
         if (gameModeHolder > 0)
         {
@@ -128,6 +148,7 @@ public class gameManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
 
             playerScript = player.GetComponent<_PlayerControl>();
+
         }
 
     }
@@ -161,8 +182,6 @@ public class gameManager : MonoBehaviour
         }
 
 
-
-
     }
 
     public void resume()
@@ -188,14 +207,11 @@ public class gameManager : MonoBehaviour
         enemyDead.text = enimiesKilled.ToString("F0");
 
         //uncomment this when im done with writing the scripts for gamemode
-        if (enimiesKilled >= enemyKillGoal)
+        if (enimiesKilled == enemyKillGoal)
         {
-            //StartCoroutine(jobsNotDone());
-
-            //restart the spawners
-            //restart the spawners
+            enemyKillGoal++;
+            enimiesKilled = 0;
         }
-
     }
 
     IEnumerator jobsNotDone()
@@ -330,6 +346,7 @@ public class gameManager : MonoBehaviour
 
         else if (mazesCompleted < 5)
         {
+          
             moveUpLevel();
         }
     }
@@ -337,7 +354,7 @@ public class gameManager : MonoBehaviour
     public int moveUpLevel()
     {
         if (mazesCompleted == 0)
-        {
+        {  
             SceneManager.LoadScene("Maze 2");
             mazesCompleted++;
             return mazesCompleted;
@@ -374,4 +391,12 @@ public class gameManager : MonoBehaviour
         return 0;
     }
 
+    IEnumerator exitTransition()
+    {
+        Maze_finish.SetActive(true);
+
+        yield return new WaitForSeconds(2);
+
+        Maze_finish.SetActive(false);
+    }
 }
