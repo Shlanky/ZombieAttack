@@ -1018,7 +1018,8 @@ MonoBehaviour:
   ammo: {fileID: 370696276321610507, guid: 143273f01d66fe14d81990ced91092f5, type: 3}
   playerInRange: 0
   timer: 2
-  SprinterExplosion: {fileID: 3360192264889032223, guid: 53aff5e477b3a65468d3a0f729a17248, type: 3}
+  Sprinter_Explosion: {fileID: 3360192264889032209, guid: 53aff5e477b3a65468d3a0f729a17248, type: 3}
+  cur_rounds: 0
 --- !u!195 &5337134561684676191
 NavMeshAgent:
   m_ObjectHideFlags: 0

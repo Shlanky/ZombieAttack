@@ -6,9 +6,9 @@ public class spawner : MonoBehaviour
 {
     [SerializeField] public int numEnemiesToSpawn;
     [SerializeField] int timer;
-    [SerializeField] GameObject enemy;
-    [SerializeField] GameObject Spitter;
-    [SerializeField] GameObject Sprinter;
+    [SerializeField] ZombieAi enemy;
+    [SerializeField] SpitterAi2 Spitter;
+    [SerializeField] SprinterZomb Sprinter;
 
     public int spawnedEnemyNum;
     public int killed = 0;
@@ -66,14 +66,16 @@ public class spawner : MonoBehaviour
         }
         if (canSpawn && killed >= killGoal)
         {
-
+            //statrs new round
             spawnedEnemyNum = 0;
             numEnemiesToSpawn += 2;
             gameManager.instance.enimiesKilled = 0;
             gameManager.instance.enemyKillGoal = 0;
             gameManager.instance.RoundCounter();
 
-
+            Spitter.roundIncreaseBuff();
+            Sprinter.roundIncreaseBuff();
+            enemy.roundIncreaseBuff();
             //  call the zombie buffers
         }
     }

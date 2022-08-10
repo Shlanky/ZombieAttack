@@ -17,5 +17,6 @@ MonoBehaviour:
   damage: 6
   magSize: 32
   resSize: 180
+  gunMuzzel: 2
   muzzleFlash: {fileID: 3718419600782208380, guid: 540788c9688b27045a39782325228ee4, type: 3}
   gunModel: {fileID: 898274975898589993, guid: 6fcf38d01827435438cbc4490e5c2e78, type: 3}

@@ -24,7 +24,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     [Header("----------------------------------")]
     [Header("Weapon Stats")]
     [SerializeField] float shootRate;
-    [SerializeField] GameObject bullet;
+    [SerializeField] GhoulHit bullet;
     [SerializeField] GameObject shootPos;
 
 
@@ -237,6 +237,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
 
     public void roundIncreaseBuff()
     {
-
+        bullet.damage += 3;
+        HP += 3;
     }
 }

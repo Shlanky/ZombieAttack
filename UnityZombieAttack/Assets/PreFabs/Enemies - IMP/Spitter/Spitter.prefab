@@ -1320,13 +1320,14 @@ MonoBehaviour:
   roamRadius: 1
   bile: {fileID: 6329616102016552364}
   shootRate: 3
-  bullet: {fileID: 540674732423903859, guid: a0a64f18154cc3e40a992edb3508810f, type: 3}
+  bullet: {fileID: 4297899111870079331, guid: a0a64f18154cc3e40a992edb3508810f, type: 3}
   shootPos: {fileID: 3747359063787996400}
   damageDrop: {fileID: 6921880995004264670, guid: 180d50bf451cab34e8891952f9300bf2, type: 3}
   MoneyRush: {fileID: 7334344707935480498, guid: c504de9842a944c46a7fab7f40bac410, type: 3}
   heal: {fileID: 7735802241023344765, guid: 2c744f13100cbd040a772399d60a1e90, type: 3}
   ammo: {fileID: 370696276321610507, guid: 143273f01d66fe14d81990ced91092f5, type: 3}
   playerInRange: 0
+  cur_rounds: 0
 --- !u!1 &4163364151490422704
 GameObject:
   m_ObjectHideFlags: 0

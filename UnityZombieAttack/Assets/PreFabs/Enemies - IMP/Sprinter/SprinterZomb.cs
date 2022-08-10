@@ -39,7 +39,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     [Header("----------------------------------")]
     [Header("Explosive Timer")]
     [SerializeField] int timer;
-    [SerializeField] GameObject SprinterExplosion;
+    [SerializeField] SprinterExplosion Sprinter_Explosion;
 
     int shotPoints;
     int killPoints;
@@ -95,14 +95,16 @@ public class SprinterZomb : MonoBehaviour, iDamageable
         yield return new WaitForSeconds(timer);
         if(playerInRange)
         {
-        Instantiate(SprinterExplosion, agent.transform.position, SprinterExplosion.transform.rotation);
+        Instantiate(Sprinter_Explosion, agent.transform.position, Sprinter_Explosion.transform.rotation);
             //Instantiate Explosion at Agent.Position, following Rotation of Explosion
-        Destroy(gameObject);
+            gameManager.instance.checkEnemyKills();
+
+            Destroy(gameObject);
         }
     }
     IEnumerator goBoomNOW()
     {
-      Instantiate(SprinterExplosion, agent.transform.position, SprinterExplosion.transform.rotation);
+      Instantiate(Sprinter_Explosion, agent.transform.position, Sprinter_Explosion.transform.rotation);
       //Instantiate Explosion at Agent.Position, following Rotation of Explosion
       Destroy(gameObject);
       yield return new WaitForSeconds(0.001f);
@@ -199,7 +201,8 @@ public class SprinterZomb : MonoBehaviour, iDamageable
 
     public void roundIncreaseBuff()
     {
-
+        Sprinter_Explosion.damage += 3;
+        HP += 3;
     }
 
 

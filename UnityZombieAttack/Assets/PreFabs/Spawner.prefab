@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numEnemiesToSpawn: 5
   timer: 1
-  enemy: {fileID: 8340829595362353184, guid: f1954acc7ed698a4295b807622e19bda, type: 3}
-  Spitter: {fileID: 4089306837584248033, guid: ac299c5b98b86ab4dbd1c426b129480c, type: 3}
-  Sprinter: {fileID: 4120972386283784017, guid: 719a1685d3a5e704f9dda6145b6a6cb9, type: 3}
+  enemy: {fileID: 3344881683562160414, guid: f1954acc7ed698a4295b807622e19bda, type: 3}
+  Spitter: {fileID: 7308179594954505248, guid: ac299c5b98b86ab4dbd1c426b129480c, type: 3}
+  Sprinter: {fileID: 4120972386283784026, guid: 719a1685d3a5e704f9dda6145b6a6cb9, type: 3}
+  spawnedEnemyNum: 0
+  killed: 0
+  killGoal: 0

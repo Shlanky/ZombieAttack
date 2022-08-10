@@ -22,7 +22,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [Header("----------------------------------")]
     [Header("Weapon Stats")]
     [SerializeField] float shootRate;
-    [SerializeField] GameObject bullet;
+    [SerializeField] ZombieHit bullet;
     [SerializeField] ZombieHit test;
     [SerializeField] GameObject shootPos;
 
@@ -231,7 +231,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
     }
     public void roundIncreaseBuff()
     {
-
+        bullet.damage += 3;
+        HP += 3;
     }
 
 }

@@ -40,6 +40,18 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [SerializeField] GameObject hitEffectSpark;
     [SerializeField] GameObject muzzleFlash;
 
+    //finsih off when i get the muzzel flashes from chris
+    //[SerializeField] GameObject Ak_Muzzel_Flash;
+    //[SerializeField] GameObject FaMas_Muzzel_Flash;
+    //[SerializeField] GameObject Ghost_Muzzel_Flash;
+    //[SerializeField] GameObject Uzi_Muzzel_Flash;
+    //[SerializeField] GameObject M16_Muzzel_Flash;
+    //[SerializeField] GameObject M1911_Muzzel_Flash;
+    //[SerializeField] GameObject MP5_Muzzel_Flash;
+    //[SerializeField] GameObject Revolver_Muzzel_Flash;
+
+
+
     [SerializeField] GameObject gunModel;
     public List<gunStats> gunList = new List<gunStats>();
 
@@ -100,14 +112,29 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     // buttonFunction gameMode;
     static int GameModeHolder;
 
-    bool canSwitch = true;
-
     public GameObject bloclking_wall;
     bool cantEscape = true;
     bool canReload = true;
 
+    int muzzle_pos = 0;
+
+    bool shooting = false;
+
+    bool can_heal;
     private void Start()
     {
+        //for the muzzel pos
+        //make a switch that will turn a certain one on based on which gun it is
+        //1 ak
+        //2 Famas
+        //3 Phost
+        //4 Lil Uzi
+        //5 m!6
+        //6 m1911
+        //7 Mp5
+        //8 Revolver
+
+        muzzle_pos = gunList[0].gunMuzzel;
         currentGun = gunList[0];
         shootRate = gunList[0].fireRate;
         weaponDamage = gunList[0].damage;
@@ -149,12 +176,18 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             gameManager.instance.updatePoints();
 
             //can mess w this later if needed
-            //if (HP < hpOriginal)
-            //{
-            //    StartCoroutine(healOverTime());
-            //}
 
-            if (Input.GetButtonDown("Reload") && roundsInReserve > 0 && canReload == true)
+            if (HP < hpOriginal)
+            {
+                StartCoroutine(healOverTime());
+            }
+
+            if (Input.GetButtonUp("Shoot"))
+            {
+                shooting = false;
+            }
+
+            if (Input.GetButtonDown("Reload") && roundsInReserve > 0 && canReload == true && shooting == false)
             {
                  Reload();
                 StartCoroutine(reload_timer());
@@ -228,13 +261,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     //    }
 
     //}
-
-    IEnumerator switchTimer()
-    {
-        canSwitch = false;
-        yield return new WaitForSeconds(2);
-        canSwitch = true;
-    }
 
     //use this somewher so they can j reload constantly while shooting
     IEnumerator readyToShoot()
@@ -337,7 +363,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         // Debug.DrawLine(Camera.main.transform.position, Camera.main.transform.forward * 100, Color.red);
         if (Input.GetButton("Shoot") && canShoot)
         {
-
+            shooting = true;
             canShoot = false;
 
             aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
@@ -362,6 +388,53 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 }
             }
 
+            //add the switch here for the dif muzzle flashes n check teh muzzel pos
+            //switch (muzzle_pos)
+            //{
+            //    //ak47
+            //    case 1:
+            //        Ak_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            //        break;
+
+            //    //FaMas
+            //    case 2:
+            //        FaMas_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+
+            //        break;
+
+            //    //Ghost
+            //    case 3:
+            //        Ghost_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+
+            //        break;
+
+            //    //Uzi
+            //    case 4:
+            //        Uzi_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+
+            //        break;
+
+            //    //m16
+            //    case 5:
+            //        M16_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            //        break;
+
+            //    //m1911
+            //    case 6:
+            //        M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            //        break;
+
+            //    //Mp5
+            //    case 7:
+            //        MP5_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            //        break;
+
+            //    //revolver
+            //    case 8:
+            //        Revolver_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+            //        break;
+                   
+            //}
             //muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             muzzleFlash.SetActive(true);
             yield return new WaitForSeconds(.05f);
@@ -602,7 +675,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             OgRoundsInReserve = gunList[tmp].resSize;
             canShoot = true;
             gameManager.instance.noAmmo.SetActive(false);
-
+            muzzle_pos = gunList[tmp].gunMuzzel;
 
         }
 
@@ -641,6 +714,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 OgRoundsInReserve = gunList[tmp].resSize;
                 canShoot = true;
                 gameManager.instance.noAmmo.SetActive(false);
+                muzzle_pos = gunList[tmp].gunMuzzel;
+
             }
 
             else

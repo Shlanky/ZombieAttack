@@ -15,6 +15,7 @@ public class gunStats : ScriptableObject
     public int damage;
     public int magSize;
     public int resSize;
+    public int gunMuzzel;
     public GameObject muzzleFlash;
     public GameObject gunModel;
 
