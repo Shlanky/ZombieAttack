@@ -104,6 +104,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     public GameObject bloclking_wall;
     bool cantEscape = true;
+    bool canReload = true;
 
     private void Start()
     {
@@ -136,6 +137,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
         if (!gameManager.instance.paused)
         {
+            
+
             pushback = Vector3.Lerp(pushback, Vector3.zero, Time.deltaTime * pushResolve);
 
             MovePLayer();
@@ -145,21 +148,16 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             gameManager.instance.updatePoints();
 
-            //if (canSwitch)
+            //can mess w this later if needed
+            //if (HP < hpOriginal)
             //{
-            //    switch_guns();
-            //    ogRoundsinMag = currentGun.magSize;
-            //    OgRoundsInReserve = currentGun.resSize;
+            //    StartCoroutine(healOverTime());
             //}
 
-            if (HP < hpOriginal)
+            if (Input.GetButtonDown("Reload") && roundsInReserve > 0 && canReload == true)
             {
-                StartCoroutine(healOverTime());
-            }
-
-            if (Input.GetButtonDown("Reload") && roundsInReserve > 0)
-            {
-                Reload();
+                 Reload();
+                StartCoroutine(reload_timer());
             }
             else if (roundsInMag > 0 && canShoot == true)
             {
@@ -188,41 +186,48 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         cantEscape = true;
     }
 
-    //dont need this anymore
-    public void switch_guns()
+    IEnumerator reload_timer()
     {
-        if (Input.GetButtonDown("Primary"))
-        {
-            currentGun = gunList[0];
-            shootRate = gunList[0].fireRate;
-            weaponDamage = gunList[0].damage;
-            roundsInMag = gunList[0].magSize;
-            roundsInReserve = gunList[0].resSize;
-            roundsShot = 0;
-            gameManager.instance.updateMagCount();
-            //will need to update the ui for the ammo stuff later
-
-            gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[0].gunModel.GetComponent<MeshFilter>().sharedMesh;
-            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[0].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-            StartCoroutine(switchTimer());
-
-        }
-
-        if (Input.GetButtonDown("Secondary"))
-        {
-            currentGun = gunList[1];
-            shootRate = gunList[1].fireRate;
-            weaponDamage = gunList[1].damage;
-            roundsInMag = gunList[1].magSize;
-            roundsInReserve = gunList[1].resSize;
-            roundsShot = 0;
-            gameManager.instance.updateMagCount();
-            gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[1].gunModel.GetComponent<MeshFilter>().sharedMesh;
-            gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[1].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-            StartCoroutine(switchTimer());
-        }
-
+        canReload = false;
+        yield return new WaitForSeconds(2);
+        canReload = true;
     }
+
+    //dont need this anymore
+    //public void switch_guns()
+    //{
+    //    if (Input.GetButtonDown("Primary"))
+    //    {
+    //        currentGun = gunList[0];
+    //        shootRate = gunList[0].fireRate;
+    //        weaponDamage = gunList[0].damage;
+    //        roundsInMag = gunList[0].magSize;
+    //        roundsInReserve = gunList[0].resSize;
+    //        roundsShot = 0;
+    //        gameManager.instance.updateMagCount();
+    //        //will need to update the ui for the ammo stuff later
+
+    //        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[0].gunModel.GetComponent<MeshFilter>().sharedMesh;
+    //        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[0].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+    //        StartCoroutine(switchTimer());
+
+    //    }
+
+    //    if (Input.GetButtonDown("Secondary"))
+    //    {
+    //        currentGun = gunList[1];
+    //        shootRate = gunList[1].fireRate;
+    //        weaponDamage = gunList[1].damage;
+    //        roundsInMag = gunList[1].magSize;
+    //        roundsInReserve = gunList[1].resSize;
+    //        roundsShot = 0;
+    //        gameManager.instance.updateMagCount();
+    //        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[1].gunModel.GetComponent<MeshFilter>().sharedMesh;
+    //        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[1].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+    //        StartCoroutine(switchTimer());
+    //    }
+
+    //}
 
     IEnumerator switchTimer()
     {
@@ -379,13 +384,29 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             aud.PlayOneShot(reloadSound[Random.Range(0, reloadSound.Length)], ReloadSoundVol);
             gameManager.instance.reload_txt.SetActive(false);
             gameManager.instance.reload();
-            if (roundsInReserve < 30)
+
+            //teh final mag bug is here j need to manipulate the magsize
+            if (roundsInReserve < roundsInMag)
             {
                 int tmp = roundsInReserve;
                 roundsInMag += tmp;
                 roundsInReserve -= tmp;
                 canShoot = true;
                 roundsShot = 0;
+
+                if (roundsInMag > ogRoundsinMag)
+                {
+                    while (roundsInMag > ogRoundsinMag)
+                    {
+                        roundsInMag--;
+                        roundsInReserve++;
+
+                        if (roundsInMag == ogRoundsinMag)
+                        {
+                            break;
+                        }
+                    }
+                }
             }
             else
             {
@@ -394,7 +415,6 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 canShoot = true;
                 roundsShot = 0;
             }
-            //gameManager.instance.resetAmmoMagCount();
             gameManager.instance.updateMagCount();
         }
     }
@@ -577,6 +597,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             currentGun = gunList[tmp];
             gameManager.instance.updateMagCount();
             gameManager.instance.updateReserveCount();
+            roundsShot = 0;
+            ogRoundsinMag = gunList[tmp].magSize;
+            OgRoundsInReserve = gunList[tmp].resSize;
+            canShoot = true;
+            gameManager.instance.noAmmo.SetActive(false);
+
 
         }
 
@@ -610,6 +636,11 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                 currentGun = gunList[tmp];
                 gameManager.instance.updateMagCount();
                 gameManager.instance.updateReserveCount();
+                roundsShot = 0;
+                ogRoundsinMag = gunList[tmp].magSize;
+                OgRoundsInReserve = gunList[tmp].resSize;
+                canShoot = true;
+                gameManager.instance.noAmmo.SetActive(false);
             }
 
             else

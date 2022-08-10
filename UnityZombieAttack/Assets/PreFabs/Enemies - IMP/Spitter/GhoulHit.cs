@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhoulHit : MonoBehaviour
 {
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
     [SerializeField] int speed;
     [SerializeField] Rigidbody rb;
     [SerializeField] float destroyTime;

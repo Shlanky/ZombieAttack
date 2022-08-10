@@ -46,6 +46,8 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
+    public int cur_rounds;
+
 
     // Start is called before the first frame update
     void Start()
@@ -233,5 +235,8 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
 
     }
 
+    public void roundIncreaseBuff()
+    {
 
+    }
 }

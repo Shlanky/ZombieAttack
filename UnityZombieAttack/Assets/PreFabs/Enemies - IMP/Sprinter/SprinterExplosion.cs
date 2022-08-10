@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SprinterExplosion : MonoBehaviour
 {
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
     [SerializeField] float SlowTimer;
     float DefaultSpeed;
     float slowEffect;

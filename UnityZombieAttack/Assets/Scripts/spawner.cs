@@ -12,7 +12,9 @@ public class spawner : MonoBehaviour
 
     public int spawnedEnemyNum;
     public int killed = 0;
+    public int killGoal;
     bool canSpawn = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,16 +59,24 @@ public class spawner : MonoBehaviour
     void Update()
     {
         killed = gameManager.instance.enimiesKilled;
+        killGoal = gameManager.instance.enemyKillGoal;
         if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
         {
             StartCoroutine(spawnEnemy());
         }
-        if (canSpawn && killed == numEnemiesToSpawn)
+        if (canSpawn && killed >= killGoal)
         {
+
             spawnedEnemyNum = 0;
             numEnemiesToSpawn += 2;
             gameManager.instance.enimiesKilled = 0;
+            gameManager.instance.enemyKillGoal = 0;
             gameManager.instance.RoundCounter();
+
+
+            //  call the zombie buffers
         }
     }
+
+
 }

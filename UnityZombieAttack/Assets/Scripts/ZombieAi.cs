@@ -23,6 +23,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [Header("Weapon Stats")]
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
+    [SerializeField] ZombieHit test;
     [SerializeField] GameObject shootPos;
 
     [Header("----------------------------------")]
@@ -40,6 +41,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
     int shotPoints;
     int killPoints;
+
+    public int cur_rounds;
 
     //static buttonFunction GameModeNum;
     public static int GameModeHolder;
@@ -218,7 +221,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
 
-        if (maybePowerUp == 8 && GameModeHolder == 3)
+        if (maybePowerUp == 21 && GameModeHolder == 3)
         {
             //make a damage power drop on body
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
@@ -226,6 +229,9 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
 
     }
+    public void roundIncreaseBuff()
+    {
 
+    }
 
 }

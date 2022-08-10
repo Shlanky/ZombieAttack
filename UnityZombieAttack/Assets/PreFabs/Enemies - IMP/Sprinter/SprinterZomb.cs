@@ -44,6 +44,9 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
+    public int cur_rounds;
+
+
     public static int GameModeHolder;
     // Start is called before the first frame update
     void Start()
@@ -191,6 +194,11 @@ public class SprinterZomb : MonoBehaviour, iDamageable
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
 
+
+    }
+
+    public void roundIncreaseBuff()
+    {
 
     }
 
