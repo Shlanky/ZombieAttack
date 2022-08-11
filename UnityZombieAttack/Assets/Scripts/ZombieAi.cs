@@ -33,6 +33,15 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [SerializeField] Healer heal;
     [SerializeField] FullOfBullets ammo;
 
+
+    [Header("----------------------------------")]
+    [Header("Audio")]
+    public AudioSource aud;
+
+    //gun shot
+    [SerializeField] AudioClip[] zombieGrowns;
+    [Range(0, 1)] [SerializeField] float volume;
+
     bool canShoot = true;
     [SerializeField] bool playerInRange;
     Vector3 playerDir;
@@ -74,6 +83,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             playerDir = gameManager.instance.player.transform.position - transform.position;
             agent.SetDestination(gameManager.instance.player.transform.position);
             facePlayer();
+            StartCoroutine(audioTimer());
             if (playerInRange)
             {
                 canSeePlayer();
@@ -104,6 +114,12 @@ public class ZombieAi : MonoBehaviour, iDamageable
             var rotation = Quaternion.LookRotation(playerDir);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
         }
+    }
+
+    IEnumerator audioTimer()
+    {
+        aud.PlayOneShot(zombieGrowns[Random.Range(0, zombieGrowns.Length)], volume);
+        yield return new WaitForSeconds(2);
     }
 
     void canSeePlayer()

@@ -124,10 +124,7 @@ public class gameManager : MonoBehaviour
 
         //this fixed the pause bug
         gameModeHolder = buttonFunction.gameModeNum;
-        if (gameModeHolder == 0)
-        {
-           // startTransition.SetActive(true);
-        }
+
         if (gameModeHolder == 1)
         {
             Maze_enter.SetActive(true);
@@ -156,6 +153,7 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
 
         if (gameModeHolder > 0)
         {
@@ -217,7 +215,6 @@ public class gameManager : MonoBehaviour
     {
         rounds++;
         Round_Num.text = rounds.ToString("F0");
-
     }
 
     IEnumerator jobsNotDone()
@@ -352,7 +349,7 @@ public class gameManager : MonoBehaviour
 
         else if (mazesCompleted < 5)
         {
-          
+
             moveUpLevel();
         }
     }
@@ -360,7 +357,7 @@ public class gameManager : MonoBehaviour
     public int moveUpLevel()
     {
         if (mazesCompleted == 0)
-        {  
+        {
             SceneManager.LoadScene("Maze 2");
             mazesCompleted++;
             return mazesCompleted;

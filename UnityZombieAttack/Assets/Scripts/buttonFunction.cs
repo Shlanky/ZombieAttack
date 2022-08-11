@@ -96,7 +96,7 @@ public class buttonFunction : MonoBehaviour
     public void credits()
     {
         //might need to make a camera script so that it can move down like in a movie
-        gameModeNum = 4;
+        gameModeNum = 0;
         SceneManager.LoadScene("Credits");
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
     }
