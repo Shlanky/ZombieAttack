@@ -278,6 +278,10 @@ public class gameManager : MonoBehaviour
         if (resAmmoLeft < 30)
         {
             resAmmoLeft -= tmp;
+            if (resAmmoLeft < 0)
+            {
+                resAmmoLeft = 0;
+            }
             AmmoRes.text = resAmmoLeft.ToString("F0");
         }
         else
@@ -286,6 +290,8 @@ public class gameManager : MonoBehaviour
             AmmoRes.text = resAmmoLeft.ToString("F0");
         }
         //  updateReserveCount();
+        // AmmoRes.text = resCount.ToString("F0");
+
     }
 
 

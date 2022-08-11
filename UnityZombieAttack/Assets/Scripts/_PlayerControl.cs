@@ -459,7 +459,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             gameManager.instance.reload();
 
             //teh final mag bug is here j need to manipulate the magsize
-            if (roundsInReserve < roundsInMag)
+            if (roundsInReserve < ogRoundsinMag)
             {
                 int tmp = roundsInReserve;
                 roundsInMag += tmp;
