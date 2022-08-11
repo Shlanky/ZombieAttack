@@ -208,6 +208,7 @@ public class gameManager : MonoBehaviour
         if (enimiesKilled >= enemyKillGoal)
         {
             //StartCoroutine(jobsNotDone());
+            RoundCounter();
         }
     }
 

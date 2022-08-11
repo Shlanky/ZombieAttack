@@ -71,7 +71,7 @@ public class spawner : MonoBehaviour
             numEnemiesToSpawn += 2;
             gameManager.instance.enimiesKilled = 0;
             gameManager.instance.enemyKillGoal = 0;
-            gameManager.instance.RoundCounter();
+            //gameManager.instance.RoundCounter();
 
             Spitter.roundIncreaseBuff();
             Sprinter.roundIncreaseBuff();
