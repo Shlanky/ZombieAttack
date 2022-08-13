@@ -7,12 +7,21 @@ using UnityEngine.UI;
 public class SFX_Slider : MonoBehaviour
 {
     [SerializeField] AudioMixer Master_mixer;
-    [SerializeField] Slider _slider;
+    [SerializeField] public Slider _slider;
 
     void Awake()
     {
         _slider.onValueChanged.AddListener(Volume);
+    }
 
+    public void Start()
+    {
+        _slider.value = PlayerPrefs.GetFloat("Sound Effects", _slider.value);
+    }
+
+    public void OnDisable()
+    {
+        PlayerPrefs.SetFloat("Sound Effects", _slider.value);
     }
 
     public void Volume(float _vol)

@@ -120,8 +120,6 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-
-
         //this fixed the pause bug
         gameModeHolder = buttonFunction.gameModeNum;
 

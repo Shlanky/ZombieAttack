@@ -41,6 +41,15 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     [SerializeField] int timer;
     [SerializeField] SprinterExplosion Sprinter_Explosion;
 
+    [Header("----------------------------------")]
+    [Header("Audio")]
+    public AudioSource aud;
+
+    //gun shot
+    [SerializeField] AudioClip[] zombieHit_sound;
+    [SerializeField] AudioClip[] zombieDamage_sound;
+    [Range(0, 1)] [SerializeField] float volume;
+
     int shotPoints;
     int killPoints;
 
@@ -61,7 +70,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     // Update is called once per frame
     void Update()
     {
-
+        //aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
         shotPoints = gameManager.instance.playerScript.shotPoint;
         killPoints = gameManager.instance.playerScript.killPoint;
         if (agent.isActiveAndEnabled)
@@ -76,10 +85,10 @@ public class SprinterZomb : MonoBehaviour, iDamageable
             {
                 StartCoroutine(goBOOM());
             }
-            
+
         }
     }
-    
+
     void facePlayer()
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -92,10 +101,13 @@ public class SprinterZomb : MonoBehaviour, iDamageable
 
     IEnumerator goBOOM()
     {
+      //  aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
+
         yield return new WaitForSeconds(timer);
-        if(playerInRange)
+        if (playerInRange)
         {
-        Instantiate(Sprinter_Explosion, agent.transform.position, Sprinter_Explosion.transform.rotation);
+
+            Instantiate(Sprinter_Explosion, agent.transform.position, Sprinter_Explosion.transform.rotation);
             //Instantiate Explosion at Agent.Position, following Rotation of Explosion
             gameManager.instance.checkEnemyKills();
 
@@ -104,10 +116,10 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     }
     IEnumerator goBoomNOW()
     {
-      Instantiate(Sprinter_Explosion, agent.transform.position, Sprinter_Explosion.transform.rotation);
-      //Instantiate Explosion at Agent.Position, following Rotation of Explosion
-      Destroy(gameObject);
-      yield return new WaitForSeconds(0.001f);
+        Instantiate(Sprinter_Explosion, agent.transform.position, Sprinter_Explosion.transform.rotation);
+        //Instantiate Explosion at Agent.Position, following Rotation of Explosion
+        Destroy(gameObject);
+        yield return new WaitForSeconds(0.001f);
     }
 
     public void OnTriggerEnter(Collider other)

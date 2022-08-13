@@ -35,6 +35,14 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     [SerializeField] Healer heal;
     [SerializeField] FullOfBullets ammo;
 
+    [Header("----------------------------------")]
+    [Header("Audio")]
+    public AudioSource aud;
+
+   // gun shot
+    [SerializeField] AudioClip[] zombieHit_sound;
+    [Range(0, 1)] [SerializeField] float volume;
+
     bool canShoot=true;
     [SerializeField] bool playerInRange;
     Vector3 playerDir;
@@ -145,6 +153,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         HP -= dmg;
         playerInRange = true;
         gameManager.instance.playerScript.earnPoints(shotPoints);
+        //aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
         StartCoroutine(flashColor());
         if (HP <= 0)
         {
@@ -178,10 +187,10 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         SpeedOrig = agent.speed;
         agent.speed = 0;
         anim.SetTrigger("Shoot");// Lets us use shoot animation
-
-        bile.Play();
-
-        Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
+            
+            bile.Play();
+            aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
+            Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
 
         yield return new WaitForSeconds(3.5f);
         //3.5 b4

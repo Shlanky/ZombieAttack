@@ -435,7 +435,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //m1911
                 case 6:
-                   // M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                   //M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(Random.Range(0, 360), 0, 0);
                     M1911_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
                     M1911_Muzzel_Flash.SetActive(false);

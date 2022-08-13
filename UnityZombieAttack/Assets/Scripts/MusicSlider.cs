@@ -7,12 +7,21 @@ public class MusicSlider : MonoBehaviour
 {
 
     [SerializeField] AudioMixer Master_mixer;
-    [SerializeField] Slider _slider;
+    [SerializeField] public Slider _slider;
 
     void Awake()
     {
         _slider.onValueChanged.AddListener(Volume);
+    }
 
+    public void Start()
+    {
+        _slider.value = PlayerPrefs.GetFloat("Music Vol", _slider.value);
+    }
+
+    public void OnDisable()
+    {
+        PlayerPrefs.SetFloat("Music Vol", _slider.value);
     }
 
     public void Volume(float _vol)
