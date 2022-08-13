@@ -130,18 +130,13 @@ public class ZombieAi : MonoBehaviour, iDamageable
         //Debug.Log(angle);
         RaycastHit hit;
 
-
-
         if (Physics.Raycast(transform.position, playerDir, out hit))
         {
-            Debug.DrawRay(transform.position, playerDir);
-            if (hit.collider.CompareTag("Player") && canShoot && angle <= viewAngle)
+            if (hit.collider.CompareTag("Player") && canShoot /*&& angle <= viewAngle*/)
             {
                 StartCoroutine(shoot());
-
                 //play a sound here 
                 aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
-
             }
         }
     }

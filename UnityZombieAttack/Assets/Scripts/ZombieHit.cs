@@ -8,6 +8,7 @@ public class ZombieHit : MonoBehaviour
     [SerializeField] int speed;
     [SerializeField] Rigidbody rb;
     [Range (0.01f,10)][SerializeField] float destroyTime;
+    [SerializeField] float push;
 
     // Start is called before the first frame update
     void Start()
@@ -18,11 +19,15 @@ public class ZombieHit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<iDamageable>() != null)
+        if (other.CompareTag("Player"))
         {
-            iDamageable isDamagable = other.GetComponent<iDamageable>();
-            isDamagable.takeDamage(damage);
+            gameManager.instance.playerScript.pushback = (gameManager.instance.player.transform.position - transform.position) * push;
+            if (other.GetComponent<iDamageable>() != null)
+            {
+                iDamageable isDamagable = other.GetComponent<iDamageable>();
+                isDamagable.takeDamage(damage);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
