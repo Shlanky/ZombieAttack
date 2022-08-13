@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Starting Screen.unity
     guid: 2cfb6284c73af9442bd43db00d44a7f7
+  - enabled: 1
+    path: Assets/Scenes/ChrisMainMenuScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Maze sample.unity
     guid: a5cee8ea1a6f32847894ceb65970b451

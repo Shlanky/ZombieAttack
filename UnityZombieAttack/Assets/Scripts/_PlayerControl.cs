@@ -17,6 +17,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(15, 30)] [SerializeField] float gravityValue;
     [Range(1, 4)] [SerializeField] int jumps;
     public int points = 0;
+    static int totalPoints;
 
     [Header("Player Slowing")]
     [Header("----------------------------------------------")]
@@ -41,14 +42,14 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [SerializeField] GameObject muzzleFlash;
 
     //finsih off when i get the muzzel flashes from chris
-    //[SerializeField] GameObject Ak_Muzzel_Flash;
-    //[SerializeField] GameObject FaMas_Muzzel_Flash;
-    //[SerializeField] GameObject Ghost_Muzzel_Flash;
-    //[SerializeField] GameObject Uzi_Muzzel_Flash;
-    //[SerializeField] GameObject M16_Muzzel_Flash;
-    //[SerializeField] GameObject M1911_Muzzel_Flash;
-    //[SerializeField] GameObject MP5_Muzzel_Flash;
-    //[SerializeField] GameObject Revolver_Muzzel_Flash;
+    [SerializeField] GameObject Ak_Muzzel_Flash;
+    [SerializeField] GameObject FaMas_Muzzel_Flash;
+    [SerializeField] GameObject Ghost_Muzzel_Flash;
+    [SerializeField] GameObject Uzi_Muzzel_Flash;
+    [SerializeField] GameObject M16_Muzzel_Flash;
+    [SerializeField] GameObject M1911_Muzzel_Flash;
+    [SerializeField] GameObject MP5_Muzzel_Flash;
+    [SerializeField] GameObject Revolver_Muzzel_Flash;
 
 
 
@@ -356,6 +357,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     public void earnPoints(int val)
     {
         points += val;
+        totalPoints = points;
     }
 
     IEnumerator shoot()
@@ -389,52 +391,73 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             }
 
             //add the switch here for the dif muzzle flashes n check teh muzzel pos
-            //switch (muzzle_pos)
-            //{
-            //    //ak47
-            //    case 1:
-            //        Ak_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-            //        break;
+            switch (muzzle_pos)
+            {
+                //ak47
+                case 1:
+                   // Ak_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    Ak_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    Ak_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //    //FaMas
-            //    case 2:
-            //        FaMas_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                //FaMas
+                case 2:
+                    //FaMas_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    FaMas_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    FaMas_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //        break;
+                //Ghost
+                case 3:
+                    //Ghost_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    Ghost_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    Ghost_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //    //Ghost
-            //    case 3:
-            //        Ghost_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                //Uzi
+                case 4:
+                    //Uzi_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    Uzi_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    Uzi_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //        break;
+                //m16
+                case 5:
+                   // M16_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    M16_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    M16_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //    //Uzi
-            //    case 4:
-            //        Uzi_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                //m1911
+                case 6:
+                   // M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    M1911_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    M1911_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //        break;
+                //Mp5
+                case 7:
+                  //  MP5_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    MP5_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    MP5_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //    //m16
-            //    case 5:
-            //        M16_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-            //        break;
+                //revolver
+                case 8:
+                  //  Revolver_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    Revolver_Muzzel_Flash.SetActive(true);
+                    yield return new WaitForSeconds(.05f);
+                    Revolver_Muzzel_Flash.SetActive(false);
+                    break;
 
-            //    //m1911
-            //    case 6:
-            //        M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-            //        break;
-
-            //    //Mp5
-            //    case 7:
-            //        MP5_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-            //        break;
-
-            //    //revolver
-            //    case 8:
-            //        Revolver_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-            //        break;
-                   
-            //}
+            }
             //muzzleFlash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
             muzzleFlash.SetActive(true);
             yield return new WaitForSeconds(.05f);

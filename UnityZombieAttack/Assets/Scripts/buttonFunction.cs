@@ -82,7 +82,7 @@ public class buttonFunction : MonoBehaviour
     {
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
         gameModeNum = 0;
-        SceneManager.LoadScene("Starting Screen");
+        SceneManager.LoadScene("ChrisMainMenuScene");
 
     }
 
