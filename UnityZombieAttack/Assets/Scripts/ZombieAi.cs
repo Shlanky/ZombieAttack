@@ -39,7 +39,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
     public AudioSource aud;
 
     //gun shot
-    [SerializeField] AudioClip[] zombieGrowns;
+    [SerializeField] AudioClip[] zombieHit_sound;
+    [SerializeField] AudioClip[] zombieDamage_sound;
     [Range(0, 1)] [SerializeField] float volume;
 
     bool canShoot = true;
@@ -83,7 +84,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             playerDir = gameManager.instance.player.transform.position - transform.position;
             agent.SetDestination(gameManager.instance.player.transform.position);
             facePlayer();
-            StartCoroutine(audioTimer());
+           
             if (playerInRange)
             {
                 canSeePlayer();
@@ -118,8 +119,9 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
     IEnumerator audioTimer()
     {
-        aud.PlayOneShot(zombieGrowns[Random.Range(0, zombieGrowns.Length)], volume);
-        yield return new WaitForSeconds(2);
+     
+        yield return new WaitForSeconds(2);  
+        aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
     }
 
     void canSeePlayer()
@@ -136,6 +138,10 @@ public class ZombieAi : MonoBehaviour, iDamageable
             if (hit.collider.CompareTag("Player") && canShoot && angle <= viewAngle)
             {
                 StartCoroutine(shoot());
+
+                //play a sound here 
+                aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
+
             }
         }
     }
@@ -161,6 +167,9 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
     public void takeDamage(int dmg)
     {
+
+        //try adding sound to this 
+
         HP -= dmg;
         playerInRange = true;
         StartCoroutine(flashColor());

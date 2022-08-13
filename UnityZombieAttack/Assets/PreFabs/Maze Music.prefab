@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3121809413012712036
+--- !u!1 &7009713945466272939
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3121809413012712058}
-  - component: {fileID: 103515528}
-  - component: {fileID: 103515527}
+  - component: {fileID: 7009713945466272949}
+  - component: {fileID: 5338283637066568519}
+  - component: {fileID: 5338283637066568520}
   m_Layer: 0
-  m_Name: Start Music
+  m_Name: Maze Music
   m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3121809413012712058
+--- !u!4 &7009713945466272949
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3121809413012712036}
+  m_GameObject: {fileID: 7009713945466272939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 947.3871, y: 500.622, z: -930.6073}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,17 +33,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &103515528
+--- !u!82 &5338283637066568519
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3121809413012712036}
+  m_GameObject: {fileID: 7009713945466272939}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5658006276980385375, guid: 362e97936799db54ba5ac632eda87c05, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 52b92adb349c64adf943fdf2d4f43d39, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 102702eb6c6443a4aa9148cb9d99507f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -129,13 +129,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &103515527
+--- !u!114 &5338283637066568520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3121809413012712036}
+  m_GameObject: {fileID: 7009713945466272939}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81e8546886e873048ba86225009361d4, type: 3}
@@ -143,4 +143,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music:
   - {fileID: 0}
-  scene_num: 0
+  scene_num: 1

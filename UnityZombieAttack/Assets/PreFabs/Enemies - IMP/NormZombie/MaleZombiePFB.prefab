@@ -2060,12 +2060,9 @@ MonoBehaviour:
   heal: {fileID: 7735802241023344765, guid: 2c744f13100cbd040a772399d60a1e90, type: 3}
   ammo: {fileID: 370696276321610507, guid: 143273f01d66fe14d81990ced91092f5, type: 3}
   aud: {fileID: 2090561418}
-  zombieGrowns:
-  - {fileID: 8300000, guid: fe5ce5dcade8442f0afca4bf0ae85bb7, type: 3}
-  - {fileID: 8300000, guid: ab0ec6034559748139b9468598b535d4, type: 3}
-  - {fileID: 8300000, guid: 13294ff9ac4314a8cb3e0f6777452308, type: 3}
+  zombieHit_sound:
   - {fileID: 8300000, guid: 7cad94a141f034a61a5f046ad5fb4919, type: 3}
-  - {fileID: 8300000, guid: 7914ca56e6570440e8561abd7f336bbe, type: 3}
+  - {fileID: 8300000, guid: 13294ff9ac4314a8cb3e0f6777452308, type: 3}
   volume: 1
   playerInRange: 0
   cur_rounds: 0
