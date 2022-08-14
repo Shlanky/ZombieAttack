@@ -34,9 +34,11 @@ public class gameManager : MonoBehaviour
 
     public GameObject ammoMAxed;
 
+    //maze stuff
     public GameObject noKeys;
     public GameObject Key_1;
     public GameObject Key_2;
+    public GameObject startRoomDoorstxt;
 
     public TMP_Text Points;
 
