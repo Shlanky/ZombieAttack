@@ -45,7 +45,7 @@ public class StartingRoomDoors : MonoBehaviour
             {
                 Destroy(StartingDoors[i]);
             }
-
+            gameManager.instance.startRoomDoorstxt.SetActive(false);
         }
 
     }
