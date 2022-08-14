@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 33
+  controlID: 31
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 34
+  controlID: 32
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,8 +166,8 @@ MonoBehaviour:
     y: 0
     width: 798
     height: 456
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -220,8 +220,8 @@ MonoBehaviour:
     y: 0
     width: 320
     height: 947
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -274,8 +274,8 @@ MonoBehaviour:
     y: 0
     width: 446
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -634,9 +634,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 228.19458, y: 57.07228, z: -294.82504}
+    m_Target: {x: -10.266784, y: -0.9349498, z: -28.026594}
     speed: 2
-    m_Value: {x: 228.19458, y: 57.07228, z: -294.82504}
+    m_Value: {x: -10.266784, y: -0.9349498, z: -28.026594}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -683,13 +683,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.041663513, y: 0.037826102, z: 0.0015883431, w: -0.9983841}
+    m_Target: {x: -0.04187395, y: -0.8691854, z: 0.07475673, w: -0.48694715}
     speed: 2
-    m_Value: {x: 0.04166476, y: 0.037827235, z: 0.0015883907, w: -0.99841404}
+    m_Value: {x: -0.04187515, y: -0.86921024, z: 0.074758865, w: -0.48696107}
   m_Size:
-    m_Target: 0.8660254
+    m_Target: 10
     speed: 2
-    m_Value: 0.8660254
+    m_Value: 10
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -942,9 +942,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e7c0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2c76f5ff2e7df5ffb87ef5fff880f5ff8692f5ff62e9f5ff3cf7f5ff4af7f5ff94f7f5ff5efdf5ff644ef6ffd655f6ffe267f6ff366ef6ffcc70f6ff8871f6ff8e77f6ff4480f6ff5685f6ff5c89f6ff249af6ffba9ff6ff48a5f6ffceaaf6ff5eb0f6ff08b6f6ff4ebdf6ffaaddf6ff56f2f6ff26f6f6ffae04f7ff8eaef7ff1ab8f7ff46c1f7ffb6c7f7fff8cdf7ff76f4f7ffa0fbf7ffe601f8ff5808f8ff4e0bf8ff0a0cf8ff1012f8ffc61af8ff8e1ff8ff9423f8ff6234f8ff6a39f8ffee3ef8ff6a44f8fff049f8ff904ff8ffd856f8ffa284f8ffda8bf8ff2a9af8ffb6a0f8ff1864f9ffa465f9fffae8f9fff2f1f9ff2cfcf9ff2a61faff428efafffad3faff0cd6faffa41ffbff5c28fbff5655fbff4076fbff8678fbff00fafbff0804fcff2415fcff701cfcff7e26fcff3052fcff4254fcffaa82fcff428efcff8290fcffa29ffcff34a2fcffeea2fcfff4a8fcffa8b1fcff68b6fcff6ebafcff3ccbfcff3cd0fcff3ad5fcff30dafcff30dffcffc6e4fcff0cecfcff7809fdff921afdff3a48fdffde6dfdff7e96fdff5e0afeff440ffeffee38fefff242fefff65ffeff7e71feffdc9dfeff94aefeff74b3feffb6f4feff0026ffff0430ffff983cffff8e61ffffa676ffff0099ffff82a9ffff12c7ffff5ac7ffff68c7ffff4eccfffff8dafffff0f1ffff32fbfffff4ffffffd4d702008af60200aafe02002a9a0300
+      m_ExpandedIDs: 1269feffcc69feffca6ffeff0c79feffac7efeffae82fefffc93feff209afeff3ca0feff50a6feff6eacfeff9eb2feffecb9feffaac8feffbccffeffd6f0feff62f6feff1cf7feff1afdfeff5c06ffff2c0cffff2e10ffff7c21ffffa027ffffbc2dffffd033ffffee39ffff4e40ffff9c47ffffba52ffff0253ffff4658ffff027effffe48effff2c8fffff3a8fffff2a94ffffa4b3ffff42b8ffff8ab8ffff98b8ffff7cbdffffdec6ffffbee7ffff52ecffff9aecffffa8ecffff98f1ffff32fbffff1cfa000096fc0000e0000100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1226,23 +1226,23 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 067c0000
-    m_LastClickedID: 31750
-    m_ExpandedIDs: 00000000ac7b0000ae7b0000b07b0000b27b0000b47b0000b67b0000b87b0000ba7b0000bc7b0000be7b0000c07b0000c27b0000c47b0000ca7b0000cc7b0000ce7b0000d07b0000d27b0000027c000000ca9a3b
+    m_SelectedIDs: 627b0000
+    m_LastClickedID: 31586
+    m_ExpandedIDs: 00000000c67a0000c87a0000ca7a0000cc7a0000ce7a0000d07a0000d27a0000d47a0000d67a0000d87a0000da7a0000dc7a0000de7a0000e67a0000e87a0000ea7a0000707b00004cb3000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Buyable Walls
-      m_OriginalName: Buyable Walls
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 187404
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -1256,7 +1256,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ac7b0000ae7b0000b07b0000b27b0000b47b0000b67b0000b87b0000ba7b0000bc7b0000be7b0000c07b0000c27b0000c47b0000c67b0000c87b0000ca7b0000cc7b0000ce7b0000d07b0000d27b0000
+    m_ExpandedIDs: 00000000c67a0000c87a0000ca7a0000cc7a0000ce7a0000d07a0000d27a0000d47a0000d67a0000d87a0000da7a0000dc7a0000de7a0000e07a0000e27a0000e47a0000e67a0000e87a0000ea7a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1287,15 +1287,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: f23e0000228700008c760000a47600001cb10000feaf00001091000056920000ea170200d248020000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Maze 6
-      m_OriginalName: Maze 6
+      m_Name: Toon Muzzleflash 20
+      m_OriginalName: Toon Muzzleflash 20
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 31828
+      m_UserData: 46194
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
