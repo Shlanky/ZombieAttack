@@ -12,6 +12,7 @@ TagManager:
   - DAMAGE PERK
   - Music
   - HidingEnd
+  - Starting Doors
   layers:
   - Default
   - TransparentFX

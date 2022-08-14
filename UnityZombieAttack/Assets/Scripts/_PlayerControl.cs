@@ -64,9 +64,40 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Header("--------Audio----------")]
     public AudioSource aud;
 
-    //gun shot
+    //gun shot/Famas
     [SerializeField] AudioClip[] gunshot;
     [Range(0, 1)] [SerializeField] float gunshotVol;
+
+    //AK47
+    [SerializeField] AudioClip[] AK47Shot;  
+    [Range(0, 1)] [SerializeField] float AkVol;
+
+    //Ghost
+    [SerializeField] AudioClip[] GhostSHot;
+    [Range(0, 1)] [SerializeField] float Ghost_Vol;
+
+    //Uzi
+    [SerializeField] AudioClip[] UziSHot;
+    [Range(0, 1)] [SerializeField] float Uzi_Vol;
+
+    //M16
+    [SerializeField] AudioClip[] M16Shot;
+    [Range(0, 1)] [SerializeField] float M16Vol;
+
+    //M1911
+    [SerializeField] AudioClip[] M1911Shot;
+    [Range(0, 1)] [SerializeField] float M1911Vol;
+
+    //MP5
+    [SerializeField] AudioClip[] MP5_SHot;
+    [Range(0, 1)] [SerializeField] float MP5_vol;
+
+    //Revolver
+    [SerializeField] AudioClip[] RevolverShot;
+    [Range(0, 1)] [SerializeField] float Revolver_vol;
+
+
+
 
     //player damaged
     [SerializeField] AudioClip[] playerHurt;
@@ -114,6 +145,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     static int GameModeHolder;
 
     public GameObject bloclking_wall;
+
+
     bool cantEscape = true;
     bool canReload = true;
 
@@ -368,7 +401,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             shooting = true;
             canShoot = false;
 
-            aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
+          //  aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit))
@@ -395,7 +428,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             {
                 //ak47
                 case 1:
-                   // Ak_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    aud.PlayOneShot(AK47Shot[Random.Range(0, AK47Shot.Length)], AkVol);
+                    // Ak_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     Ak_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
                     Ak_Muzzel_Flash.SetActive(false);
@@ -403,6 +437,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //FaMas
                 case 2:
+                    aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
                     //FaMas_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     FaMas_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
@@ -411,6 +446,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //Ghost
                 case 3:
+                    aud.PlayOneShot(GhostSHot[Random.Range(0, GhostSHot.Length)], Ghost_Vol);
                     //Ghost_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     Ghost_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
@@ -419,6 +455,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //Uzi
                 case 4:
+                    aud.PlayOneShot(UziSHot[Random.Range(0, UziSHot.Length)], Uzi_Vol);
                     //Uzi_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     Uzi_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
@@ -427,7 +464,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //m16
                 case 5:
-                   // M16_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    aud.PlayOneShot(M16Shot[Random.Range(0, M16Shot.Length)], M16Vol);
+                    // M16_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     M16_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
                     M16_Muzzel_Flash.SetActive(false);
@@ -435,7 +473,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //m1911
                 case 6:
-                   //M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(Random.Range(0, 360), 0, 0);
+                    aud.PlayOneShot(M1911Shot[Random.Range(0, M1911Shot.Length)], M1911Vol);
+                    //M1911_Muzzel_Flash.transform.localRotation = Quaternion.Euler(Random.Range(0, 360), 0, 0);
                     M1911_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
                     M1911_Muzzel_Flash.SetActive(false);
@@ -443,7 +482,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //Mp5
                 case 7:
-                  //  MP5_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    aud.PlayOneShot(MP5_SHot[Random.Range(0, MP5_SHot.Length)], MP5_vol);
+                    //  MP5_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     MP5_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
                     MP5_Muzzel_Flash.SetActive(false);
@@ -451,7 +491,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
                 //revolver
                 case 8:
-                  //  Revolver_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+                    aud.PlayOneShot(RevolverShot[Random.Range(0, RevolverShot.Length)], Revolver_vol);
+                    //  Revolver_Muzzel_Flash.transform.localRotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
                     Revolver_Muzzel_Flash.SetActive(true);
                     yield return new WaitForSeconds(.05f);
                     Revolver_Muzzel_Flash.SetActive(false);

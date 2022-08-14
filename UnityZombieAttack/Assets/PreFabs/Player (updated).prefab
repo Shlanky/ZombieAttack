@@ -4088,6 +4088,27 @@ MonoBehaviour:
   gunshot:
   - {fileID: 8300000, guid: d15ad2addd1de664b92e021735289276, type: 3}
   gunshotVol: 0.5
+  AK47Shot:
+  - {fileID: 8300000, guid: a4be112ddcb23dc4d94da14c712a9a66, type: 3}
+  AkVol: 1
+  GhostSHot:
+  - {fileID: 8300000, guid: 10a436cdc0777f94296e4024d126e266, type: 3}
+  Ghost_Vol: 0.303
+  UziSHot:
+  - {fileID: 8300000, guid: 398c0e8ba7606c64885e21aff855bb09, type: 3}
+  Uzi_Vol: 1
+  M16Shot:
+  - {fileID: 8300000, guid: f251084378343c144808de4e4503858d, type: 3}
+  M16Vol: 0.094
+  M1911Shot:
+  - {fileID: 8300000, guid: 01da33171acb35248b75956551f57c0d, type: 3}
+  M1911Vol: 1
+  MP5_SHot:
+  - {fileID: 8300000, guid: 109b524db5846e94da0bd6756abb39a6, type: 3}
+  MP5_vol: 1
+  RevolverShot:
+  - {fileID: 8300000, guid: 39f46aeacff0fca44a6655013ab4d53d, type: 3}
+  Revolver_vol: 0.249
   playerHurt:
   - {fileID: 8300000, guid: 6dc45f774f010f844a56f596e80ba8c3, type: 3}
   - {fileID: 8300000, guid: 60ad2b63a1039da4384104df934055ee, type: 3}
@@ -4165,7 +4186,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4200,7 +4221,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
