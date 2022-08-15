@@ -9,24 +9,17 @@ public class spawner : MonoBehaviour
     [SerializeField] ZombieAi enemy;
     [SerializeField] SpitterAi2 Spitter;
     [SerializeField] SprinterZomb Sprinter;
-    StartingRoomDoors tmp;
 
     public int spawnedEnemyNum;
     public int killed = 0;
     public int killGoal;
     bool canSpawn = true;
-    bool readyToStart = false;
     int gameMode;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        //gameMode = buttonFunction.gameModeNum;
-        //if (gameMode == 1 && readyToStart == false)
-        //{
-        //    canSpawn = false;
-        //}
+
     }
 
     public IEnumerator spawnEnemy()
@@ -65,37 +58,28 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (gameMode == 1)
-        //{
-        //    readyToStart = tmp.canStartSpawners;
-
-        //    if (readyToStart == true)
-        //    {
-        //        canSpawn = true;
-        //    }
-        //}
 
 
-        killed = gameManager.instance.enimiesKilled;
-        killGoal = gameManager.instance.enemyKillGoal;
-        if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
-        {
-            StartCoroutine(spawnEnemy());
-        }
-        if (canSpawn && killed >= killGoal)
-        {
-            //statrs new round
-            spawnedEnemyNum = 0;
-            numEnemiesToSpawn += 2;
-            gameManager.instance.enimiesKilled = 0;
-            gameManager.instance.enemyKillGoal = 0;
-            //gameManager.instance.RoundCounter();
+            killed = gameManager.instance.enimiesKilled;
+            killGoal = gameManager.instance.enemyKillGoal;
+            if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
+            {
+                StartCoroutine(spawnEnemy());
+            }
+            if (canSpawn && killed >= killGoal)
+            {
+                //statrs new round
+                spawnedEnemyNum = 0;
+                numEnemiesToSpawn += 2;
+                gameManager.instance.enimiesKilled = 0;
+                gameManager.instance.enemyKillGoal = 0;
 
-            Spitter.roundIncreaseBuff();
-            Sprinter.roundIncreaseBuff();
-            enemy.roundIncreaseBuff();
-            //  call the zombie buffers
-        }
+                Spitter.roundIncreaseBuff();
+                Sprinter.roundIncreaseBuff();
+                enemy.roundIncreaseBuff();
+                //  call the zombie buffers
+            }
+
     }
 
 

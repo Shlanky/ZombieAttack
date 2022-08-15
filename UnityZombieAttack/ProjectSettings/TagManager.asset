@@ -13,6 +13,8 @@ TagManager:
   - Music
   - HidingEnd
   - Starting Doors
+  - Started
+  - Spawner
   layers:
   - Default
   - TransparentFX

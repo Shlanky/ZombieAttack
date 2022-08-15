@@ -5,9 +5,9 @@ using UnityEngine;
 public class StartingRoomDoors : MonoBehaviour
 {
     int gameMode;
-
     bool in_range = false;
     public GameObject[] StartingDoors;
+    public GameObject[] test;
     public bool canStartSpawners = false;
 
     // Start is called before the first frame update
@@ -15,6 +15,11 @@ public class StartingRoomDoors : MonoBehaviour
     {
         gameMode = buttonFunction.gameModeNum;
         StartingDoors = GameObject.FindGameObjectsWithTag("Starting Doors");
+        test = GameObject.FindGameObjectsWithTag("Spawner");
+        for (int i = 0; i < test.Length; i++)
+        {
+            test[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -24,6 +29,8 @@ public class StartingRoomDoors : MonoBehaviour
         {
             StartMaze();
         }
+
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -40,14 +47,23 @@ public class StartingRoomDoors : MonoBehaviour
         if (Input.GetButtonDown("Buy"))
         {
             canStartSpawners = true;
-
+            if (canStartSpawners == true)
+            {
+                foreach (GameObject item in test)
+                {
+                    item.SetActive(true);
+                }
+            }
             for (int i = 0; i < StartingDoors.Length; i++)
             {
-                Destroy(StartingDoors[i]);
+                canStartSpawners = true;
+                StartingDoors[i].GetComponent<MeshCollider>().enabled = false;
+                StartingDoors[i].GetComponent<BoxCollider>().enabled = false;
+                StartingDoors[i].GetComponent<MeshRenderer>().enabled = false;
+
             }
             gameManager.instance.startRoomDoorstxt.SetActive(false);
         }
-
     }
 
     public void OnTriggerExit(Collider other)
