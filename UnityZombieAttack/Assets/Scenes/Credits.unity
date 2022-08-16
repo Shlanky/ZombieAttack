@@ -678,7 +678,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 91336454, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 218
+      value: 192
       objectReference: {fileID: 0}
     - target: {fileID: 1456123337, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_LocalPosition.z
@@ -690,7 +690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1456123337, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -90
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 1456123338, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_text
@@ -707,7 +707,8 @@ PrefabInstance:
         Mixamo.com                        Parasite L Starkie\n                             
         Mixamo.com                ZOMBIEGIRL W KURNIAWAN\n                             
         Mixamo.com                    WARZOMBIE F PEDROSO\n                             
-        Mixamo.com             Animations for Mixamo Zombies\n"
+        Mixamo.com             Animations for Mixamo Zombies\nInspiredImage \t\tPixabay.com\t\tSkull
+        Icon Picture"
       objectReference: {fileID: 0}
     - target: {fileID: 1755278280, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_LocalScale.y
@@ -734,6 +735,10 @@ PrefabInstance:
       value: "Ethan Kunis \t\t\t\tCoding Functionality\nChris Stratos \t\t\t\tEnemyAi,
         SpecialEffects, \n                                               Survival/MM
         Mapping\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2628800545132589866, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -507
       objectReference: {fileID: 0}
     - target: {fileID: 6972441885561956955, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_Name
@@ -840,8 +845,12 @@ PrefabInstance:
       value: 0.004537886
       objectReference: {fileID: 0}
     - target: {fileID: 8514232271299342284, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514232271299342284, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1046
+      value: -1592
       objectReference: {fileID: 0}
     - target: {fileID: 8514232271299342284, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
