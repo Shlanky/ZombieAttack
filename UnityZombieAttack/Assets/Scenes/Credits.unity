@@ -697,7 +697,17 @@ PrefabInstance:
       value: "Alexander Kotov         Unity Asset Store              Perk Bottle
         Models\nAleksn09\t\t\tUnity Asset Store\t\tKey Modle\nTenkiko \t\t\tUnity
         Asset Store \t\tPower Up Models\nFunAssets\t\t\tUnity Asset Store \t\tGun
-        Models\nStanley3D \t\t\tUnity Asset Store \t\tSci-Fi Maze Walls\n\n\n\n\t\n"
+        Models\nStanley3D \t\t\tUnity Asset Store \t\tSci-Fi Maze Walls\nPackDev                  
+        Unity Asset Store               Survival Indoor Flooring\nStaggart Creations   
+        Unity Asset Store               Stylized Grass Shader\nFreya Gameworks    
+        Unity Asset Store               MM Cut Wood Logs\nPolyFix                   
+        Unity Asset Store                Realistic Trees\nBitGem                   
+        Unity Asset Store               Grass Dirt Texture Pack\nPxltiger                  
+        Unity Asset Store                Sprinter Zombie COMPLT\n\t                     
+        Mixamo.com                        Parasite L Starkie\n                             
+        Mixamo.com                ZOMBIEGIRL W KURNIAWAN\n                             
+        Mixamo.com                    WARZOMBIE F PEDROSO\n                             
+        Mixamo.com             Animations for Mixamo Zombies\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1755278280, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_LocalScale.y
@@ -718,6 +728,12 @@ PrefabInstance:
     - target: {fileID: 2118745934, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 306
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118745935, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
+      propertyPath: m_text
+      value: "Ethan Kunis \t\t\t\tCoding Functionality\nChris Stratos \t\t\t\tEnemyAi,
+        SpecialEffects, \n                                               Survival/MM
+        Mapping\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6972441885561956955, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_Name
