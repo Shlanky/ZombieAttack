@@ -3757,6 +3757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Survival Transitions
       objectReference: {fileID: 0}
+    - target: {fileID: 3949886346692684531, guid: 26efff97d0639574dbc4217b31a48bda, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3949886346692684556, guid: 26efff97d0639574dbc4217b31a48bda, type: 3}
       propertyPath: m_RootOrder
       value: 109
@@ -9350,9 +9354,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7674968480756222002, guid: 9100c4948d350c34fa786092d40c56a8, type: 3}
-      propertyPath: m_text
-      value: 1
+    - target: {fileID: 7674968480241803416, guid: 9100c4948d350c34fa786092d40c56a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8071978939007798194, guid: 9100c4948d350c34fa786092d40c56a8, type: 3}
       propertyPath: Survival_Start

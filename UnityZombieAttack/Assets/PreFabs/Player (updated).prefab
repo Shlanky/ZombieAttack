@@ -4089,7 +4089,7 @@ MonoBehaviour:
   jumpHeight: 6
   gravityValue: 18.57
   jumps: 1
-  points: 100000
+  points: 0
   SlowSpeed: 4
   shootRate: 0.13
   weaponDamage: 2

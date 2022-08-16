@@ -129,10 +129,10 @@ public class gameManager : MonoBehaviour
         {
             Maze_enter.SetActive(true);
         }
-        if (gameModeHolder == 2)
-        {
-            Survival_Start.SetActive(true);
-        }
+        //if (gameModeHolder == 2)
+        //{
+        //    Survival_Start.SetActive(true);
+        //}
         if (gameModeHolder == 3)
         {
             PlayGround.SetActive(true);
@@ -399,6 +399,15 @@ public class gameManager : MonoBehaviour
         }
 
         return 0;
+    }
+
+    public void SurvivalWin()
+    {
+        // show win screen
+        menuCurrentlyOpen = winGameMenu;
+        menuCurrentlyOpen.SetActive(true);
+        gameOver = true;
+        lockCursorPause();
     }
 
     IEnumerator exitTransition()

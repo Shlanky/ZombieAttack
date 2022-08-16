@@ -29,8 +29,6 @@ public class StartingRoomDoors : MonoBehaviour
         {
             StartMaze();
         }
-
-
     }
 
     public void OnTriggerEnter(Collider other)

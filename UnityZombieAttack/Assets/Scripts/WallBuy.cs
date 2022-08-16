@@ -34,6 +34,12 @@ public class WallBuy : MonoBehaviour
             Destroy(gameObject);
             gameManager.instance.WallBuyTxt.SetActive(false);
             gameManager.instance.playerScript.CheckOut(Price);
+
+            if (Price == 100000)
+            {
+
+                gameManager.instance.SurvivalWin();
+            }
         }
     }
 

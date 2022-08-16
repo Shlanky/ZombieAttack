@@ -74,7 +74,12 @@ public class buttonFunction : MonoBehaviour
     public void Survival()
     {
         gameModeNum = 2;
-        SceneManager.LoadScene("Old map_playground");
+        SceneManager.LoadScene("NEWSURVIVALMAP");
+        //SceneManager.LoadScene("Old Map_playground");
+      //  SceneManager.LoadScene("New Scene");
+
+
+
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
     }
 

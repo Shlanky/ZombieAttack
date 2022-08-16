@@ -6136,7 +6136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14128,6 +14128,7 @@ MonoBehaviour:
   noKeys: {fileID: 8071978937629154743}
   Key_1: {fileID: 8071978938845563829}
   Key_2: {fileID: 8071978937380978511}
+  startRoomDoorstxt: {fileID: 0}
   Points: {fileID: 7674968480441824622}
   TankTxt: {fileID: 7674968479492061921}
   JumpTxt: {fileID: 7674968479509756800}
