@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/ChrisMainMenuScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
@@ -26,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maze 5.unity
     guid: e62ffb52bfe57b44ab5c04d0cdbd6e50
-  - enabled: 0
-    path: Assets/Scenes/Old map_playground.unity
-    guid: 83f772eb194115a42a111b02bd77e6d5
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: b7735785ca6346e4f9fa07c4b2caa923
@@ -44,7 +38,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NEWSURVIVALMAP.unity
     guid: a9b148469d9a7fa48b123e800c0fe605
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   m_configObjects: {}

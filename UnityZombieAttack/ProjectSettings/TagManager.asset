@@ -15,6 +15,7 @@ TagManager:
   - Starting Doors
   - Started
   - Spawner
+  - Spawner1
   layers:
   - Default
   - TransparentFX
