@@ -39,11 +39,11 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     [Header("Audio")]
     public AudioSource aud;
 
-   // gun shot
+    // gun shot
     [SerializeField] AudioClip[] zombieHit_sound;
     [Range(0, 1)] [SerializeField] float volume;
 
-    bool canShoot=true;
+    bool canShoot = true;
     [SerializeField] bool playerInRange;
     Vector3 playerDir;
     Vector3 startingPos;
@@ -65,6 +65,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
+        cur_rounds = gameManager.instance.rounds;
     }
 
     // Update is called once per frame
@@ -85,8 +86,8 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
             {
                 canSeePlayer();
             }
-           /* else if (agent.remainingDistance < 0.1f)
-                StartCoroutine(roam());*/
+            /* else if (agent.remainingDistance < 0.1f)
+                 StartCoroutine(roam());*/
         }
     }
     /*
@@ -135,7 +136,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         {
 
             playerInRange = true;
-          //  canShoot = true;
+            //  canShoot = true;
             agent.stoppingDistance = StoppingDistOrig;
         }
     }
@@ -165,8 +166,8 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
 
 
             foreach (Collider col in GetComponents<Collider>())
-                col.enabled = false;   
-            
+                col.enabled = false;
+
             powerUpDrop();
 
 
@@ -181,23 +182,23 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     }
     IEnumerator shoot()
     {
-        if(canShoot==true)
+        if (canShoot == true)
         {
-        canShoot = false;
-        SpeedOrig = agent.speed;
-        agent.speed = 0;
-        anim.SetTrigger("Shoot");// Lets us use shoot animation
-            
+            canShoot = false;
+            SpeedOrig = agent.speed;
+            agent.speed = 0;
+            anim.SetTrigger("Shoot");// Lets us use shoot animation
+
             bile.Play();
             aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
             Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
 
-        yield return new WaitForSeconds(3.5f);
-        //3.5 b4
-        agent.speed = SpeedOrig;
+            yield return new WaitForSeconds(3.5f);
+            //3.5 b4
+            agent.speed = SpeedOrig;
 
-        yield return new WaitForSeconds(shootRate);
-        canShoot = true;
+            yield return new WaitForSeconds(shootRate);
+            canShoot = true;
         }
     }
 
@@ -246,7 +247,11 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
 
     public void roundIncreaseBuff()
     {
-        bullet.damage += 3;
-        HP += 3;
+        if (cur_rounds <= 10)
+        {
+            bullet.damage += 1;
+            HP += 5;
+        }
+
     }
 }

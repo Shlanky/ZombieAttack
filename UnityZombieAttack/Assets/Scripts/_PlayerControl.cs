@@ -10,7 +10,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     [Header("Player Atrobutes")]
     [Header("----------------------------------------------")]
-    [Range(5, 40)] [SerializeField] public int HP;
+    [Range(100, 200)] [SerializeField] public int HP;
     [Range(3, 6)] [SerializeField] float playerSpeed;
     [Range(1.5f, 4.5f)] [SerializeField] float sprintMult;
     [Range(6, 10)] [SerializeField] float jumpHeight;

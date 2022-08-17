@@ -1533,7 +1533,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy FaMas
 
-    Cost: 150'
+    Cost: 1000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2531,7 +2531,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy Ak47
 
-    Cost: 150'
+    Cost: 1500'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2668,7 +2668,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy M16
 
-    Cost: 150'
+    Cost: 1500'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3190,7 +3190,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy Revolver
 
-    Cost: 150'
+    Cost: 800'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4510,7 +4510,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy Uzi
 
-    Cost: 150'
+    Cost: 500'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4784,7 +4784,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy Ghost
 
-    Cost: 150'
+    Cost: 1000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5341,7 +5341,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press "E" to buy MP5
 
-    Cost: 150'
+    Cost: 1000'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

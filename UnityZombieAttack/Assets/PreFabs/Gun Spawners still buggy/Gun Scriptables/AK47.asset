@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b5f928fe97ab141aabb927877c6b9c, type: 3}
   m_Name: AK47
   m_EditorClassIdentifier: 
-  priceOfGun: 150
+  priceOfGun: 1500
   fireRate: 0.08
-  damage: 7
+  damage: 25
   magSize: 25
   resSize: 180
   gunMuzzel: 1

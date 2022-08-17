@@ -67,6 +67,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
+        cur_rounds = gameManager.instance.rounds;
     }
 
     // Update is called once per frame
@@ -84,7 +85,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             playerDir = gameManager.instance.player.transform.position - transform.position;
             agent.SetDestination(gameManager.instance.player.transform.position);
             facePlayer();
-           
+
             if (playerInRange)
             {
                 canSeePlayer();
@@ -93,20 +94,20 @@ public class ZombieAi : MonoBehaviour, iDamageable
                 StartCoroutine(roam());*/
         }
     }
-   /* IEnumerator roam()
-    {
-        agent.stoppingDistance = 0;
-        Vector3 randomDir = Random.insideUnitSphere * roamRadius;
-        randomDir += startingPos;
+    /* IEnumerator roam()
+     {
+         agent.stoppingDistance = 0;
+         Vector3 randomDir = Random.insideUnitSphere * roamRadius;
+         randomDir += startingPos;
 
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randomDir, out hit, roamRadius, 1);
-        NavMeshPath path = new NavMeshPath();
+         NavMeshHit hit;
+         NavMesh.SamplePosition(randomDir, out hit, roamRadius, 1);
+         NavMeshPath path = new NavMeshPath();
 
-        agent.CalculatePath(hit.position, path);
-        agent.SetPath(path);
-        yield return new WaitForSeconds(3);
-    }*/
+         agent.CalculatePath(hit.position, path);
+         agent.SetPath(path);
+         yield return new WaitForSeconds(3);
+     }*/
     void facePlayer()
     {
         if (agent.remainingDistance <= agent.stoppingDistance)
@@ -119,8 +120,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
 
     IEnumerator audioTimer()
     {
-     
-        yield return new WaitForSeconds(2);  
+
+        yield return new WaitForSeconds(2);
         aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
     }
 
@@ -147,7 +148,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
         {
 
             playerInRange = true;
-          //canShoot = true;
+            //canShoot = true;
             agent.stoppingDistance = StoppingDistOrig;
         }
     }
@@ -217,7 +218,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             //make a heal power up on the body
             Instantiate(heal, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
-        if (maybePowerUp == 8 && GameModeHolder == 2 )
+        if (maybePowerUp == 8 && GameModeHolder == 2)
         {
             //make a damage power drop on body
             Instantiate(damageDrop, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
@@ -235,7 +236,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             Instantiate(ammo, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
         }
 
-        if (maybePowerUp == 21 && GameModeHolder == 2 )
+        if (maybePowerUp == 21 && GameModeHolder == 2)
         {
             //make a double points drop on body
             Instantiate(MoneyRush, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));
@@ -251,8 +252,12 @@ public class ZombieAi : MonoBehaviour, iDamageable
     }
     public void roundIncreaseBuff()
     {
-        bullet.damage += 3;
-        HP += 3;
+        if (cur_rounds <= 10)
+        {
+            bullet.damage += 1;
+            HP += 5;
+        }
+
     }
 
 }

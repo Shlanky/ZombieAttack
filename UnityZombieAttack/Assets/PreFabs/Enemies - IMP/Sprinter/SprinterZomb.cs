@@ -65,6 +65,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
+        cur_rounds = gameManager.instance.rounds;
     }
 
     // Update is called once per frame
@@ -101,7 +102,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
 
     IEnumerator goBOOM()
     {
-      //  aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
+        //  aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
 
         yield return new WaitForSeconds(timer);
         if (playerInRange)
@@ -213,8 +214,13 @@ public class SprinterZomb : MonoBehaviour, iDamageable
 
     public void roundIncreaseBuff()
     {
-        Sprinter_Explosion.damage += 3;
-        HP += 3;
+        if (cur_rounds <= 10)
+        {
+            Sprinter_Explosion.damage += 1;
+            HP += 5;
+        }
+
+
     }
 
 

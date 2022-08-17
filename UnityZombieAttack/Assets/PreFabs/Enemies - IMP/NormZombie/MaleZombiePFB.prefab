@@ -2046,12 +2046,12 @@ MonoBehaviour:
   agent: {fileID: 3344881683562160415}
   rend: {fileID: 7233926640189183290}
   anim: {fileID: 3344881683562160352}
-  HP: 6
+  HP: 100
   viewAngle: 25
   playerFaceSpeed: 2
   roamRadius: 1
   AttackAnimBuffer: 0.7
-  shootRate: 2
+  shootRate: 25
   bullet: {fileID: 1602103914014083196, guid: 803ef7eb28d56c248b2477d27bab707b, type: 3}
   test: {fileID: 0}
   shootPos: {fileID: 9151874656354214088}

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b5f928fe97ab141aabb927877c6b9c, type: 3}
   m_Name: Revolver
   m_EditorClassIdentifier: 
-  priceOfGun: 150
+  priceOfGun: 800
   fireRate: 0.5
-  damage: 8
+  damage: 45
   magSize: 6
   resSize: 180
   gunMuzzel: 8

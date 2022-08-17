@@ -1006,7 +1006,7 @@ MonoBehaviour:
   agent: {fileID: 5337134561684676191}
   rend: {fileID: 7743259159434853844}
   anim: {fileID: 4120972386283784022}
-  HP: 3
+  HP: 60
   viewAngle: 25
   playerFaceSpeed: 2
   roamRadius: 1
@@ -1019,6 +1019,10 @@ MonoBehaviour:
   playerInRange: 0
   timer: 2
   Sprinter_Explosion: {fileID: 3360192264889032209, guid: 53aff5e477b3a65468d3a0f729a17248, type: 3}
+  aud: {fileID: 0}
+  zombieHit_sound: []
+  zombieDamage_sound: []
+  volume: 0
   cur_rounds: 0
 --- !u!195 &5337134561684676191
 NavMeshAgent:

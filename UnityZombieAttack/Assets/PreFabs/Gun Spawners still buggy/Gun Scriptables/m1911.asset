@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priceOfGun: 150
   fireRate: 0.5
-  damage: 5
+  damage: 20
   magSize: 10
   resSize: 180
   gunMuzzel: 6

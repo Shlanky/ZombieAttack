@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b5f928fe97ab141aabb927877c6b9c, type: 3}
   m_Name: MP5
   m_EditorClassIdentifier: 
-  priceOfGun: 150
+  priceOfGun: 1000
   fireRate: 0.09
-  damage: 4
+  damage: 18
   magSize: 30
   resSize: 180
   gunMuzzel: 7
