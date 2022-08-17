@@ -56,7 +56,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
 
     public int cur_rounds;
 
-
+    gameManager test;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +65,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
-        cur_rounds = gameManager.instance.rounds;
+        //cur_rounds = test.rounds;
     }
 
     // Update is called once per frame

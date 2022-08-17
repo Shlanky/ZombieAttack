@@ -154,7 +154,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     bool shooting = false;
 
-    bool can_heal;
+    bool can_heal = true;
     private void Start()
     {
         //for the muzzel pos

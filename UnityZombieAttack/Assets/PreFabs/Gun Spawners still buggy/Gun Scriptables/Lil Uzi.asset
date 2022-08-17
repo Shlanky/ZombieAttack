@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lil Uzi
   m_EditorClassIdentifier: 
   priceOfGun: 500
-  fireRate: 0.2
+  fireRate: 0.05
   damage: 19
   magSize: 16
   resSize: 180

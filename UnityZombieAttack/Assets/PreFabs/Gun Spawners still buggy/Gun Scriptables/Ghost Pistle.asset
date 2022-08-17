@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Ghost Pistle
   m_EditorClassIdentifier: 
   priceOfGun: 1000
-  fireRate: 0.5
+  fireRate: 0.07
   damage: 20
   magSize: 11
   resSize: 180

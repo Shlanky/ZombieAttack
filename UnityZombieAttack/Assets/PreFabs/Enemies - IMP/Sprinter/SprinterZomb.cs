@@ -55,6 +55,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
 
     public int cur_rounds;
 
+    gameManager test;
 
     public static int GameModeHolder;
     // Start is called before the first frame update
@@ -65,7 +66,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
-        cur_rounds = gameManager.instance.rounds;
+       // cur_rounds = test.rounds;
     }
 
     // Update is called once per frame
@@ -219,8 +220,6 @@ public class SprinterZomb : MonoBehaviour, iDamageable
             Sprinter_Explosion.damage += 1;
             HP += 5;
         }
-
-
     }
 
 

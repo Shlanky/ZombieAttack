@@ -67,7 +67,8 @@ public class ZombieAi : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
-        cur_rounds = gameManager.instance.rounds;
+        cur_rounds++;
+       // cur_rounds = gameManager.instance.rounds;
     }
 
     // Update is called once per frame

@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 2500
-  Tank: 20
+  Tank: 100
   damage: 0
   jumps: 0
 --- !u!114 &6613176453077985149
