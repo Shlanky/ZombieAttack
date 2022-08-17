@@ -54,7 +54,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
-    public int cur_rounds;
+     int cur_rounds;
 
     gameManager test;
     // Start is called before the first frame update

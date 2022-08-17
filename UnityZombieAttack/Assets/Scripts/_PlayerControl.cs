@@ -69,7 +69,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [Range(0, 1)] [SerializeField] float gunshotVol;
 
     //AK47
-    [SerializeField] AudioClip[] AK47Shot;  
+    [SerializeField] AudioClip[] AK47Shot;
     [Range(0, 1)] [SerializeField] float AkVol;
 
     //Ghost
@@ -198,7 +198,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
         if (!gameManager.instance.paused)
         {
-            
+
 
             pushback = Vector3.Lerp(pushback, Vector3.zero, Time.deltaTime * pushResolve);
 
@@ -223,7 +223,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             if (Input.GetButtonDown("Reload") && roundsInReserve > 0 && canReload == true && shooting == false)
             {
-                 Reload();
+                Reload();
                 StartCoroutine(reload_timer());
             }
             else if (roundsInMag > 0 && canShoot == true)
@@ -259,7 +259,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         yield return new WaitForSeconds(2);
         canReload = true;
     }
-
+    IEnumerator healTimer()
+    {
+        can_heal = false;
+        yield return new WaitForSeconds(4);
+        can_heal = true;
+    }
     //dont need this anymore
     //public void switch_guns()
     //{
@@ -401,7 +406,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
             shooting = true;
             canShoot = false;
 
-          //  aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
+            //  aud.PlayOneShot(gunshot[Random.Range(0, gunshot.Length)], gunshotVol);
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)), out hit))
@@ -565,7 +570,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         updatePlayerHP();
 
         StartCoroutine(damageFlash());
-
+        StartCoroutine(healTimer());
         if (HP <= 0)
         {
             gameManager.instance.playerDead();
@@ -826,8 +831,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
     IEnumerator healOverTime()
     {
-        yield return new WaitForSeconds(5);
-        giveHP(5);
+        if (can_heal == true)
+        {
+            yield return new WaitForSeconds(5);
+            giveHP(25);
+        }
+
     }
 
     public void ToggleSlowOn()

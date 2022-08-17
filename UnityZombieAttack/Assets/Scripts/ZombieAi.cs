@@ -52,7 +52,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
-    public int cur_rounds;
+     int cur_rounds;
 
     //static buttonFunction GameModeNum;
     public static int GameModeHolder;

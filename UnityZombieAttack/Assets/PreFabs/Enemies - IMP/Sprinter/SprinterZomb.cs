@@ -53,7 +53,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     int shotPoints;
     int killPoints;
 
-    public int cur_rounds;
+     int cur_rounds;
 
     gameManager test;
 
@@ -66,7 +66,6 @@ public class SprinterZomb : MonoBehaviour, iDamageable
         gameManager.instance.updateEnemyNumber();
 
         GameModeHolder = buttonFunction.gameModeNum;
-       // cur_rounds = test.rounds;
     }
 
     // Update is called once per frame
