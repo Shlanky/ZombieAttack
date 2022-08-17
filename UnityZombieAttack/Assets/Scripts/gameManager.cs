@@ -102,7 +102,7 @@ public class gameManager : MonoBehaviour
     static int mazesCompleted;
 
     //for rounds/survival
-    int rounds = 1;
+    public int rounds = 1;
 
 
     int gameModeHolder;
