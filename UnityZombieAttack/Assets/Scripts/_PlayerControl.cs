@@ -256,7 +256,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     IEnumerator reload_timer()
     {
         canReload = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(.5f);
         canReload = true;
     }
     IEnumerator healTimer()

@@ -471,10 +471,10 @@ MonoBehaviour:
     Sound\nLeMudCrab\t\tFree Sounds.org\t\tPistol Sound\nPaul368\t\t\tFree Sounds.org\t\tGhost
     Pistol Sounds\neCo77\t\t\tFree Sounds.org\t\tMp5 Sound\nFilmMakersMaunal\tFree
     Sounds.org\t\tUzi Sound\nFilmMakersManual \tFree Sounds.org\t\tRevolver Sound\nPortfolio
-    2\t\t\tFull Sail\t\t\t\t\tFaMas Sound\nN91music\t\t       Unity Asset Store\tTypeWriter/starting
-    music\nPortfolio 2\t\t\tFull Sail \t\t\t\tMaze Sound\nLittle Robot Sound Effects    
+    2\t\t\tFull Sail\t\t\t\t\tFaMas Sound\nN91music\t\t       Unity Asset Store\t\tTypeWriter/starting
+    music\nPortfolio 2\t\t\tFull Sail \t\t\t\t\tMaze Sound\nLittle Robot Sound Effects    
     Unity Asset Store\t\tAll Zombie sounds\nPortfolio 2   \t\tFull Sail \tGun Reload/Gun
-    buy/no Ammo sound\nPortfolio 2 \t\t\tFull Sail \t\t\tButton Sounds"
+    buy/no Ammo sound\nPortfolio 2 \t\tFull Sail \t\t\t\t\tButton Sounds"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -732,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2118745935, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_text
-      value: "Ethan Kunis \t\t\t\tCoding Functionality\nChris Stratos \t\t\t\tEnemyAi,
+      value: "Ethan Kunis \t\t\t\tLeed Developer, Maze Maping\nChris Stratos \t\t\t\tEnemyAi,
         SpecialEffects, \n                                               Survival/MM
         Mapping\n"
       objectReference: {fileID: 0}
@@ -850,7 +850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8514232271299342284, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1592
+      value: -617
       objectReference: {fileID: 0}
     - target: {fileID: 8514232271299342284, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
