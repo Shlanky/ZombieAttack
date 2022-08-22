@@ -9,16 +9,30 @@ public class spawner : MonoBehaviour
     [SerializeField] ZombieAi enemy;
     [SerializeField] SpitterAi2 Spitter;
     [SerializeField] SprinterZomb Sprinter;
+    [SerializeField] public bool thisOnePlaysSound = false;
+
+    [Header("--------Audio----------")]
+    public AudioSource aud;
+
+    //gun shot/Famas
+    [SerializeField] AudioClip[] RoundStartingSound;
+    [Range(0, 1)] [SerializeField] float volume;
 
     public int spawnedEnemyNum;
     public int killed = 0;
     public int killGoal;
     bool canSpawn = true;
     int gameMode;
+    int timesplayed;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameMode = buttonFunction.gameModeNum;
+        if (thisOnePlaysSound == true)
+        {
+            aud.PlayOneShot(RoundStartingSound[Random.Range(0, RoundStartingSound.Length)], volume);
+        }
 
     }
 
@@ -33,6 +47,7 @@ public class spawner : MonoBehaviour
             spawnedEnemyNum++;
             yield return new WaitForSeconds(timer);
             canSpawn = true;
+            timesplayed++;
         }
 
         if (enemyNum == 2)
@@ -42,6 +57,8 @@ public class spawner : MonoBehaviour
             spawnedEnemyNum++;
             yield return new WaitForSeconds(timer);
             canSpawn = true;
+            timesplayed++;
+
         }
 
         if (enemyNum == 3)
@@ -51,6 +68,8 @@ public class spawner : MonoBehaviour
             spawnedEnemyNum++;
             yield return new WaitForSeconds(timer);
             canSpawn = true;
+            timesplayed++;
+
         }
 
     }
@@ -60,25 +79,34 @@ public class spawner : MonoBehaviour
     {
 
 
-            killed = gameManager.instance.enimiesKilled;
-            killGoal = gameManager.instance.enemyKillGoal;
-            if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
+        killed = gameManager.instance.enimiesKilled;
+        killGoal = gameManager.instance.enemyKillGoal;
+        if (canSpawn && spawnedEnemyNum < numEnemiesToSpawn)
+        {
+            if (thisOnePlaysSound == true && timesplayed == 1)
             {
-                StartCoroutine(spawnEnemy());
+                aud.PlayOneShot(RoundStartingSound[Random.Range(0, RoundStartingSound.Length)], volume);
             }
-            if (canSpawn && killed >= killGoal)
+            StartCoroutine(spawnEnemy());
+        }
+        if (canSpawn && killed >= killGoal)
+        {
+            timesplayed = 0;
+            //statrs new round
+            spawnedEnemyNum = 0;
+            numEnemiesToSpawn += 2;
+            gameManager.instance.enimiesKilled = 0;
+            gameManager.instance.enemyKillGoal = 0;
+
+            if (gameMode != 1)
             {
-                //statrs new round
-                spawnedEnemyNum = 0;
-                numEnemiesToSpawn += 2;
-                gameManager.instance.enimiesKilled = 0;
-                gameManager.instance.enemyKillGoal = 0;
 
                 Spitter.roundIncreaseBuff();
                 Sprinter.roundIncreaseBuff();
                 enemy.roundIncreaseBuff();
-                //  call the zombie buffers
             }
+            //  call the zombie buffers
+        }
 
     }
 

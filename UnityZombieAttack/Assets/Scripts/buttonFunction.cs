@@ -47,7 +47,6 @@ public class buttonFunction : MonoBehaviour
 
         if (gameModeNum == 1)
         {
-
             SceneManager.LoadScene("Maze Sample");
             aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
             gameManager.instance.restart();

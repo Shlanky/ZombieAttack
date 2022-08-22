@@ -11054,6 +11054,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5905471375849243397, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
+      propertyPath: thisOnePlaysSound
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
 --- !u!1001 &546565726
@@ -51671,6 +51675,14 @@ PrefabInstance:
       propertyPath: Maze_finish
       value: 
       objectReference: {fileID: 161212637}
+    - target: {fileID: 4015868252545585520, guid: f8d3038530dba0849b10fa25433364f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015868254308137449, guid: f8d3038530dba0849b10fa25433364f8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d3038530dba0849b10fa25433364f8, type: 3}
 --- !u!1001 &4880824046913216258

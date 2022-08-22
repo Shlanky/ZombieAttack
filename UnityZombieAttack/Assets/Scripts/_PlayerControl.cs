@@ -211,10 +211,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             //can mess w this later if needed
 
-            if (HP < hpOriginal)
-            {
-                StartCoroutine(healOverTime());
-            }
+            //if (HP < hpOriginal)
+            //{
+            //    StartCoroutine(healOverTime());
+            //}
 
             if (Input.GetButtonUp("Shoot"))
             {

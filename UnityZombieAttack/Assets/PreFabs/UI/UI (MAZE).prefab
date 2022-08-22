@@ -234,6 +234,7 @@ MonoBehaviour:
   menuCurrentlyOpen: {fileID: 0}
   enemyKillGoal: 0
   enimiesKilled: 0
+  rounds: 1
   startTransition: {fileID: 0}
   Maze_enter: {fileID: 0}
   Maze_finish: {fileID: 0}
@@ -1993,9 +1994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This key doesnt go to the car.
-
-    You''ll need to find another car'
+  m_text: "1 key is not enough \nYou need 3 keys to open the door"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5228,7 +5227,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Go find a key to escape.
+  m_text: Find 3 keys to proceed to the next level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5881,9 +5880,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The key broke.
-
-    Go find another key to escape.'
+  m_text: "2 keys arent enough \nYou need oen more key to move forward"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
