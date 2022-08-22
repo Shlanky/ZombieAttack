@@ -3400,6 +3400,10 @@ PrefabInstance:
       value: Spawner
       objectReference: {fileID: 0}
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
@@ -11007,6 +11011,10 @@ PrefabInstance:
       value: Spawner (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
@@ -12139,6 +12147,10 @@ PrefabInstance:
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_Name
       value: Spawner (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_TagString
@@ -33895,6 +33907,10 @@ PrefabInstance:
       value: Spawner (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_TagString
       value: Spawner
       objectReference: {fileID: 0}
@@ -45081,6 +45097,10 @@ PrefabInstance:
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_Name
       value: Spawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5905471375849243394, guid: e1eaaa6fb49b3ce4ba0b114bfc57a4a2, type: 3}
       propertyPath: m_TagString

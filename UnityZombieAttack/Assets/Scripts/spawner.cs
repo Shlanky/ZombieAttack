@@ -98,13 +98,13 @@ public class spawner : MonoBehaviour
             gameManager.instance.enimiesKilled = 0;
             gameManager.instance.enemyKillGoal = 0;
 
-            if (gameMode != 1)
-            {
+            //if (gameMode != 1)
+            //{
 
                 Spitter.roundIncreaseBuff();
                 Sprinter.roundIncreaseBuff();
                 enemy.roundIncreaseBuff();
-            }
+            //}
             //  call the zombie buffers
         }
 

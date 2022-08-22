@@ -284,7 +284,7 @@ MonoBehaviour:
   - {fileID: 23}
   - {fileID: 24}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -635,9 +635,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.996895, y: 54.87056, z: 12.904471}
+    m_Target: {x: 749.76953, y: 479.31088, z: 83.375534}
     speed: 2
-    m_Value: {x: 7.996895, y: 54.87056, z: 12.904471}
+    m_Value: {x: 749.76953, y: 479.31088, z: 83.375534}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -684,9 +684,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.037920393, y: 0.8414126, z: -0.5393502, w: -0.024130724}
+    m_Target: {x: -0.24260674, y: 0.6924948, z: -0.23344705, w: -0.63874245}
     speed: 2
-    m_Value: {x: -0.037903454, y: 0.84103674, z: -0.5391093, w: -0.024119945}
+    m_Value: {x: -0.24249806, y: 0.69218457, z: -0.23334245, w: -0.6384563}
   m_Size:
     m_Target: 12.125733
     speed: 2
@@ -945,7 +945,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 7499f8ff2e9af8ffbcabf8ff8aaff8fff2b8f8ff6cc8f8ff74ccf8ff9ed3f8ff54e3f8ff78f4f8ff0604f9ffd418f9ffee1ff9fff443f9ff9062f9ff746af9ff447bf9ff7693f9ffeab0f9ffbed7f9ff7ee8f9ff18ebf9ffd2ebf9ff64fdf9ff3601faffa20afaff3e1dfaff4a21faff7828faff423bfafffe4ffaff905ffaff6274faff807bfaff709afaff10bafaffe8bafaff18c4faffe4c4faff6cd6faff62dafafff2e3faff82f6faffb2fafaff0402fbfff214fbffd229fbff8839fbff4e4efbff9055fbff26ebfbffb02bfcff8438fcff8c7bfcfff47cfcff0caefcff40effcffb841feff80c3fefff0c4feffb8f5feff32fbffff262e0100
+      m_ExpandedIDs: d8fdfaff92fefaff2410fbfff613fbff681dfbffd02cfbffdc30fbff0a38fbffc447fbffec58fbffa668fbff7a7dfbff9884fbff42a3fbff06c3fbff56d9fbff36e3fbfff0e7fbff52fdfbff6c0dfcff902bfcff7048fcffe066fcffb47ffcff4882fcff0283fcff8e94fcff6098fcffd2a1fcff3ab1fcff46b5fcff74bcfcff2eccfcff56ddfcff10edfcffd601fdff0009fdfffc1bfdffc431fdff24ddfdffaef0fdff0605feffd418feff4438feff2042feff385afeff4096feffd6f2feff3208ffff3c18ffffbe31ffffce46ffffb660ffffae78ffffb28effff8ea1ffffece1ffff26f2ffff32fbffff0c7c020062c40200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1214,22 +1214,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Unity_Store_Downloads/Low Poly Guns/Models/Guns/pistol2
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Unity_Store_Downloads/Low Poly Guns/Models/Guns/pistol2
+  - Assets/Scenes
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Zombie Game\ZombieAttack\UnityZombieAttack
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e8720400
-    m_LastClickedID: 291560
-    m_ExpandedIDs: 00000000ee7a0000f07a0000f27a0000f47a0000f67a0000f87a0000fa7a0000fc7a0000fe7a0000007b0000027b0000047b0000067b0000087b00000a7b00000c7b00000e7b0000107b0000127b0000787b0000947b000096640200ea720400
+    m_SelectedIDs: 7e7b0000
+    m_LastClickedID: 31614
+    m_ExpandedIDs: 00000000ee7a0000f07a0000f27a0000f47a0000f67a0000f87a0000fa7a0000fc7a0000fe7a0000007b0000027b0000047b0000067b0000087b00000a7b00000c7b0000107b0000127b0000787b00007e7b0000947b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1288,15 +1288,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: f23e0000228700008c760000a47600001cb10000feaf00001091000056920000ea170200d248020000000000028f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: BuyAble Stuff
-      m_OriginalName: BuyAble Stuff
+      m_Name: Maze 2
+      m_OriginalName: Maze 2
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 31506
+      m_UserData: 31730
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1402,9 +1402,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1442
+    x: 1411
     y: 73
-    width: 477
+    width: 508
     height: 926
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:

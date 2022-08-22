@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: -5961591286386750091}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5905471375849243396
 Transform:
   m_ObjectHideFlags: 0

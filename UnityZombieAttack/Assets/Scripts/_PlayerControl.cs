@@ -159,6 +159,8 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     bool shooting = false;
 
     bool can_heal = true;
+
+    bool can_Buy = true;
     private void Start()
     {
         //for the muzzel pos
@@ -260,9 +262,17 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     IEnumerator reload_timer()
     {
         canReload = false;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.9f);
         canReload = true;
     }
+
+    IEnumerator can_Buy_Gun()
+    {
+        can_Buy = false;
+        yield return new WaitForSeconds(.9f);
+        can_Buy = true;
+    }
+
     IEnumerator healTimer()
     {
         can_heal = false;
@@ -717,7 +727,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     public void gunPickUp(int price, float firerate, int damage, int magSize, int resSize, GameObject muzzle_Flash, GameObject model, gunStats stats)
     {
 
-        if (GameModeHolder == 1)
+        if (GameModeHolder == 1 && can_Buy == true && shooting == false)
         {
             int tmp = 0;
             for (var i = 0; i < gunList.Count; i++)
@@ -728,7 +738,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
                     break;
                 }
             }
-
+            StartCoroutine(can_Buy_Gun());
             gunList.Remove(currentGun);
             shootRate = firerate;
             weaponDamage = damage;
