@@ -122,6 +122,10 @@ public class _PlayerControl : MonoBehaviour, iDamageable
     [SerializeField] AudioClip[] gunWasPickedUp;
     [Range(0, 1)] [SerializeField] float GWPU_Volumue;
 
+    //gun pick up sounds
+    [SerializeField] AudioClip[] cantBy;
+    [Range(0, 1)] [SerializeField] float cantByVol;
+
 
     bool isSprint = false;
     float playerSpeedOg;
@@ -787,10 +791,12 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             }
 
-            else
+            if (points < price)
             {
-                //do nothing or print message for the player to get more money or audio que
+                //add audio here so they know they dont have enough
+                aud.PlayOneShot(cantBy[Random.Range(0, cantBy.Length)], cantByVol);
             }
+           
         }
 
         aud.PlayOneShot(gunWasPickedUp[0], GWPU_Volumue);

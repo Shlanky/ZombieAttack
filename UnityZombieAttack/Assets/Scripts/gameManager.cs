@@ -80,6 +80,9 @@ public class gameManager : MonoBehaviour
     [Header("------Game Goals-------")]
 
 
+    public GameObject finalDoormsg;
+
+
     //for enemy ui
     public int enemyKillGoal;
     public int enimiesKilled = 0;
@@ -99,7 +102,7 @@ public class gameManager : MonoBehaviour
     int points;
 
     //for the maze counter to make sure its going to the right maze
-    static int mazesCompleted;
+    public static int mazesCompleted;
 
     //for rounds/survival
     public int rounds = 1;
@@ -349,7 +352,7 @@ public class gameManager : MonoBehaviour
     //this will move to the differant scenes
     public void checkKeysForWin(bool check)
     {
-        if (check == true && mazesCompleted == 5)
+        if (check == true && mazesCompleted == 4)
         {
             // show win screen
             menuCurrentlyOpen = winGameMenu;
@@ -358,9 +361,8 @@ public class gameManager : MonoBehaviour
             lockCursorPause();
         }
 
-        else if (mazesCompleted < 5)
+        else if (mazesCompleted < 4)
         {
-
             moveUpLevel();
         }
     }
@@ -390,17 +392,17 @@ public class gameManager : MonoBehaviour
 
         if (mazesCompleted == 3)
         {
-            SceneManager.LoadScene("Maze 5");
-            mazesCompleted++;
-            return mazesCompleted;
-        }
-
-        if (mazesCompleted == 4)
-        {
             SceneManager.LoadScene("Maze 6");
             mazesCompleted++;
             return mazesCompleted;
         }
+
+        //if (mazesCompleted == 4)
+        //{
+        //    SceneManager.LoadScene("Maze 6");
+        //    mazesCompleted++;
+        //    return mazesCompleted;
+        //}
 
         return 0;
     }

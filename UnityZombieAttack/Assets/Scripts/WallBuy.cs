@@ -21,8 +21,17 @@ public class WallBuy : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             in_Range = true;
-            gameManager.instance.WallBuyTxt.SetActive(true);
-            buyAble = gameManager.instance.playerScript.checkBalance(buyAble, Price);
+            if (Price == 100000)
+            {
+                gameManager.instance.finalDoormsg.SetActive(true);
+                buyAble = gameManager.instance.playerScript.checkBalance(buyAble, Price);
+            }
+            else
+            {
+                gameManager.instance.WallBuyTxt.SetActive(true);
+                buyAble = gameManager.instance.playerScript.checkBalance(buyAble, Price);
+            }
+
 
         }
     }
@@ -37,7 +46,6 @@ public class WallBuy : MonoBehaviour
 
             if (Price == 100000)
             {
-
                 gameManager.instance.SurvivalWin();
             }
         }
@@ -47,8 +55,16 @@ public class WallBuy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            in_Range = false;
-            gameManager.instance.WallBuyTxt.SetActive(false);
+            if (Price == 100000)
+            {
+                gameManager.instance.finalDoormsg.SetActive(false);
+                buyAble = gameManager.instance.playerScript.checkBalance(buyAble, Price);
+            }
+            else
+            {
+                gameManager.instance.WallBuyTxt.SetActive(false);
+                buyAble = gameManager.instance.playerScript.checkBalance(buyAble, Price);
+            }
         }
     }
 }

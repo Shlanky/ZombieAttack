@@ -4302,6 +4302,9 @@ MonoBehaviour:
   gunWasPickedUp:
   - {fileID: 8300000, guid: 5221906988e3ad649a7377e97d262f07, type: 3}
   GWPU_Volumue: 1
+  cantBy:
+  - {fileID: 8300000, guid: 028c672f1eb481a4799b0e2c0ed17b70, type: 3}
+  cantByVol: 1
   hpOriginal: 0
   ogRoundsinMag: 0
   OgRoundsInReserve: 0

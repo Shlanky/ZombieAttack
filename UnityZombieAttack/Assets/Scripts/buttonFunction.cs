@@ -15,6 +15,9 @@ public class buttonFunction : MonoBehaviour
     GameObject tmpMusic;
     Music soundsTrack;
 
+    gameManager test;
+
+    int tmp;
 
     public void resume()
     {
@@ -44,15 +47,17 @@ public class buttonFunction : MonoBehaviour
 
     public void restart()
     {
-
-        if (gameModeNum == 1)
+        tmp = gameManager.mazesCompleted;
+        if (gameModeNum == 1 && tmp == 4)
         {
             SceneManager.LoadScene("Maze Sample");
             aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
             gameManager.instance.restart();
+            gameManager.mazesCompleted = 0;
         }
         else
         {
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
             gameManager.instance.restart();
