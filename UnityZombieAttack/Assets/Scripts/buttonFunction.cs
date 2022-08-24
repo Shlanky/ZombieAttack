@@ -124,6 +124,8 @@ public class buttonFunction : MonoBehaviour
     {
         gameModeNum = 0;
         SceneManager.LoadScene("Settings1");
+        //gameManager.instance.pauseMenu.SetActive(false);
+        //gameManager.instance.SettingsMenu.SetActive(true);
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
     }
 

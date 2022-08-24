@@ -16,7 +16,7 @@ public class SFX_Slider : MonoBehaviour
 
     public void Start()
     {
-        _slider.value = PlayerPrefs.GetFloat("Sound Effects", _slider.value);
+        startSound();
     }
 
     public void OnDisable()
@@ -28,5 +28,10 @@ public class SFX_Slider : MonoBehaviour
     {
         //change this to the sfx Slider
         Master_mixer.SetFloat("SFX", Mathf.Log10(_vol) * 20);
+    }
+
+    public void startSound()
+    {
+        _slider.value = PlayerPrefs.GetFloat("Sound Effects", _slider.value);
     }
 }

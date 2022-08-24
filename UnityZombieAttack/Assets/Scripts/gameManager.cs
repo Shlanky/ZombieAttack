@@ -123,10 +123,11 @@ public class gameManager : MonoBehaviour
     public GameObject Survival_Start;
     public GameObject PlayGround;
 
-
+    //SFX_Slider slidertest;
     // Start is called before the first frame update
     void Awake()
     {
+        //slidertest._slider.value = PlayerPrefs.GetFloat("Sound Effects", slidertest._slider.value);
         //this fixed the pause bug
         gameModeHolder = buttonFunction.gameModeNum;
 
@@ -158,7 +159,6 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
 
         if (gameModeHolder > 0)
         {
