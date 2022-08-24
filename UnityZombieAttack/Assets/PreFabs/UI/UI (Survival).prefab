@@ -2155,7 +2155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: -22}
+  m_AnchoredPosition: {x: -474, y: -22}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1635026497179831315
@@ -5274,7 +5274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7475971418338579599
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20623,7 +20623,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You've Escaped all the mazes!!!!
+  m_text: You've Escaped the cabin now RUN!!!!!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21053,11 +21053,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8611434064545260578, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8611434064545260578, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8611434065493164724, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_Name
@@ -21161,15 +21161,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611434066352753543, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8611434066352753543, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8611434066352753543, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
@@ -21287,23 +21287,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668078632844, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668078632844, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668078632844, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668808412952, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668808412952, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
