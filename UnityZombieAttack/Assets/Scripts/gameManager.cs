@@ -17,6 +17,8 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject playerDeadMenu;
     public GameObject winGameMenu;
+    public GameObject SettingsMenu;
+    public GameObject startScreen;
     public GameObject playerDamageFlash;
     public GameObject reload_txt;
     public GameObject noAmmo;

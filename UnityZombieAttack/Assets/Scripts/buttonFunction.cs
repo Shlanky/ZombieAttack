@@ -21,8 +21,18 @@ public class buttonFunction : MonoBehaviour
 
     public void resume()
     {
-        aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
-        gameManager.instance.resume();
+        if (gameModeNum == 0)
+        {
+            gameManager.instance.SettingsMenu.SetActive(false);
+            gameManager.instance.startScreen.SetActive(true);
+
+        }
+        else
+        {
+            aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
+            gameManager.instance.resume();
+            gameManager.instance.SettingsMenu.SetActive(false);
+        }
 
     }
 
@@ -69,7 +79,7 @@ public class buttonFunction : MonoBehaviour
     //for the main screan buttons
     public void escape()
     {
-        
+
         gameModeNum = 1;
         SceneManager.LoadScene("Maze sample");
         aud.PlayOneShot(buttonClicked[Random.Range(0, buttonClicked.Length)], volume);
@@ -80,7 +90,7 @@ public class buttonFunction : MonoBehaviour
         gameModeNum = 2;
         SceneManager.LoadScene("NEWSURVIVALMAP");
         //SceneManager.LoadScene("Old Map_playground");
-      //  SceneManager.LoadScene("New Scene");
+        //  SceneManager.LoadScene("New Scene");
 
 
 
@@ -119,11 +129,7 @@ public class buttonFunction : MonoBehaviour
 
     public void settingInGame()
     {
-
-    }
-
-    IEnumerator waitTimerForStartingScreen()
-    {
-        yield return new WaitForSeconds(5f);
+            gameManager.instance.pauseMenu.SetActive(false);
+            gameManager.instance.SettingsMenu.SetActive(true);
     }
 }
