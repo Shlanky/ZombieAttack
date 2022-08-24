@@ -5448,6 +5448,50 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2561701998550220626, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -60.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701998550220626, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701998584464946, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701998716873352, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 66.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701998716873352, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -67.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701998869153134, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701998869153134, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -120.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701999578667313, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -61.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701999578667313, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -69.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701999730651654, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 66.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561701999730651654, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4079567477939187585, guid: 10358d16e3845f24c8230d91ec77cb5b, type: 3}
       propertyPath: m_Name
       value: UI (Starting Screen)
