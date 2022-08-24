@@ -1055,7 +1055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1693704312
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14365,23 +14365,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668078632844, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668078632844, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668078632844, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668808412952, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5592969668808412952, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2eec2bd9a97f1ac4db31f1316b828dca, type: 3}
@@ -14399,11 +14399,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8611434064545260578, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8611434064545260578, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8611434065493164724, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_Name
@@ -14507,15 +14507,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8611434066352753543, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8611434066352753543, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8611434066352753543, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f61289e350927e348b64c5b8be1a7a67, type: 3}
