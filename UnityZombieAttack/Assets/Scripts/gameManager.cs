@@ -178,6 +178,7 @@ public class gameManager : MonoBehaviour
                 }
                 else
                 {
+                    SettingsMenu.SetActive(false);
                     resume();
                 }
             }
