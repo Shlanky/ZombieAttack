@@ -169,7 +169,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
         //2 Famas
         //3 Phost
         //4 Lil Uzi
-        //5 m!6
+        //5 m16
         //6 m1911
         //7 Mp5
         //8 Revolver
