@@ -174,7 +174,7 @@ public class SprinterZomb : MonoBehaviour, iDamageable
     {
         //make a random number
         int maybePowerUp = Random.Range(0, 25);
-        if (maybePowerUp == 4)
+        if (maybePowerUp == 4 || maybePowerUp == 5 || maybePowerUp == 7 || maybePowerUp == 10 || maybePowerUp == 17 || maybePowerUp == 20)
         {
             //make a heal power up on the body
             Instantiate(heal, transform.position + new Vector3(0, 1f, 0), Quaternion.Euler(0, 0, 0));

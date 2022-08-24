@@ -734,9 +734,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "Ethan Kunis \t\t\t\tLeed Developer, Maze Maping\n\t\t\t\t\t\tPlayer
         Controler, Perk System,\n\t\t\t\t\t       Maze Game Mode, Weapon Buys, \n\t\t\t\t\t     
-        Point System, Power Ups,\n\t\t\t\t\t      Survival Game Mode, Player UI\n\t\t\t\t\t   
-        Audio setup, Settings\n \nChris Stratos \t\t\t\tEnemyAi, SpecialEffects,
-        \n                                               Surviva Mapping, MM Background\n"
+        Point System, Power Ups,\n\t\t\t\t\t      Survival Game Mode, Player UI\n\t\t\t\t       
+        Audio setup, Settings, Credit Animation\n \nChris Stratos \t\t\t\tEnemyAi,
+        SpecialEffects, \n                                               Surviva
+        Mapping, MM Background\n"
       objectReference: {fileID: 0}
     - target: {fileID: 2628800545132589866, guid: 44b4a6559ca00474ca0616ffd8977721, type: 3}
       propertyPath: m_AnchoredPosition.y
