@@ -134,10 +134,10 @@ public class gameManager : MonoBehaviour
         {
             Maze_enter.SetActive(true);
         }
-        //if (gameModeHolder == 2)
-        //{
-        //    Survival_Start.SetActive(true);
-        //}
+        if (gameModeHolder == 2)
+        {
+            Survival_Start.SetActive(true);
+        }
         if (gameModeHolder == 3)
         {
             PlayGround.SetActive(true);

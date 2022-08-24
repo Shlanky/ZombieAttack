@@ -30,9 +30,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Maze 6.unity
     guid: aec8012163027ff48bac3f39f13971e7
   - enabled: 1
+    path: Assets/Scenes/Settings1.unity
+    guid: d78d192483025dd4cb27a52587ff9f90
+  - enabled: 1
     path: Assets/Scenes/ShowCase.unity
     guid: c9b619b0b5fa2b54b90d3263e79d85bf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Settings.unity
     guid: c6c2e6f601ae75e4f96cbf63e72455c7
   - enabled: 1
