@@ -801,12 +801,36 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 498747395, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_margin.w
+      value: 25.472397
+      objectReference: {fileID: 0}
     - target: {fileID: 1446154558, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1446154558, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463204920, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463204920, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463204920, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -119.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463204921, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_margin.w
+      value: 40.076355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463204922, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2075320746, guid: 24d914d666f397f4795498a1cdb4d7fe, type: 3}
@@ -1295,6 +1319,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 18368bc02aad3884d8fd9827efbe3695, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 38943aa452e26874ca559ba59667b622, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38943aa452e26874ca559ba59667b622, type: 3}
 --- !u!1001 &668577679
