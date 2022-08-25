@@ -20,11 +20,17 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     [SerializeField] int roamRadius;
     [SerializeField] VisualEffect bile;
     float SpeedOrig;
+    [Header("----------------------------------")]
+    public float attackTimer;
+    public float attackTime;
 
     [Header("----------------------------------")]
     [Header("Weapon Stats")]
     [SerializeField] float shootRate;
-    [SerializeField] GhoulHit bullet;
+    [SerializeField]  GameObject bile1;
+    [SerializeField] GameObject BilePos;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GhoulHit hit;
     [SerializeField] GameObject shootPos;
 
 
@@ -120,17 +126,17 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         float angle = Vector3.Angle(playerDir, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, playerDir, out hit))
+        if (Physics.Raycast(transform.position + new Vector3(0, 1, 0), playerDir, out hit))
         {
-            Debug.DrawRay(transform.position, playerDir);
+            Debug.DrawRay(transform.position + new Vector3(0, 1, 0), playerDir, Color.magenta);
             if (hit.collider.CompareTag("Player") && canShoot && angle <= viewAngle)
             {
-                StartCoroutine(shoot());
+                shoot();
             }
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -180,27 +186,40 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
         yield return new WaitForSeconds(0.1f);
         rend.material.color = Color.white;
     }
-    IEnumerator shoot()
+    
+    void shoot()
     {
-        if (canShoot == true)
+        if (canShoot)
         {
             canShoot = false;
             SpeedOrig = agent.speed;
             agent.speed = 0;
             anim.SetTrigger("Shoot");// Lets us use shoot animation
 
-            bile.Play();
-            aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
+            //bile.Play();
             Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
+            Instantiate(bile1, BilePos.transform.position, BilePos.transform.rotation);
+            aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
+            //Create script that plays Bile on instantiation/start
 
-            yield return new WaitForSeconds(3.5f);
-            //3.5 b4
-            agent.speed = SpeedOrig;
 
-            yield return new WaitForSeconds(shootRate);
-            canShoot = true;
+            StartCoroutine(Moveingbuf());
+
+            StartCoroutine(attackTimerDelay());
         }
     }
+    IEnumerator Moveingbuf()
+    {
+        yield return new WaitForSeconds(3.5f);
+        agent.speed = SpeedOrig;
+    }
+    IEnumerator attackTimerDelay()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(attackTime);
+        canShoot = true;
+    }
+
 
 
     public void powerUpDrop()
@@ -249,7 +268,7 @@ public class SpitterAi2 : MonoBehaviour, iDamageable
     {
         if (cur_rounds <= 10)
         {
-            bullet.damage += 1;
+            hit.damage += 1;
             HP += 5;
         }
 

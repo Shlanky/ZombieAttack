@@ -22,9 +22,11 @@ public class ZombieAi : MonoBehaviour, iDamageable
     [Header("----------------------------------")]
     [Header("Weapon Stats")]
     [SerializeField] float shootRate;
-    [SerializeField] ZombieHit bullet;
+    [SerializeField] GameObject bullet;
+    [SerializeField] ZombieHit bulletScript;
     [SerializeField] ZombieHit test;
     [SerializeField] GameObject shootPos;
+    [SerializeField] float HitRange;
 
     [Header("----------------------------------")]
     [Header("Power Ups")]
@@ -131,12 +133,12 @@ public class ZombieAi : MonoBehaviour, iDamageable
         float angle = Vector3.Angle(playerDir, transform.forward);
         //Debug.Log(angle);
         RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, playerDir, out hit))
+        Vector3 temp = transform.forward;
+        if (Physics.Raycast(transform.position + new Vector3(0, 1, 0), temp, out hit, HitRange))
         {
             if (hit.collider.CompareTag("Player") && canShoot /*&& angle <= viewAngle*/)
             {
-                StartCoroutine(shoot());
+                shoot();
                 //play a sound here 
                 aud.PlayOneShot(zombieHit_sound[Random.Range(0, zombieHit_sound.Length)], volume);
             }
@@ -149,7 +151,17 @@ public class ZombieAi : MonoBehaviour, iDamageable
         {
 
             playerInRange = true;
-            //canShoot = true;
+            canShoot = true;
+            agent.stoppingDistance = StoppingDistOrig;
+        }
+    }
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+
+            playerInRange = true;
+            // canShoot = true;
             agent.stoppingDistance = StoppingDistOrig;
         }
     }
@@ -180,6 +192,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
             foreach (Collider col in GetComponents<Collider>())
                 col.enabled = false;
             powerUpDrop();
+            StartCoroutine(goodbye());
         }
 
     }
@@ -190,24 +203,33 @@ public class ZombieAi : MonoBehaviour, iDamageable
         rend.material.color = Color.white;
     }
 
-    IEnumerator shoot()
+    void shoot()
     {
-        if (canShoot == true)
+        if (canShoot)
         {
             canShoot = false;
 
             anim.SetTrigger("Shoot");// Lets us use shoot animation
-            yield return new WaitForSeconds(AttackAnimBuffer);
+
+            // StartCoroutine(buf());
             //-------------
 
-            Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
-
-            // 
-
-            yield return new WaitForSeconds(shootRate);
-
-            canShoot = true;
+            //StartCoroutine(attackTimerDelay());
         }
+    }
+    IEnumerator goodbye()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(gameObject);
+    }
+
+    void IhitU()
+    {
+        Instantiate(bullet, shootPos.transform.position, bullet.transform.rotation);
+    }
+    IEnumerator sTOP()
+    {
+        yield return new WaitForSeconds(2);
     }
 
     public void powerUpDrop()
@@ -255,7 +277,7 @@ public class ZombieAi : MonoBehaviour, iDamageable
     {
         if (cur_rounds <= 10)
         {
-            bullet.damage += 1;
+            bulletScript.damage += 1;
             HP += 5;
         }
 

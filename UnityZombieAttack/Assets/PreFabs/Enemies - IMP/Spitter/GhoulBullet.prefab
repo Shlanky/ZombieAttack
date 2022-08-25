@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4297899111870079331}
   - component: {fileID: 540674732423903858}
   - component: {fileID: 4735589285331281724}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: GhoulBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3d92b4b5effa814ebd41be0f59468eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 10
   speed: 20
   rb: {fileID: 540674732423903858}
   destroyTime: 0.49

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 526090043557786643}
   - component: {fileID: 526090043557786641}
   - component: {fileID: 1602103914014083196}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: ZombieHitScanStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,4 +79,4 @@ MonoBehaviour:
   speed: 10
   rb: {fileID: 526090043557786641}
   destroyTime: 0.37
-  push: 70
+  push: 20
