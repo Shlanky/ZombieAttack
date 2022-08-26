@@ -210,7 +210,7 @@ public class _PlayerControl : MonoBehaviour, iDamageable
 
             MovePLayer();
             Sprint();
-
+            updatePlayerHP();
             StartCoroutine(playFootsteps());
 
             gameManager.instance.updatePoints();
